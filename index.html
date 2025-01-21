@@ -3,29 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title>Accueil - Thomas Beal</title>
     <style>
         :root {
             --bg-color: #f4f4f9;
             --text-color: #333;
+            --card-bg: #fff;
             --header-bg: #0078d7;
             --header-color: #fff;
-            --menu-bg: #fff;
-            --menu-text-color: #0078d7;
+            --menu-bg: #e8e8e8;
+            --menu-hover: #d0d0d0;
         }
 
         [data-theme="dark"] {
             --bg-color: #1e1e1e;
             --text-color: #f4f4f9;
+            --card-bg: #2c2c2c;
             --header-bg: #005bb5;
             --header-color: #fff;
             --menu-bg: #2c2c2c;
-            --menu-text-color: #f4f4f9;
+            --menu-hover: #3a3a3a;
         }
 
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
         }
@@ -33,54 +36,74 @@
         header {
             background-color: var(--header-bg);
             color: var(--header-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
+            padding: 1rem 0;
+            position: relative;
+            text-align: center;
         }
 
-        .menu {
+        nav {
             display: flex;
-            gap: 20px;
+            justify-content: center;
+            background-color: var(--menu-bg);
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .menu a {
-            color: var(--menu-text-color);
+        nav a {
+            margin: 0 15px;
             text-decoration: none;
+            color: var(--text-color);
             font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
         }
 
-        .menu a:hover {
-            text-decoration: underline;
+        nav a:hover {
+            background-color: var(--menu-hover);
         }
 
         .theme-toggle {
-            background: none;
-            border: 1px solid var(--menu-text-color);
-            padding: 5px 10px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 15px;
             border-radius: 5px;
-            color: var(--menu-text-color);
             cursor: pointer;
+            font-weight: bold;
         }
 
-        main {
-            padding: 20px;
+        .content {
             text-align: center;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            color: var(--header-bg);
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
     <header>
-        <nav class="menu">
-            <a href="index.html">Accueil</a>
-            <a href="cv.html">Mon CV</a>
-        </nav>
+        <h1>Bienvenue sur mon site</h1>
         <button class="theme-toggle" onclick="toggleTheme()">Mode Sombre</button>
     </header>
-    <main>
-        <h1>Bienvenue sur mon site</h1>
-        <p>Explorez mon CV et découvrez mes compétences.</p>
-    </main>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="cv.html">Mon CV</a>
+    </nav>
+    <div class="content">
+        <h1>Thomas Beal</h1>
+        <p>Bienvenue sur ma page personnelle. Vous pouvez naviguer vers mon CV pour en apprendre davantage sur mon parcours et mes compétences.</p>
+    </div>
     <script>
         function toggleTheme() {
             const body = document.body;
