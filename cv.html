@@ -11,6 +11,8 @@
             --card-bg: #fff;
             --header-bg: #0078d7;
             --header-color: #fff;
+            --menu-bg: #e8e8e8;
+            --menu-hover: #d0d0d0;
         }
 
         [data-theme="dark"] {
@@ -19,6 +21,8 @@
             --card-bg: #2c2c2c;
             --header-bg: #005bb5;
             --header-color: #fff;
+            --menu-bg: #2c2c2c;
+            --menu-hover: #3a3a3a;
         }
 
         body {
@@ -28,13 +32,36 @@
             background-color: var(--bg-color);
             color: var(--text-color);
         }
+
         header {
             background-color: var(--header-bg);
             color: var(--header-color);
-            text-align: center;
             padding: 1rem 0;
             position: relative;
+            text-align: center;
         }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: var(--menu-bg);
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: var(--menu-hover);
+        }
+
         .theme-toggle {
             position: absolute;
             top: 10px;
@@ -47,6 +74,7 @@
             cursor: pointer;
             font-weight: bold;
         }
+
         .container {
             display: flex;
             flex-direction: row;
@@ -54,6 +82,7 @@
             gap: 20px;
             padding: 20px;
         }
+
         .left, .right {
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -61,29 +90,29 @@
             padding: 20px;
             width: 300px;
         }
-        .left {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+
         h2 {
             color: var(--header-bg);
             margin-bottom: 10px;
             border-bottom: 2px solid var(--header-bg);
             display: inline-block;
         }
+
         ul {
             list-style: none;
             padding: 0;
         }
+
         li {
             margin-bottom: 5px;
         }
+
         a {
             color: var(--header-bg);
             text-decoration: none;
             font-weight: bold;
         }
+
         a:hover {
             text-decoration: underline;
         }
@@ -95,6 +124,10 @@
         <p>Administrateur systèmes et réseaux</p>
         <button class="theme-toggle" onclick="toggleTheme()">Mode Sombre</button>
     </header>
+    <nav>
+        <a href="index.html">Accueil</a>
+        <a href="cv.html">Mon CV</a>
+    </nav>
     <div class="container">
         <div class="left">
             <section>
