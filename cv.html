@@ -11,8 +11,6 @@
             --card-bg: #fff;
             --header-bg: #0078d7;
             --header-color: #fff;
-            --menu-bg: #fff;
-            --menu-text-color: #0078d7;
         }
 
         [data-theme="dark"] {
@@ -21,8 +19,6 @@
             --card-bg: #2c2c2c;
             --header-bg: #005bb5;
             --header-color: #fff;
-            --menu-bg: #2c2c2c;
-            --menu-text-color: #f4f4f9;
         }
 
         body {
@@ -32,40 +28,25 @@
             background-color: var(--bg-color);
             color: var(--text-color);
         }
-
         header {
             background-color: var(--header-bg);
             color: var(--header-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
         }
-
-        .menu {
-            display: flex;
-            gap: 20px;
-        }
-
-        .menu a {
-            color: var(--menu-text-color);
-            text-decoration: none;
+        .theme-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
             font-weight: bold;
         }
-
-        .menu a:hover {
-            text-decoration: underline;
-        }
-
-        .theme-toggle {
-            background: none;
-            border: 1px solid var(--menu-text-color);
-            padding: 5px 10px;
-            border-radius: 5px;
-            color: var(--menu-text-color);
-            cursor: pointer;
-        }
-
         .container {
             display: flex;
             flex-direction: row;
@@ -73,7 +54,6 @@
             gap: 20px;
             padding: 20px;
         }
-
         .left, .right {
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -81,29 +61,29 @@
             padding: 20px;
             width: 300px;
         }
-
+        .left {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
         h2 {
             color: var(--header-bg);
             margin-bottom: 10px;
             border-bottom: 2px solid var(--header-bg);
             display: inline-block;
         }
-
         ul {
             list-style: none;
             padding: 0;
         }
-
         li {
             margin-bottom: 5px;
         }
-
         a {
             color: var(--header-bg);
             text-decoration: none;
             font-weight: bold;
         }
-
         a:hover {
             text-decoration: underline;
         }
@@ -111,10 +91,8 @@
 </head>
 <body>
     <header>
-        <nav class="menu">
-            <a href="index.html">Accueil</a>
-            <a href="cv.html">Mon CV</a>
-        </nav>
+        <h1>Thomas Beal</h1>
+        <p>Administrateur systèmes et réseaux</p>
         <button class="theme-toggle" onclick="toggleTheme()">Mode Sombre</button>
     </header>
     <div class="container">
