@@ -115,7 +115,7 @@
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             body.setAttribute('data-theme', newTheme);
-            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? 'Mode Sombre' : 'Mode Sombre';
         }
         document.body.setAttribute('data-theme', 'light');
     </script>
