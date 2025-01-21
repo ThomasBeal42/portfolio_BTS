@@ -5,18 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Thomas Beal</title>
     <style>
+        :root {
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+            --card-bg: #fff;
+            --header-bg: #0078d7;
+            --header-color: #fff;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1e1e1e;
+            --text-color: #f4f4f9;
+            --card-bg: #2c2c2c;
+            --header-bg: #005bb5;
+            --header-color: #fff;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
         header {
-            background-color: #0078d7;
-            color: #fff;
+            background-color: var(--header-bg);
+            color: var(--header-color);
             text-align: center;
             padding: 1rem 0;
+            position: relative;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
         }
         .container {
             display: flex;
@@ -26,7 +55,7 @@
             padding: 20px;
         }
         .left, .right {
-            background-color: #fff;
+            background-color: var(--card-bg);
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 20px;
@@ -38,9 +67,9 @@
             gap: 20px;
         }
         h2 {
-            color: #0078d7;
+            color: var(--header-bg);
             margin-bottom: 10px;
-            border-bottom: 2px solid #0078d7;
+            border-bottom: 2px solid var(--header-bg);
             display: inline-block;
         }
         ul {
@@ -51,7 +80,7 @@
             margin-bottom: 5px;
         }
         a {
-            color: #0078d7;
+            color: var(--header-bg);
             text-decoration: none;
             font-weight: bold;
         }
@@ -64,6 +93,7 @@
     <header>
         <h1>Thomas Beal</h1>
         <p>Administrateur systèmes et réseaux</p>
+        <button class="theme-toggle" onclick="toggleTheme()">Mode Sombre</button>
     </header>
     <div class="container">
         <div class="left">
@@ -125,5 +155,15 @@
             </section>
         </div>
     </div>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+        }
+        document.body.setAttribute('data-theme', 'light');
+    </script>
 </body>
 </html>
