@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos de l'Entreprise | Thomas Beal - Ingénieur Logiciel</title>
+    <title>À Propos de l'Entreprise | Thomas Beal - Ingénieur Réseau & Systèmes</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap" rel="stylesheet">
     <style>
         /* ========================================================================= */
-        /* 1. VARIABLES & THÈMES (Identiques) 🎨 */
+        /* 1. VARIABLES & THÈMES (Palette Réseau : Bleu & Cyan) 🌐 */
         /* ========================================================================= */
         :root {
             /* Couleurs Claires */
             --bg-color: #f8fafc;
             --text-color: #0f172a;
-            --accent-primary: #ec4899; /* Rose/Magenta percutant */
-            --accent-secondary: #10b981; /* Vert Menthe pour les détails */
+            --accent-primary: #2563eb; /* Bleu Principal (Réseau) */
+            --accent-secondary: #06b6d4; /* Cyan (Data/Accents) */
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
@@ -25,8 +25,8 @@
             /* Couleurs Sombres */
             --bg-color: #020617;
             --text-color: #e2e8f0;
-            --accent-primary: #f472b6;
-            --accent-secondary: #34d399;
+            --accent-primary: #60a5fa;
+            --accent-secondary: #22d3ee;
             --card-bg: #1e293b;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
             --border-color: #334155;
@@ -64,7 +64,7 @@
         }
         
         /* ========================================================================= */
-        /* 3. EN-TÊTE ET NAVIGATION (IDENTIQUE à CV et Index) 🧭 */
+        /* 3. EN-TÊTE ET NAVIGATION (IDENTIQUE) 🧭 */
         /* ========================================================================= */
         header {
             background-color: var(--card-bg);
@@ -127,7 +127,7 @@
         nav a.active {
             color: var(--card-bg);
             background-color: var(--accent-primary);
-            box-shadow: 0 4px 10px rgba(236, 72, 153, 0.4);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
             font-weight: 700;
         }
 
@@ -140,17 +140,17 @@
             cursor: pointer;
             font-weight: 700;
             transition: all var(--transition-speed);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
             margin-left: 0; 
         }
 
         .theme-toggle:hover {
-            background-color: #059669;
+            background-color: #0891b2;
             transform: scale(1.05);
         }
         
         /* ========================================================================= */
-        /* 4. CONTENU SPÉCIFIQUE À LA PAGE ENTREPRISE 🏭 */
+        /* 4. CONTENU SPÉCIFIQUE À LA PAGE ENTREPRISE (Adapté au Réseau) 🏭 */
         /* ========================================================================= */
         .content-wrapper {
             max-width: 1000px;
@@ -238,7 +238,7 @@
 <body data-theme="dark">
     <header>
         <div class="navbar">
-            <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">DEV</span></a>
+            <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">SYS</span></a>
             <div class="nav-controls">
                 <nav>
                     <a href="index.html">Accueil</a>
@@ -254,32 +254,32 @@
 
     <main class="container">
         <div class="content-wrapper">
-            <h1>Notre Philosophie d'Entreprise</h1>
-            <p>Bienvenue sur la page dédiée à l'entité que je représente. Nous sommes une entreprise axée sur l'**innovation logicielle** et la **performance technique**. Notre objectif est de transformer les défis complexes en solutions numériques élégantes et durables.</p>
+            <h1>Notre Philosophie d'Infrastructure</h1>
+            <p>Bienvenue sur la page dédiée à l'entité que je représente. Nous sommes une entreprise axée sur la **cybersécurité** et la **résilience des infrastructures**. Notre objectif est de transformer les besoins opérationnels en solutions réseau et serveur stables, performantes et entièrement sécurisées.</p>
 
             <div class="section-box">
-                <h3>Notre Mission</h3>
-                <p>Fournir des architectures robustes et des applications de haute qualité, tout en maintenant un engagement constant envers l'apprentissage et l'amélioration continue.</p>
+                <h3>Notre Mission : Connecter et Protéger</h3>
+                <p>Garantir la **continuité des services critiques** en concevant des architectures réseaux robustes (LAN/WAN) et en administrant des systèmes serveurs fiables, avec un focus particulier sur la **haute disponibilité** et la **sécurité périmétrique**.</p>
                 
                 <div class="mission-grid">
                     <div class="mission-card">
-                        <h4>Vision & Innovation</h4>
-                        <p>Être à l'avant-garde des technologies web et cloud pour offrir à nos clients les meilleures plateformes possibles.</p>
+                        <h4>Audit & Sécurité</h4>
+                        <p>Identifier et neutraliser les menaces potentielles, en implémentant des politiques de sécurité strictes et des solutions de pare-feu avancées.</p>
                     </div>
                     <div class="mission-card">
-                        <h4>Qualité & Confiance</h4>
-                        <p>Chaque ligne de code est écrite avec le souci du détail, garantissant la fiabilité et la sécurité de nos systèmes.</p>
+                        <h4>Architecture Réseau</h4>
+                        <p>Conception, déploiement et maintenance d'infrastructures TCP/IP complexes pour optimiser le flux de données et la performance globale.</p>
                     </div>
                     <div class="mission-card">
-                        <h4>Impact Durable</h4>
-                        <p>Développer des solutions qui non seulement répondent aux besoins actuels, mais qui sont également évolutives pour l'avenir.</p>
+                        <h4>Support Systèmes</h4>
+                        <p>Administration de plateformes Windows Server, gestion des identités (Active Directory) et maintien des serveurs applicatifs.</p>
                     </div>
                 </div>
             </div>
 
             <div class="section-box">
-                <h3>L'Équipe Technique</h3>
-                <p>L'expertise de l'entreprise repose sur une équipe de développeurs passionnés, dont le moteur est la collaboration et la résolution de problèmes. Nous valorisons l'autonomie et la responsabilité technique à tous les niveaux.</p>
+                <h3>L'Équipe Technique (Simulation)</h3>
+                <p>L'expertise repose sur une équipe d'administrateurs et d'ingénieurs passionnés, dont le moteur est le **troubleshooting rapide** et la **gestion des incidents**. Nous valorisons la documentation précise et la mise à jour constante des compétences techniques face à l'évolution des menaces.</p>
             </div>
         </div>
     </main>

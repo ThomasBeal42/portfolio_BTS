@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV | Thomas Beal - Ingénieur Logiciel</title>
+    <title>CV | Thomas Beal - Ingénieur Réseau & Systèmes</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap" rel="stylesheet">
     <style>
         /* ========================================================================= */
-        /* 1. VARIABLES & THÈMES (Identiques à l'index.html) 🎨 */
+        /* 1. VARIABLES & THÈMES (Palette Réseau : Bleu & Cyan) 🌐 */
         /* ========================================================================= */
         :root {
             /* Couleurs Claires */
             --bg-color: #f8fafc;
             --text-color: #0f172a;
-            --accent-primary: #ec4899; /* Rose/Magenta percutant */
-            --accent-secondary: #10b981; /* Vert Menthe pour les détails */
+            --accent-primary: #2563eb; /* Bleu Principal (Réseau) */
+            --accent-secondary: #06b6d4; /* Cyan (Data/Accents) */
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
@@ -25,8 +25,8 @@
             /* Couleurs Sombres */
             --bg-color: #020617;
             --text-color: #e2e8f0;
-            --accent-primary: #f472b6;
-            --accent-secondary: #34d399;
+            --accent-primary: #60a5fa;
+            --accent-secondary: #22d3ee;
             --card-bg: #1e293b;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
             --border-color: #334155;
@@ -98,7 +98,7 @@
         .nav-controls {
             display: flex;
             align-items: center;
-            gap: 20px; /* Espace fixe entre les éléments de la nav et le bouton */
+            gap: 20px; 
         }
 
         nav {
@@ -106,7 +106,7 @@
             align-items: center;
             margin: 0; 
             padding: 0;
-            gap: 20px; /* Espace fixe entre chaque lien de navigation */
+            gap: 20px; 
         }
 
         nav a {
@@ -129,7 +129,7 @@
         nav a.active {
             color: var(--card-bg);
             background-color: var(--accent-primary);
-            box-shadow: 0 4px 10px rgba(236, 72, 153, 0.4);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4); 
             font-weight: 700;
         }
 
@@ -142,12 +142,12 @@
             cursor: pointer;
             font-weight: 700;
             transition: all var(--transition-speed);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
             margin-left: 0; 
         }
 
         .theme-toggle:hover {
-            background-color: #059669;
+            background-color: #0891b2; 
             transform: scale(1.05);
         }
         
@@ -334,8 +334,10 @@
 <body data-theme="dark">
     <header>
         <div class="navbar">
-            <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">DEV</span></a>
-            <div class="nav-controls"> <nav>
+            <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">SYS</span></a>
+            <div class="nav-controls"> 
+
+<nav>
                     <a href="index.html">Accueil</a>
                     <a href="cv.html" class="active">Mon CV</a> 
                     <a href="company.html">À Propos de l'Entreprise</a>
@@ -349,7 +351,7 @@
 
     <div class="cv-main-title">
         <h1>Thomas Beal</h1>
-        <p>Développeur Full-Stack & Ingénieur Logiciel</p>
+        <p>Administrateur Systèmes & Expert en Réseau</p>
     </div>
 
     <div class="cv-container">
@@ -365,15 +367,15 @@
             
             <section class="cv-section">
                 <h3>PROFIL</h3>
-                <p>Passionné par **l'informatique** et le développement de systèmes performants. De nature débrouillard et indépendant, j’excelle dans l'apprentissage de nouvelles technologies et la résolution de problèmes complexes pour des solutions fiables et efficaces.</p>
+                <p>Passionné par **les infrastructures informatiques** et la mise en place de systèmes performants et sécurisés. De nature débrouillard et indépendant, j’excelle dans l'apprentissage de nouvelles technologies réseau et la résolution de problèmes critiques pour assurer la haute disponibilité.</p>
             </section>
 
             <section class="cv-section">
                 <h3>COMPÉTENCES DOUCES</h3>
                 <ul class="list-unstyled">
-                    <li>Autonomie et esprit autodidacte</li>
-                    <li>Grande capacité d'adaptation</li>
-                    <li>Excellent relationnel et communication</li>
+                    <li>Autonomie et gestion de projet</li>
+                    <li>Grande capacité d'adaptation aux environnements serveurs</li>
+                    <li>Résolution de problèmes complexes (Troubleshooting)</li>
                     <li>Esprit d'équipe et collaboration</li>
                 </ul>
             </section>
@@ -381,7 +383,7 @@
             <section class="cv-section">
                 <h3>LANGUES</h3>
                 <ul class="list-unstyled">
-                    <li>**Anglais** : B2 (Intermédiaire Avancé)</li>
+                    <li>**Anglais** : B2 (Intermédiaire Avancé) - Indispensable pour la documentation technique.</li>
                     <li>**Espagnol** : A2+ (Élémentaire)</li>
                 </ul>
             </section>
@@ -389,8 +391,8 @@
             <section class="cv-section" style="border-bottom: none;">
                 <h3>CENTRES D'INTÉRÊT</h3>
                 <ul class="list-unstyled">
-                    <li>Veille technologique</li>
-                    <li>Jeux vidéo (stratégie et simulation)</li>
+                    <li>Veille technologique (Sécurité et Cloud)</li>
+                    <li>Réseaux de jeux (LAN/WAN)</li>
                     <li>Football et activités sportives</li>
                 </ul>
             </section>
@@ -403,15 +405,15 @@
                     <h4>Stage de Première</h4>
                     <p class="date">2022 | Entreprise de Travaux Agricole</p>
                     <ul>
-                        <li>Initiation aux systèmes de gestion d'entreprise.</li>
-                        <li>Support technique de base sur les outils internes.</li>
+                        <li>Initiation aux systèmes de gestion d'entreprise (ERP/CRM).</li>
+                        <li>Support technique de base sur les outils internes et le matériel utilisateur.</li>
                     </ul>
                 </div>
                 <div class="details-item">
                     <h4>Stage de Troisième</h4>
                     <p class="date">2020 | Électricien</p>
                     <ul>
-                        <li>Découverte du métier et des installations électriques.</li>
+                        <li>Découverte du métier et des installations électriques (bases des courants faibles).</li>
                         <li>Assistance dans la préparation des chantiers.</li>
                     </ul>
                 </div>
@@ -424,7 +426,7 @@
                     <p class="date">2021 - 2024</p>
                     <ul>
                         <li>**Options :** Mathématiques et NSI (Numérique et Sciences Informatiques).</li>
-                        <li>Acquisition des bases en programmation et algorithmique.</li>
+                        <li>Acquisition des bases en logique, algorithmique et architecture système.</li>
                     </ul>
                 </div>
                 <div class="details-item">
