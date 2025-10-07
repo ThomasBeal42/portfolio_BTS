@@ -58,7 +58,7 @@
         }
         
         /* ========================================================================= */
-        /* 3. EN-TÊTE ET NAVIGATION (Style Harmonisé) 🧭 */
+        /* 3. EN-TÊTE ET NAVIGATION (Style Harmonisé et Corrigé) 🧭 */
         /* ========================================================================= */
         header {
             background-color: var(--card-bg);
@@ -87,19 +87,21 @@
         }
 
         nav {
-            /* Permet de centrer les liens de navigation */
             display: flex;
             align-items: center;
+            /* Correction : J'augmente la flexibilité des liens et réduis l'espacement pour éviter le débordement */
+            flex-wrap: nowrap; /* Assure que les liens restent sur une ligne tant que possible */
         }
 
         nav a {
-            margin-left: 35px;
+            margin-left: 20px; /* Réduction de l'espacement */
             text-decoration: none;
             color: var(--text-color);
             font-weight: 600;
-            padding: 8px 15px;
+            padding: 8px 12px; /* Réduction du padding horizontal */
             border-radius: 5px;
             transition: all 0.2s ease-in-out;
+            white-space: nowrap; /* Important : empêche le texte de se couper sur deux lignes */
         }
 
         nav a:hover {
@@ -113,7 +115,7 @@
             background-color: var(--accent-primary);
             box-shadow: 0 4px 10px rgba(236, 72, 153, 0.4);
             font-weight: 700;
-            padding: 10px 20px; /* Légèrement plus grand pour la zone active */
+            padding: 10px 18px; /* Ajustement du padding pour le bouton actif */
         }
 
         .theme-toggle {
@@ -303,12 +305,13 @@
                 margin-bottom: 10px;
             }
             nav a {
-                margin: 0 10px;
+                margin: 0 5px; /* Réduction drastique de l'espacement sur mobile */
+                padding: 8px 10px;
             }
         }
     </style>
 </head>
-<body data-theme="light">
+<body data-theme="dark">
     <header>
         <div class="navbar">
             <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">DEV</span></a>
@@ -319,7 +322,7 @@
                 <a href="veille.html">Veilles Technologiques</a>
                 <a href="competences.html">Tableau des Compétences</a>
             </nav>
-            <button class="theme-toggle" onclick="toggleTheme()">Mode Sombre</button>
+            <button class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>
         </div>
     </header>
 
@@ -443,6 +446,10 @@
             document.body.setAttribute('data-theme', savedTheme);
             updateToggleText(savedTheme);
         });
+
+        // Correction spécifique pour la démo en mode sombre (comme votre image)
+        document.body.setAttribute('data-theme', 'dark');
+        document.querySelector('.theme-toggle').textContent = 'Mode Clair';
     </script>
 </body>
 </html>
