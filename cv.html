@@ -19,8 +19,6 @@
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
             --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-            --nav-link-padding-v: 10px; /* Nouvelle variable pour le padding vertical */
-            --nav-link-padding-h: 18px; /* Nouvelle variable pour le padding horizontal */
         }
 
         [data-theme="dark"] {
@@ -67,7 +65,7 @@
         }
         
         /* ========================================================================= */
-        /* 3. EN-TÊTE ET NAVIGATION (Alignement stable et uniforme) 🧭 */
+        /* 3. EN-TÊTE ET NAVIGATION (Alignement stable et uniforme V3) 🧭 */
         /* ========================================================================= */
         header {
             background-color: var(--card-bg);
@@ -93,31 +91,31 @@
             color: var(--accent-primary);
             text-decoration: none;
             text-shadow: 1px 1px 0 var(--accent-secondary);
-            /* Ajout d'une marge droite plus conséquente pour éloigner le logo du premier lien */
+            /* Marge fixe à gauche */
             margin-right: 40px; 
         }
 
         nav {
             display: flex;
             align-items: center;
-            flex-grow: 1; 
-            justify-content: flex-start;
+            /* La clé : retire flex-grow pour ne pas étirer l'espace inutilement */
+            /* J'utilise un gap fixe entre les liens et force l'alignement à droite */
+            margin-left: auto; /* Pousse la nav vers la droite */
+            gap: 20px; /* Espace uniforme entre chaque lien */
+            margin-right: 20px; /* Espace entre la nav et le bouton de thème */
         }
 
         nav a {
-            /* Marge réduite entre les liens */
-            margin-left: 10px; 
-            margin-right: 10px; 
             text-decoration: none;
             color: var(--text-color);
             font-weight: 600;
-            
-            /* CLÉ DE LA CORRECTION : Utilise le padding de l'élément ACTIF pour tous les liens */
-            padding: var(--nav-link-padding-v) var(--nav-link-padding-h);
-            
+            /* Padding uniforme pour que la taille du bouton ne change pas si actif ou non */
+            padding: 10px 18px; 
             border-radius: 5px;
             transition: all 0.2s ease-in-out;
-            white-space: nowrap; 
+            white-space: nowrap; /* EMPÊCHE LE DÉBORDEMENT */
+            /* Annule les marges latérales spécifiques puisque nous utilisons 'gap' */
+            margin: 0;
         }
 
         nav a:hover {
@@ -131,7 +129,6 @@
             background-color: var(--accent-primary);
             box-shadow: 0 4px 10px rgba(236, 72, 153, 0.4);
             font-weight: 700;
-            /* L'élément actif a le même padding que les autres, donc la taille ne change pas */
         }
 
         .theme-toggle {
@@ -144,7 +141,7 @@
             font-weight: 700;
             transition: all var(--transition-speed);
             box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-            margin-left: 30px; /* Espace stable avant le bouton de thème */
+            /* Positionnement final */
         }
 
         .theme-toggle:hover {
