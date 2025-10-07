@@ -19,6 +19,8 @@
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
             --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            --nav-link-padding-v: 10px; /* Nouvelle variable pour le padding vertical */
+            --nav-link-padding-h: 18px; /* Nouvelle variable pour le padding horizontal */
         }
 
         [data-theme="dark"] {
@@ -65,7 +67,7 @@
         }
         
         /* ========================================================================= */
-        /* 3. EN-TÊTE ET NAVIGATION (COPIÉ DE INDEX.HTML) 🧭 */
+        /* 3. EN-TÊTE ET NAVIGATION (Alignement stable et uniforme) 🧭 */
         /* ========================================================================= */
         header {
             background-color: var(--card-bg);
@@ -80,10 +82,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            /* Utilisation d'une max-width plus grande ici pour harmonisation */
             max-width: 1350px; 
             margin: 0 auto;
-            padding: 20px 30px; /* Les paddings intérieurs */
+            padding: 20px 30px;
         }
 
         .logo {
@@ -92,7 +93,8 @@
             color: var(--accent-primary);
             text-decoration: none;
             text-shadow: 1px 1px 0 var(--accent-secondary);
-            margin-right: 20px;
+            /* Ajout d'une marge droite plus conséquente pour éloigner le logo du premier lien */
+            margin-right: 40px; 
         }
 
         nav {
@@ -103,15 +105,19 @@
         }
 
         nav a {
-            margin-left: 15px; 
-            margin-right: 15px; 
+            /* Marge réduite entre les liens */
+            margin-left: 10px; 
+            margin-right: 10px; 
             text-decoration: none;
             color: var(--text-color);
             font-weight: 600;
-            padding: 8px 12px;
+            
+            /* CLÉ DE LA CORRECTION : Utilise le padding de l'élément ACTIF pour tous les liens */
+            padding: var(--nav-link-padding-v) var(--nav-link-padding-h);
+            
             border-radius: 5px;
             transition: all 0.2s ease-in-out;
-            white-space: nowrap; /* CLÉ: Garde le texte sur une seule ligne */
+            white-space: nowrap; 
         }
 
         nav a:hover {
@@ -125,7 +131,7 @@
             background-color: var(--accent-primary);
             box-shadow: 0 4px 10px rgba(236, 72, 153, 0.4);
             font-weight: 700;
-            padding: 10px 18px;
+            /* L'élément actif a le même padding que les autres, donc la taille ne change pas */
         }
 
         .theme-toggle {
@@ -138,14 +144,14 @@
             font-weight: 700;
             transition: all var(--transition-speed);
             box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-            margin-left: 20px; 
+            margin-left: 30px; /* Espace stable avant le bouton de thème */
         }
 
         .theme-toggle:hover {
             background-color: #059669;
             transform: scale(1.05);
         }
-        
+
         /* ========================================================================= */
         /* 4. STRUCTURE DU CV 📄 (Style interne de la page CV) */
         /* ========================================================================= */
@@ -168,7 +174,6 @@
         }
 
         .cv-container {
-            /* Utilisation d'un container pour le corps de la page */
             max-width: 1300px;
             margin: 0 auto;
             display: grid;
