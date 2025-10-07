@@ -3,200 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Thomas Beal</title>
+    <title>CV | Thomas Beal - Ingénieur Logiciel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap" rel="stylesheet">
     <style>
+        /* ========================================================================= */
+        /* 1. VARIABLES & THÈMES (Identiques à l'index.html) 🎨 */
+        /* ========================================================================= */
         :root {
-            --bg-color: #f4f4f9;
-            --text-color: #333;
-            --card-bg: #fff;
-            --header-bg: #0078d7;
-            --header-color: #fff;
-            --menu-bg: #e8e8e8;
-            --menu-hover: #d0d0d0;
+            /* Couleurs Claires */
+            --bg-color: #f8fafc;
+            --text-color: #0f172a;
+            --accent-primary: #ec4899; /* Rose/Magenta percutant */
+            --accent-secondary: #10b981; /* Vert Menthe pour les détails */
+            --card-bg: #ffffff;
+            --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --border-color: #e2e8f0;
+            --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         [data-theme="dark"] {
-            --bg-color: #1e1e1e;
-            --text-color: #f4f4f9;
-            --card-bg: #2c2c2c;
-            --header-bg: #005bb5;
-            --header-color: #fff;
-            --menu-bg: #2c2c2c;
-            --menu-hover: #3a3a3a;
+            /* Couleurs Sombres */
+            --bg-color: #020617;
+            --text-color: #e2e8f0;
+            --accent-primary: #f472b6;
+            --accent-secondary: #34d399;
+            --card-bg: #1e293b;
+            --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
+            --border-color: #334155;
         }
 
-        body {
-            font-family: Arial, sans-serif;
+        /* ========================================================================= */
+        /* 2. STYLES GÉNÉRAUX & TYPO 🖋️ */
+        /* ========================================================================= */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            line-height: 1.7;
+            min-height: 100vh;
         }
 
+        h1, h2, h3 {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-color);
+        }
+        
+        /* ========================================================================= */
+        /* 3. EN-TÊTE ET NAVIGATION (Identiques à l'index) 🧭 */
+        /* ========================================================================= */
         header {
-            background-color: var(--header-bg);
-            color: var(--header-color);
-            padding: 1rem 0;
-            position: relative;
-            text-align: center;
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-strong);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--accent-primary);
         }
 
-        nav {
+        .navbar {
             display: flex;
-            justify-content: center;
-            background-color: var(--menu-bg);
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px 30px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent-primary);
+            text-decoration: none;
+            text-shadow: 1px 1px 0 var(--accent-secondary);
         }
 
         nav a {
-            margin: 0 15px;
+            margin-left: 35px;
             text-decoration: none;
             color: var(--text-color);
-            font-weight: bold;
-            padding: 10px 15px;
+            font-weight: 600;
+            padding: 8px 15px;
             border-radius: 5px;
+            transition: all 0.2s ease-in-out;
         }
 
         nav a:hover {
-            background-color: var(--menu-hover);
+            color: var(--accent-primary);
+            background-color: var(--bg-color);
+            transform: translateY(-2px);
+        }
+
+        nav a.active { /* Page CV active */
+            color: var(--card-bg);
+            background-color: var(--accent-primary);
+            box-shadow: 0 4px 10px rgba(236, 72, 153, 0.4);
         }
 
         .theme-toggle {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--card-bg);
-            color: var(--text-color);
+            background: var(--accent-secondary);
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            color: var(--card-bg);
+            padding: 12px 18px;
+            border-radius: 50px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 700;
+            transition: all var(--transition-speed);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
         }
 
-        .container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
+        .theme-toggle:hover {
+            background-color: #059669;
+            transform: scale(1.05);
         }
 
-        .left, .right {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 300px;
-        }
+        /* ========================================================================= */
+        /* 4. STRUCTURE DU CV 📄 */
+        /* ========================================================================= */
 
-        h2 {
-            color: var(--header-bg);
-            margin-bottom: 10px;
-            border-bottom: 2px solid var(--header-bg);
-            display: inline-block;
+        .cv-main-title {
+            text-align: center;
+            padding: 40px 0 20px 0;
+            background-color: var(--bg-color);
         }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
+        
+        .cv-main-title h1 {
+            font-size: 3rem;
+            color: var(--accent-primary);
             margin-bottom: 5px;
         }
 
-        a {
-            color: var(--header-bg);
-            text-decoration: none;
-            font-weight: bold;
+        .cv-main-title p {
+            font-size: 1.2rem;
+            color: var(--accent-secondary);
         }
 
-        a:hover {
+        .cv-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 350px 1fr; /* Colonne gauche plus étroite pour les infos */
+            gap: 40px;
+            padding: 30px;
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-strong);
+            margin-bottom: 50px;
+            border-radius: 12px;
+        }
+
+        /* Colonne Gauche (Profil & Compétences) */
+        .cv-left {
+            background-color: var(--card-bg); /* Garde la couleur de la carte */
+            padding-right: 20px;
+            border-right: 1px solid var(--border-color);
+        }
+
+        /* Colonne Droite (Expériences & Formations) */
+        .cv-right {
+            padding-left: 20px;
+        }
+
+        .cv-section {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .cv-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .cv-section h3 {
+            font-size: 1.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .cv-section h3::before { /* Icône ou marqueur de section */
+            content: "//";
+            color: var(--accent-secondary);
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* Détails des expériences/formations */
+        .details-item {
+            margin-bottom: 20px;
+        }
+        .details-item h4 {
+            font-size: 1.15rem;
+            margin: 0;
+            color: var(--text-color);
+        }
+        .details-item p.date {
+            font-style: italic;
+            color: var(--accent-secondary);
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+        .details-item ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 5px;
+        }
+        .details-item ul li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        .details-item ul li::before {
+            content: '→';
+            color: var(--accent-primary);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        /* Compétences (Liste simple pour la gauche) */
+        .list-unstyled {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list-unstyled li {
+            margin-bottom: 10px;
+            color: var(--text-color);
+            font-weight: 400;
+            font-size: 1.05rem;
+            padding-left: 10px;
+            border-left: 3px solid var(--accent-secondary);
+        }
+        
+        .contact-info a, .contact-info span {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-color);
+            font-size: 1.05rem;
+        }
+
+        .contact-info a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
             text-decoration: underline;
+        }
+
+        /* ========================================================================= */
+        /* 5. RESPONSIVE 📱 */
+        /* ========================================================================= */
+        @media (max-width: 1024px) {
+            .cv-container {
+                grid-template-columns: 1fr; /* Une seule colonne sur mobile/tablette */
+                gap: 20px;
+            }
+            .cv-left {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding-right: 0;
+                padding-bottom: 20px;
+            }
+            .cv-right {
+                padding-left: 0;
+            }
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .logo, .theme-toggle {
+                margin-bottom: 15px;
+            }
+            nav {
+                width: 100%;
+                text-align: center;
+                order: 2;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
-<body>
+<body data-theme="light">
     <header>
-        <h1>Thomas Beal</h1>
-        <p>Administrateur systèmes et réseaux</p>
-        <button class="theme-toggle" onclick="toggleTheme()">Mode Sombre</button>
+        <div class="navbar">
+            <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">DEV</span></a>
+            <nav>
+                <a href="index.html">Accueil</a>
+                <a href="cv.html" class="active">Mon CV</a> 
+                <a href="company.html">À Propos de l'Entreprise</a>
+                <a href="veille.html">Veilles Technologiques</a>
+                <a href="competences.html">Tableau des Compétences</a>
+            </nav>
+            <button class="theme-toggle" onclick="toggleTheme()">Mode Sombre</button>
+        </div>
     </header>
-    <nav>
-        <a href="index.html">Accueil</a>
-        <a href="cv.html">Mon CV</a>
-    </nav>
-    <div class="container">
-        <div class="left">
-            <section>
-                <h2>À PROPOS</h2>
-                <p>L'informatique est une de mes passions. De nature débrouillard et indépendant dans mon travail, j’aime apprendre de nouvelles technologies et résoudre des problèmes.</p>
+
+    <div class="cv-main-title">
+        <h1>Thomas Beal</h1>
+        <p>Développeur Full-Stack & Ingénieur Logiciel</p>
+    </div>
+
+    <div class="cv-container">
+        <div class="cv-left">
+            <section class="cv-section">
+                <h3>CONTACT</h3>
+                <div class="contact-info">
+                    <a href="mailto:blabla@gmail.com">blabla@gmail.com</a>
+                    <span>04 75 53 80 50</span>
+                    <span>Saint Martin La Sauveté, 42260</span>
+                </div>
             </section>
-            <section>
-                <h2>COMPÉTENCES</h2>
-                <ul>
-                    <li>Autodidacte</li>
-                    <li>Adaptation</li>
-                    <li>Bon relationnel</li>
-                    <li>Travail en équipe</li>
+            
+            <section class="cv-section">
+                <h3>PROFIL</h3>
+                <p>Passionné par **l'informatique** et le développement de systèmes performants. De nature débrouillard et indépendant, j’excelle dans l'apprentissage de nouvelles technologies et la résolution de problèmes complexes pour des solutions fiables et efficaces.</p>
+            </section>
+
+            <section class="cv-section">
+                <h3>COMPÉTENCES DOUCES</h3>
+                <ul class="list-unstyled">
+                    <li>Autonomie et esprit autodidacte</li>
+                    <li>Grande capacité d'adaptation</li>
+                    <li>Excellent relationnel et communication</li>
+                    <li>Esprit d'équipe et collaboration</li>
                 </ul>
             </section>
-            <section>
-                <h2>Langues</h2>
-                <ul>
-                    <li>Anglais : niveau B2</li>
-                    <li>Espagnol : niveau A2+</li>
+
+            <section class="cv-section">
+                <h3>LANGUES</h3>
+                <ul class="list-unstyled">
+                    <li>**Anglais** : B2 (Intermédiaire Avancé)</li>
+                    <li>**Espagnol** : A2+ (Élémentaire)</li>
                 </ul>
             </section>
-            <section>
-                <h2>Centres d'intérêt</h2>
-                <ul>
-                    <li>Jeux vidéo</li>
-                    <li>Football</li>
-                    <li>Informatique en général</li>
+
+            <section class="cv-section" style="border-bottom: none;">
+                <h3>CENTRES D'INTÉRÊT</h3>
+                <ul class="list-unstyled">
+                    <li>Veille technologique</li>
+                    <li>Jeux vidéo (stratégie et simulation)</li>
+                    <li>Football et activités sportives</li>
                 </ul>
             </section>
         </div>
-        <div class="right">
-            <section>
-                <h2>Contact</h2>
-                <ul>
-                    <li><a href="mailto:blabla@gmail.com">blabla@gmail.com</a></li>
-                    <li>04 75 53 80 50</li>
-                    <li>Saint Martin La Sauveté, 42260</li>
-                </ul>
+
+        <div class="cv-right">
+            <section class="cv-section">
+                <h3>EXPÉRIENCES PROFESSIONNELLES</h3>
+                <div class="details-item">
+                    <h4>Stage de Première</h4>
+                    <p class="date">2022 | Entreprise de Travaux Agricole</p>
+                    <ul>
+                        <li>Initiation aux systèmes de gestion d'entreprise.</li>
+                        <li>Support technique de base sur les outils internes.</li>
+                    </ul>
+                </div>
+                <div class="details-item">
+                    <h4>Stage de Troisième</h4>
+                    <p class="date">2020 | Électricien</p>
+                    <ul>
+                        <li>Découverte du métier et des installations électriques.</li>
+                        <li>Assistance dans la préparation des chantiers.</li>
+                    </ul>
+                </div>
             </section>
-            <section>
-                <h2>Expériences professionnelles</h2>
-                <ul>
-                    <li>2022 : Stage de première dans une Entreprise de Travaux Agricole</li>
-                    <li>2020 : Stage de 3ème chez un électricien</li>
-                </ul>
+
+            <section class="cv-section">
+                <h3>ÉTUDES & FORMATIONS</h3>
+                <div class="details-item">
+                    <h4>BAC Général</h4>
+                    <p class="date">2021 - 2024</p>
+                    <ul>
+                        <li>**Options :** Mathématiques et NSI (Numérique et Sciences Informatiques).</li>
+                        <li>Acquisition des bases en programmation et algorithmique.</li>
+                    </ul>
+                </div>
+                <div class="details-item">
+                    <h4>Brevet des collèges</h4>
+                    <p class="date">2015</p>
+                </div>
             </section>
-            <section>
-                <h2>Études & formations</h2>
-                <ul>
-                    <li>2021 - 2024 : BAC Général avec option Maths et NSI</li>
-                    <li>2015 : Brevet des collèges</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Autres expériences</h2>
-                <p>Permis B, véhiculé</p>
+
+            <section class="cv-section">
+                <h3>INFORMATIONS COMPLÉMENTAIRES</h3>
+                <div class="details-item">
+                    <ul>
+                        <li>**Permis B** valide.</li>
+                        <li>Véhiculé.</li>
+                        <li>Disponible immédiatement pour toute opportunité d'alternance ou de formation.</li>
+                    </ul>
+                </div>
             </section>
         </div>
     </div>
+    
     <script>
+        // Logique de gestion du thème et de la persistance (Identique à l'index)
         function toggleTheme() {
             const body = document.body;
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
             body.setAttribute('data-theme', newTheme);
-            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? 'Mode Sombre' : 'Mode Sombre';
+            localStorage.setItem('theme', newTheme);
+            updateToggleText(newTheme);
         }
-        document.body.setAttribute('data-theme', 'light');
+
+        function updateToggleText(theme) {
+            document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            updateToggleText(savedTheme);
+        });
     </script>
 </body>
 </html>
