@@ -3,121 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Thomas Beal</title>
+    <title>Accueil - Thomas Beal | Développeur Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Variables de Thème (inspirées du style pro et sombre) */
         :root {
-            --bg-color: #f4f4f9;
-            --text-color: #333;
-            --card-bg: #fff;
-            --header-bg: #0078d7;
-            --header-color: #fff;
-            --menu-bg: #e8e8e8;
-            --menu-hover: #d0d0d0;
+            --bg-color: #f7f7f7; /* Gris clair moderne */
+            --text-color: #212121; /* Noir profond */
+            --primary-color: #007bff; /* Bleu vibrant (comme l'inspiration) */
+            --secondary-color: #6c757d; /* Gris pour les détails */
+            --card-bg: #ffffff;
+            --header-bg: #ffffff;
+            --nav-bg: #e9ecef;
+            --nav-hover: #dee2e6;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition-speed: 0.3s;
         }
 
         [data-theme="dark"] {
-            --bg-color: #1e1e1e;
-            --text-color: #f4f4f9;
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --primary-color: #4da6ff; /* Bleu plus clair pour le contraste */
+            --secondary-color: #adb5bd;
             --card-bg: #2c2c2c;
-            --header-bg: #005bb5;
-            --header-color: #fff;
-            --menu-bg: #2c2c2c;
-            --menu-hover: #3a3a3a;
+            --header-bg: #2c2c2c;
+            --nav-bg: #3a3a3a;
+            --nav-hover: #495057;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.4);
         }
 
+        /* Styles généraux */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            line-height: 1.6;
         }
 
+        /* Header (Barre de navigation fixe en haut) */
         header {
             background-color: var(--header-bg);
-            color: var(--header-color);
-            padding: 1rem 0;
-            position: relative;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 4rem; /* Très gros titre */
-            margin: 0;
-        }
-
-        nav {
+            box-shadow: var(--shadow-light);
+            padding: 15px 40px;
             display: flex;
-            justify-content: center;
-            background-color: var(--menu-bg);
-            padding: 10px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--nav-bg);
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
         }
 
         nav a {
-            margin: 0 15px;
+            margin-left: 20px;
             text-decoration: none;
             color: var(--text-color);
-            font-weight: bold;
-            padding: 10px 15px;
+            font-weight: 600;
+            padding: 8px 15px;
             border-radius: 5px;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
         nav a:hover {
-            background-color: var(--menu-hover);
+            background-color: var(--nav-hover);
+            color: var(--primary-color);
         }
 
+        /* Toggle du Thème */
         .theme-toggle {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: var(--card-bg);
+            background-color: var(--nav-bg);
             color: var(--text-color);
             border: none;
-            padding: 10px 15px;
+            padding: 8px 12px;
             border-radius: 5px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
-        .content {
+        .theme-toggle:hover {
+            background-color: var(--nav-hover);
+        }
+
+        /* Section Héro (Accueil) - Basée sur une mise en page centrale et claire */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            padding: 50px 20px;
+            padding: 80px 20px;
+            min-height: calc(100vh - 70px); /* Ajuste la hauteur pour le plein écran */
+            justify-content: center;
         }
 
-        .content h1 {
-            color: var(--header-bg);
-            margin-bottom: 20px;
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--primary-color);
         }
 
-        .content p {
-            font-size: 1.2rem;
-            line-height: 1.6;
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+        }
+
+        /* Responsive basique */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>PORTFOLIO</h1>
+        <a href="index.html" class="logo">Thomas Beal</a>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="cv.html">Mon CV</a>
+        </nav>
         <button class="theme-toggle" onclick="toggleTheme()">Mode Sombre</button>
     </header>
-    <nav>
-        <a href="index.html">Accueil</a>
-        <a href="cv.html">Mon CV</a>
-    </nav>
-    <div class="content">
-        <h1>Thomas Beal</h1>
-        <p>Bienvenue sur mon portfolio. Vous pouvez naviguer vers mon CV pour en apprendre davantage sur mon parcours et mes compétences.</p>
+
+    <div class="hero">
+        <h1>Développeur Web & Logiciel</h1>
+        <h2>Je construis des expériences numériques modernes et efficaces.</h2>
+        <p>Bienvenue sur mon portfolio. Découvrez mon parcours et mes compétences techniques en visitant mon CV détaillé. Je suis passionné par les solutions innovantes et l'optimisation des performances.</p>
+        <a href="cv.html" class="cta-button">Voir Mon CV Complet</a>
     </div>
+
     <script>
+        // Fonction pour basculer le thème
         function toggleTheme() {
             const body = document.body;
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
             body.setAttribute('data-theme', newTheme);
-            document.querySelector('.theme-toggle').textContent = newTheme === 'dark' ? 'Mode Sombre' : 'Mode Sombre';
+            localStorage.setItem('theme', newTheme); // Sauvegarde la préférence
+            updateToggleText(newTheme);
         }
-        document.body.setAttribute('data-theme', 'light');
+
+        // Fonction pour mettre à jour le texte du bouton
+        function updateToggleText(theme) {
+            document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+        }
+
+        // Initialisation du thème au chargement
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            updateToggleText(savedTheme);
+        });
     </script>
 </body>
 </html>
