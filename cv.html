@@ -65,7 +65,7 @@
         }
         
         /* ========================================================================= */
-        /* 3. EN-TÊTE ET NAVIGATION (Alignement stable et uniforme V4 - Final) 🧭 */
+        /* 3. EN-TÊTE ET NAVIGATION (Alignement stable et uniforme V3) 🧭 */
         /* ========================================================================= */
         header {
             background-color: var(--card-bg);
@@ -91,34 +91,31 @@
             color: var(--accent-primary);
             text-decoration: none;
             text-shadow: 1px 1px 0 var(--accent-secondary);
-            /* Marge fixe, ajustée visuellement pour l'alignement des liens */
-            margin-right: 35px; 
+            /* Marge fixe à gauche */
+            margin-right: 40px; 
         }
 
         nav {
             display: flex;
             align-items: center;
-            /* Retire flex-grow et les marges automatiques pour un contrôle précis */
-            margin: 0; 
-            padding: 0;
+            /* La clé : retire flex-grow pour ne pas étirer l'espace inutilement */
+            /* J'utilise un gap fixe entre les liens et force l'alignement à droite */
+            margin-left: auto; /* Pousse la nav vers la droite */
+            gap: 20px; /* Espace uniforme entre chaque lien */
+            margin-right: 20px; /* Espace entre la nav et le bouton de thème */
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-color);
             font-weight: 600;
-            /* Padding uniforme (10px V / 18px H) */
+            /* Padding uniforme pour que la taille du bouton ne change pas si actif ou non */
             padding: 10px 18px; 
             border-radius: 5px;
             transition: all 0.2s ease-in-out;
-            white-space: nowrap; 
-            /* CLÉ DE LA CORRECTION : Utilise uniquement la marge droite pour espacer les liens */
-            margin-right: 25px; 
-            margin-left: 0; /* Assure que le premier lien est bien positionné par la marge du logo */
-        }
-        /* Enlève la marge droite du dernier lien de navigation pour contrôler l'espace avant le bouton */
-        nav a:last-of-type {
-            margin-right: 0;
+            white-space: nowrap; /* EMPÊCHE LE DÉBORDEMENT */
+            /* Annule les marges latérales spécifiques puisque nous utilisons 'gap' */
+            margin: 0;
         }
 
         nav a:hover {
@@ -144,8 +141,7 @@
             font-weight: 700;
             transition: all var(--transition-speed);
             box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-            /* Espace stable entre le dernier lien et le bouton de thème */
-            margin-left: 30px; 
+            /* Positionnement final */
         }
 
         .theme-toggle:hover {
@@ -154,7 +150,7 @@
         }
 
         /* ========================================================================= */
-        /* 4. STRUCTURE DU CV 📄 (Inchangée) */
+        /* 4. STRUCTURE DU CV 📄 (Style interne de la page CV) */
         /* ========================================================================= */
 
         .cv-main-title {
