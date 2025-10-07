@@ -57,8 +57,15 @@
             color: var(--text-color);
         }
         
+        /* Conteneur principal */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
         /* ========================================================================= */
-        /* 3. EN-TÊTE ET NAVIGATION (CODE COPIÉ DE INDEX.HTML) 🧭 */
+        /* 3. EN-TÊTE ET NAVIGATION (COPIÉ DE INDEX.HTML) 🧭 */
         /* ========================================================================= */
         header {
             background-color: var(--card-bg);
@@ -73,9 +80,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1350px; /* Assure la place pour tous les liens */
+            /* Utilisation d'une max-width plus grande ici pour harmonisation */
+            max-width: 1350px; 
             margin: 0 auto;
-            padding: 20px 30px;
+            padding: 20px 30px; /* Les paddings intérieurs */
         }
 
         .logo {
@@ -103,7 +111,7 @@
             padding: 8px 12px;
             border-radius: 5px;
             transition: all 0.2s ease-in-out;
-            white-space: nowrap; /* EMPÊCHE LE DÉBORDEMENT */
+            white-space: nowrap; /* CLÉ: Garde le texte sur une seule ligne */
         }
 
         nav a:hover {
@@ -137,7 +145,7 @@
             background-color: #059669;
             transform: scale(1.05);
         }
-
+        
         /* ========================================================================= */
         /* 4. STRUCTURE DU CV 📄 (Style interne de la page CV) */
         /* ========================================================================= */
@@ -160,6 +168,7 @@
         }
 
         .cv-container {
+            /* Utilisation d'un container pour le corps de la page */
             max-width: 1300px;
             margin: 0 auto;
             display: grid;
