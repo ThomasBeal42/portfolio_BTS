@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil | Thomas Beal - Ingénieur Logiciel</title>
+    <title>Accueil | Thomas Beal - Ingénieur Réseau & Systèmes</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap" rel="stylesheet">
     <style>
         /* ========================================================================= */
-        /* 1. VARIABLES & THÈMES (Palette Pro et Énergique) 🎨 */
+        /* 1. VARIABLES & THÈMES (Palette Réseau : Bleu & Cyan) 🌐 */
         /* ========================================================================= */
         :root {
             /* Couleurs Claires */
             --bg-color: #f8fafc;
             --text-color: #0f172a;
-            --accent-primary: #ec4899; /* Rose/Magenta percutant */
-            --accent-secondary: #10b981; /* Vert Menthe pour les détails */
+            --accent-primary: #2563eb; /* Bleu Principal (Réseau) */
+            --accent-secondary: #06b6d4; /* Cyan (Data/Accents) */
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
-            --code-color: #94a3b8; /* Gris clair pour l'effet de code */
+            --code-color: #94a3b8;
             --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         [data-theme="dark"] {
             /* Couleurs Sombres (Profond et High-Tech) */
-            --bg-color: #020617; /* Noir très profond */
+            --bg-color: #020617; 
             --text-color: #e2e8f0;
-            --accent-primary: #f472b6; /* Rose plus clair pour le contraste */
-            --accent-secondary: #34d399;
+            --accent-primary: #60a5fa; /* Bleu plus clair pour le contraste */
+            --accent-secondary: #22d3ee; /* Cyan plus clair pour les détails */
             --card-bg: #1e293b;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
             --border-color: #334155;
@@ -67,7 +67,7 @@
         }
 
         /* ========================================================================= */
-        /* 3. EN-TÊTE ET NAVIGATION (Alignement Stable V5 - Final) 🧭 */
+        /* 3. EN-TÊTE ET NAVIGATION (Alignement Stable V5) 🧭 */
         /* ========================================================================= */
         header {
             background-color: var(--card-bg);
@@ -80,7 +80,7 @@
 
         .navbar {
             display: flex;
-            justify-content: space-between; /* Distribue l'espace entre le logo et le reste */
+            justify-content: space-between; 
             align-items: center;
             max-width: 1350px; 
             margin: 0 auto;
@@ -93,35 +93,32 @@
             color: var(--accent-primary);
             text-decoration: none;
             text-shadow: 1px 1px 0 var(--accent-secondary);
-            /* Plus besoin de marge-right ici car 'justify-content: space-between' gère l'espace */
             margin-right: 0; 
         }
 
-        /* Nouveau conteneur pour la nav et le bouton pour un alignement groupé */
         .nav-controls {
             display: flex;
             align-items: center;
-            gap: 20px; /* Espace fixe entre les éléments de la nav et le bouton */
+            gap: 20px; 
         }
 
         nav {
             display: flex;
             align-items: center;
-            /* Retire toutes les marges et paddings par défaut pour un contrôle précis */
             margin: 0; 
             padding: 0;
-            gap: 20px; /* Espace fixe entre chaque lien de navigation */
+            gap: 20px; 
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-color);
             font-weight: 600;
-            padding: 10px 18px; /* Padding uniforme pour que la taille ne change pas */
+            padding: 10px 18px; 
             border-radius: 5px;
             transition: all 0.2s ease-in-out;
             white-space: nowrap; 
-            margin: 0; /* Annule toutes les marges */
+            margin: 0; 
         }
 
         nav a:hover {
@@ -133,7 +130,7 @@
         nav a.active {
             color: var(--card-bg);
             background-color: var(--accent-primary);
-            box-shadow: 0 4px 10px rgba(236, 72, 153, 0.4);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4); /* Nouvelle couleur d'ombre */
             font-weight: 700;
         }
 
@@ -146,13 +143,12 @@
             cursor: pointer;
             font-weight: 700;
             transition: all var(--transition-speed);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
-            /* Marge gérée par le gap du .nav-controls */
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); /* Nouvelle couleur d'ombre */
             margin-left: 0; 
         }
 
         .theme-toggle:hover {
-            background-color: #059669;
+            background-color: #0891b2; /* Cyan foncé */
             transform: scale(1.05);
         }
         
@@ -231,7 +227,7 @@
         .cta-button {
             display: inline-flex;
             align-items: center;
-            background-image: linear-gradient(45deg, var(--accent-primary) 0%, #f9a8d4 100%);
+            background-image: linear-gradient(45deg, var(--accent-primary) 0%, #a8c1f9 100%); /* Nouveau gradient bleu */
             color: var(--card-bg); 
             text-decoration: none;
             padding: 18px 40px;
@@ -242,12 +238,12 @@
             transition: transform 0.3s, box-shadow 0.3s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.5);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5); /* Nouvelle couleur d'ombre */
         }
 
         .cta-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(236, 72, 153, 0.7);
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.7); /* Nouvelle couleur d'ombre */
         }
 
         /* ========================================================================= */
@@ -264,7 +260,7 @@
             .nav-controls {
                 width: 100%;
                 justify-content: center;
-                margin-top: 15px; /* Espace entre le logo et les controls */
+                margin-top: 15px; 
             }
             nav {
                 flex-wrap: wrap;
@@ -300,8 +296,10 @@
 <body data-theme="dark">
     <header>
         <div class="navbar">
-            <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">DEV</span></a>
-            <div class="nav-controls"> <nav>
+            <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">SYS</span></a>
+            <div class="nav-controls"> 
+
+<nav>
                     <a href="index.html" class="active">Accueil</a>
                     <a href="cv.html">Mon CV</a>
                     <a href="company.html">À Propos de l'Entreprise</a>
@@ -318,17 +316,17 @@
             <div class="code-background">
                 <pre class="code-line">
                     <code>
-                        &lt;?php class ThomasBeal { public $role = "Ingénieur Logiciel"; // Portfolio de Thomas Beal
+                        &lt;?php class ThomasBeal { public $role = "Ingénieur Réseau"; // Portfolio de Thomas Beal
                         const EXPERIENCE = "5 ans +"; function __construct() { echo "Bienvenue sur mon portfolio V3.0."; }
-                        public function get_skills() { return ["PHP/Symfony", "JS/React", "Cloud", "Architecture"]; }
-                        // Création d'une application performante
-                        private function run_app($project) { return new App(name: $project, status: "Deployed"); } ?&gt;
+                        public function get_skills() { return ["Cisco", "Linux", "Windows Server", "Sécurité"]; }
+                        // Déploiement d'infrastructure sécurisée
+                        private function run_server($project) { return new Infrastructure(name: $project, status: "Secure & Online"); } ?&gt;
                     </code>
                 </pre>
                 <pre class="code-line">
                     <code>
-                        &lt;div id="hero" class="developer-focus"&gt; // Un design centré sur l'utilisateur
-                        &lt;h1&gt;Hello, je suis Thomas Beal.&lt;/h1&gt; &lt;p&gt;Architecte de solutions numériques.&lt;/p&gt;
+                        &lt;div id="hero" class="systems-focus"&gt; // Un design centré sur la performance
+                        &lt;h1&gt;Hello, je suis Thomas Beal.&lt;/h1&gt; &lt;p&gt;Architecte d'infrastructures résilientes.&lt;/p&gt;
                         &lt;a href="./cv.html" class="cta-primary"&gt;Explorer mes compétences&lt;/a&gt; // Appel à l'action clé
                         const theme_mode = localStorage.getItem('theme') || 'light';
                         if (theme_mode === 'dark') { applyDarkMode(); }
@@ -336,28 +334,28 @@
                 </pre>
                  <pre class="code-line">
                     <code>
-                        &lt;p&gt; const fs = require('fs'); // Node.js back-end
-                        const deploy = (env) => { console.log(`Déploiement en cours sur ${env}...`); };
-                        module.exports = { skills: ["DevOps", "CI/CD", "Docker", "K8s"], deploy: deploy };
-                        const version = '3.0.1-maximized'; // Version du portfolio
+                        &lt;p&gt; const fs = require('fs'); // Monitoring en temps réel
+                        const deploy = (env) => { console.log(`Déploiement en cours sur ${env} via Ansible...`); };
+                        module.exports = { skills: ["TCP/IP", "VPN", "Cloud", "Scripting"], deploy: deploy };
+                        const version = '3.0.1-network-edition'; // Version du portfolio
                         &lt;!-- Ligne de code technique pour remplir le fond --&gt;
-                        // Ne pas oublier la sécurité: sanitation et validation des données.
+                        // Priorité à la continuité des services et la haute disponibilité.
                         function toggleTheme() { /* ... */ }
                     </code>
                 </pre>
-                <pre class="code-line"><code>&lt;?php class ThomasBeal { public $role = "Ingénieur Logiciel"; ... ?&gt;</code></pre>
-                <pre class="code-line"><code>&lt;div id="hero" class="developer-focus"&gt; ... if (theme_mode === 'dark') { applyDarkMode(); }</code></pre>
-                <pre class="code-line"><code>&lt;p&gt; const fs = require('fs'); // Node.js back-end ... function toggleTheme() { /* ... */ }</code></pre>
-                <pre class="code-line"><code>&lt;?php class ThomasBeal { public $role = "Ingénieur Logiciel"; ... ?&gt;</code></pre>
-                <pre class="code-line"><code>&lt;div id="hero" class="developer-focus"&gt; ... if (theme_mode === 'dark') { applyDarkMode(); }</code></pre>
-                <pre class="code-line"><code>&lt;p&gt; const fs = require('fs'); // Node.js back-end ... function toggleTheme() { /* ... */ }</code></pre>
+                <pre class="code-line"><code>&lt;?php class ThomasBeal { public $role = "Ingénieur Réseau"; ... ?&gt;</code></pre>
+                <pre class="code-line"><code>&lt;div id="hero" class="systems-focus"&gt; ... if (theme_mode === 'dark') { applyDarkMode(); }</code></pre>
+                <pre class="code-line"><code>&lt;p&gt; const fs = require('fs'); // Monitoring en temps réel ... function toggleTheme() { /* ... */ }</code></pre>
+                <pre class="code-line"><code>&lt;?php class ThomasBeal { public $role = "Ingénieur Réseau"; ... ?&gt;</code></pre>
+                <pre class="code-line"><code>&lt;div id="hero" class="systems-focus"&gt; ... if (theme_mode === 'dark') { applyDarkMode(); }</code></pre>
+                <pre class="code-line"><code>&lt;p&gt; const fs = require('fs'); // Monitoring en temps réel ... function toggleTheme() { /* ... */ }</code></pre>
             </div>
             
             <div class="hero-content">
-                <h2>Salut, je suis un ingénieur logiciel</h2>
+                <h2>Salut, je suis un ingénieur Réseau & Systèmes</h2>
                 <h1><span class="name">Thomas Beal</span>.</h1>
-                <h1>Architecte de systèmes et développeur Full-Stack d'élite.</h1>
-                <p>Mon expertise réside dans la **conception et l'implémentation** de solutions logicielles complexes, de l'optimisation back-end à l'expérience utilisateur front-end. Créons l'application de demain.</p>
+                <h1>Architecte d'infrastructure et expert en cybersécurité.</h1>
+                <p>Mon expertise réside dans la **conception, la mise en œuvre et la sécurisation** d'infrastructures informatiques robustes, des réseaux complexes aux serveurs critiques. **Assurons la continuité de votre service**.</p>
                 <a href="cv.html" class="cta-button">
                     Explorer Mon Profil &rarr;
                 </a>
