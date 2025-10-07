@@ -163,16 +163,20 @@
             margin-bottom: 10px;
         }
         
-        .veille-grid {
+        /* Utilisation d'un conteneur Flex simple pour les 2 articles */
+        .veille-container {
             max-width: 1200px;
             margin: 0 auto 50px auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap; /* Pour s'assurer qu'ils passent à la ligne sur mobile */
+            justify-content: center;
             gap: 30px;
             padding: 0 30px;
         }
 
         .veille-card {
+            flex: 1 1 45%; /* Occupe environ la moitié de l'espace sur grand écran */
+            min-width: 300px;
             background-color: var(--card-bg);
             border-radius: 10px;
             box-shadow: var(--shadow-strong);
@@ -187,36 +191,30 @@
         }
 
         .card-content {
-            padding: 20px;
+            padding: 25px; /* Augmenté pour un look plus aéré */
         }
 
         .card-content h3 {
-            font-size: 1.4rem;
+            font-size: 1.6rem; /* Plus grand pour le titre de la veille */
             color: var(--accent-primary);
             margin-bottom: 10px;
         }
         
         .card-content p.date {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--accent-secondary);
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
         }
 
         .card-content p {
-            margin-bottom: 15px;
+            margin-bottom: 1.5rem; /* Plus d'espace entre les paragraphes */
+            color: var(--text-color);
         }
 
-        .card-content a {
-            color: var(--accent-secondary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-        }
-
-        .card-content a:hover {
-            text-decoration: underline;
-        }
+        /* Suppression des styles pour les liens "lire plus" */
 
         /* ========================================================================= */
         /* 5. RESPONSIVE 📱 (Identique) */
@@ -243,8 +241,11 @@
                 margin: 0 5px;
                 padding: 8px 10px;
             }
-            .veille-grid {
+            .veille-container {
                 padding: 0 20px;
+            }
+            .veille-card {
+                flex: 1 1 100%; /* Une seule colonne sur mobile */
             }
         }
     </style>
@@ -272,27 +273,25 @@
             <p>Mon engagement constant envers les nouvelles tendances, les outils et les pratiques d'excellence du développement logiciel.</p>
         </div>
 
-        <div class="veille-grid">
+        <div class="veille-container">
             
             <div class="veille-card">
                 <div class="card-content">
                     <h3>Sécurité : L'Évolution des VPN et l'Adoption de WireGuard</h3>
-                    <p class="date">Publié le [Date de votre veille]</p>
-                    <p>La technologie des **Réseaux Privés Virtuels (VPN)** continue d'évoluer, avec une adoption croissante de protocoles modernes comme **WireGuard**. WireGuard offre une cryptographie de pointe avec une empreinte logicielle beaucoup plus petite, ce qui se traduit par des connexions plus rapides et plus stables que les anciens protocoles comme OpenVPN et IPSec, tout en simplifiant l'audit de sécurité.</p>
-                    <a href="#">Détails sur les protocoles →</a>
+                    <p class="date">Publié le 07/10/2025</p>
+                    <p>La technologie des **Réseaux Privés Virtuels (VPN)** continue d'évoluer, avec une adoption croissante de protocoles modernes comme **WireGuard**. WireGuard offre une cryptographie de pointe avec une empreinte logicielle beaucoup plus petite, ce qui se traduit par des connexions plus rapides et plus stables que les anciens protocoles comme OpenVPN et IPSec, tout en simplifiant l'audit de sécurité. Sa conception modulaire et performante en fait la référence pour la sécurisation des échanges et l'accès distant dans les infrastructures modernes.</p>
                 </div>
             </div>
 
             <div class="veille-card">
                 <div class="card-content">
                     <h3>Windows Server : Gestion de l'Infrastructure et Hybridation</h3>
-                    <p class="date">Publié le [Date de votre veille]</p>
-                    <p>Windows Server reste un pilier des infrastructures d'entreprise, mais l'accent est désormais mis sur **l'hybridation**. Les nouvelles versions mettent en avant l'intégration avec **Azure** via des outils comme **Azure Arc** pour gérer des ressources locales et cloud de manière unifiée, facilitant le déploiement de conteneurs (via **Kubernetes**) et la virtualisation (via **Hyper-V**) dans des environnements distribués.</p>
-                    <a href="#">Enjeux de l'administration système →</a>
+                    <p class="date">Publié le 05/10/2025</p>
+                    <p>**Windows Server** reste un pilier des infrastructures d'entreprise, mais l'accent est désormais mis sur **l'hybridation**. Les nouvelles versions mettent en avant l'intégration avec **Azure** via des outils comme **Azure Arc** pour gérer des ressources locales et cloud de manière unifiée. L'administration système se concentre de plus en plus sur l'orchestration des conteneurs (via Kubernetes) et la virtualisation (via Hyper-V) dans des environnements distribués, nécessitant une convergence des compétences SysOps vers le Cloud hybride.</p>
                 </div>
             </div>
 
-            </div>
+        </div>
     </main>
 
     <script>
