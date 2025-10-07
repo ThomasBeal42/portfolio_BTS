@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos de l'Entreprise | Thomas Beal - Ingénieur Réseau & Systèmes</title>
+    <title>À Propos de SPIP Informatique | Thomas Beal - Ingénieur Réseau & Systèmes</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap" rel="stylesheet">
     <style>
-        /* [STYLES CSS - IDENTIQUES] */
-        /* ... (Reste du CSS identique) ... */
-
         /* ========================================================================= */
         /* 1. VARIABLES & THÈMES (Palette Réseau : Bleu & Cyan) 🌐 */
         /* ========================================================================= */
         :root {
+            /* Couleurs Claires */
             --bg-color: #f8fafc;
             --text-color: #0f172a;
-            --accent-primary: #2563eb;
-            --accent-secondary: #06b6d4;
+            --accent-primary: #2563eb; /* Bleu Principal (Réseau) */
+            --accent-secondary: #06b6d4; /* Cyan (Data/Accents) */
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
@@ -24,6 +22,7 @@
         }
 
         [data-theme="dark"] {
+            /* Couleurs Sombres */
             --bg-color: #020617;
             --text-color: #e2e8f0;
             --accent-primary: #60a5fa;
@@ -33,30 +32,206 @@
             --border-color: #334155;
         }
 
-        /* [STYLES CSS - IDENTIQUES] */
-        * {box-sizing: border-box; margin: 0; padding: 0;}
-        body {font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); transition: background-color var(--transition-speed), color var(--transition-speed); line-height: 1.7; min-height: 100vh;}
-        h1, h2, h3, h4 {font-family: 'Space Mono', monospace; font-weight: 700; line-height: 1.2; color: var(--text-color);}
-        .container {max-width: 1300px; margin: 0 auto; padding: 0 30px;}
-        header {background-color: var(--card-bg); box-shadow: var(--shadow-strong); position: sticky; top: 0; z-index: 1000; border-bottom: 3px solid var(--accent-primary);}
-        .navbar {display: flex; justify-content: space-between; align-items: center; max-width: 1350px; padding: 20px 30px; margin: 0 auto;}
-        .logo {font-size: 2rem; font-weight: 900; color: var(--accent-primary); text-decoration: none; text-shadow: 1px 1px 0 var(--accent-secondary); margin-right: 0;}
-        .nav-controls {display: flex; align-items: center; gap: 20px;}
-        nav {display: flex; align-items: center; margin: 0; padding: 0; gap: 20px;}
-        nav a {text-decoration: none; color: var(--text-color); font-weight: 600; padding: 10px 18px; border-radius: 5px; transition: all 0.2s ease-in-out; white-space: nowrap; margin: 0;}
-        nav a:hover {color: var(--accent-primary); background-color: var(--bg-color); transform: translateY(-2px);}
-        nav a.active {color: var(--card-bg); background-color: var(--accent-primary); box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4); font-weight: 700;}
-        .theme-toggle {background: var(--accent-secondary); border: none; color: var(--card-bg); padding: 12px 18px; border-radius: 50px; cursor: pointer; font-weight: 700; box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); margin-left: 0;}
-        .theme-toggle:hover {background-color: #0891b2; transform: scale(1.05);}
-        .content-wrapper {max-width: 1000px; margin: 40px auto; padding: 30px; background-color: var(--card-bg); border-radius: 12px; box-shadow: var(--shadow-strong); border-top: 5px solid var(--accent-secondary);}
-        .content-wrapper h1 {font-size: 2.5rem; color: var(--accent-primary); margin-bottom: 20px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;}
-        .section-box {margin-top: 30px; padding: 20px; border-left: 4px solid var(--accent-secondary); background-color: var(--bg-color); border-radius: 8px;}
-        .section-box h3 {font-size: 1.6rem; color: var(--accent-secondary); margin-bottom: 10px;}
-        .mission-grid {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;}
-        .mission-card {padding: 20px; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);}
-        .mission-card h4 {color: var(--accent-primary); margin-bottom: 8px;}
-        @media (max-width: 1024px) {.navbar {flex-wrap: wrap; justify-content: center;} .logo {margin-bottom: 15px;} .nav-controls {width: 100%; justify-content: center; margin-top: 15px;} nav {flex-wrap: wrap; justify-content: center; margin-bottom: 10px;} nav a {margin: 0 5px; padding: 8px 10px;} .content-wrapper {margin: 20px;}}
+        /* ========================================================================= */
+        /* 2. STYLES GÉNÉRAUX & TYPO 🖋️ */
+        /* ========================================================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
 
+        h1, h2, h3, h4 {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        /* ========================================================================= */
+        /* 3. EN-TÊTE ET NAVIGATION (IDENTIQUE) 🧭 */
+        /* ========================================================================= */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-strong);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--accent-primary);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1350px; 
+            margin: 0 auto;
+            padding: 20px 30px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent-primary);
+            text-decoration: none;
+            text-shadow: 1px 1px 0 var(--accent-secondary);
+            margin-right: 0; 
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            margin: 0; 
+            padding: 0;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 10px 18px; 
+            border-radius: 5px;
+            transition: all 0.2s ease-in-out;
+            white-space: nowrap; 
+            margin: 0; 
+        }
+
+        nav a:hover {
+            color: var(--accent-primary);
+            background-color: var(--bg-color);
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            color: var(--card-bg);
+            background-color: var(--accent-primary);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+            font-weight: 700;
+        }
+
+        .theme-toggle {
+            background: var(--accent-secondary);
+            border: none;
+            color: var(--card-bg);
+            padding: 12px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+            margin-left: 0; 
+        }
+
+        .theme-toggle:hover {
+            background-color: #0891b2;
+            transform: scale(1.05);
+        }
+        
+        /* ========================================================================= */
+        /* 4. CONTENU SPÉCIFIQUE À LA PAGE ENTREPRISE (Adapté à SPIP) 🏭 */
+        /* ========================================================================= */
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-strong);
+            border-top: 5px solid var(--accent-secondary);
+        }
+
+        .content-wrapper h1 {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .section-box {
+            margin-top: 30px;
+            padding: 20px;
+            border-left: 4px solid var(--accent-secondary);
+            background-color: var(--bg-color);
+            border-radius: 8px;
+        }
+
+        .section-box h3 {
+            font-size: 1.6rem;
+            color: var(--accent-secondary);
+            margin-bottom: 10px;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .mission-card {
+            padding: 20px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .mission-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+        }
+
+        /* ========================================================================= */
+        /* 5. RESPONSIVE 📱 (Identique) */
+        /* ========================================================================= */
+        @media (max-width: 1024px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .logo {
+                margin-bottom: 15px;
+            }
+            .nav-controls {
+                width: 100%;
+                justify-content: center;
+                margin-top: 15px;
+            }
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            nav a {
+                margin: 0 5px;
+                padding: 8px 10px;
+            }
+            .content-wrapper {
+                margin: 20px;
+            }
+        }
     </style>
 </head>
 <body data-theme="dark">
@@ -78,32 +253,32 @@
 
     <main class="container">
         <div class="content-wrapper">
-            <h1>Notre Philosophie d'Infrastructure</h1>
-            <p>Bienvenue sur la page dédiée à l'entité que je représente. Nous sommes une entreprise axée sur la <strong>cybersécurité</strong> et la <strong>résilience des infrastructures</strong>. Notre objectif est de transformer les besoins opérationnels en solutions réseau et serveur stables, performantes et entièrement sécurisées.</p>
+            <h1>SPIP Informatique : L'entreprise de Samuel Monier</h1>
+            <p>SPIP Informatique est une société de services informatiques dirigée par **Samuel Monier**. Axée sur la **proximité** et l'expertise locale, l'entreprise fournit des solutions **Réseau, Système et de Maintenance** adaptées aux PME et aux professionnels.</p>
 
             <div class="section-box">
-                <h3>Notre Mission : Connecter et Protéger</h3>
-                <p>Garantir la <strong>continuité des services critiques</strong> en concevant des architectures réseaux robustes (LAN/WAN) et en administrant des systèmes serveurs fiables, avec un focus particulier sur la <strong>haute disponibilité</strong> et la <strong>sécurité périmétrique</strong>.</p>
+                <h3>Notre Mission : Expertise, Réactivité, Durabilité</h3>
+                <p>La mission de SPIP est de garantir que l'infrastructure informatique de ses clients soit un atout, et non un frein. Cela passe par une **maintenance préventive** rigoureuse, une **sécurisation proactive** des données et une **gestion de parc optimisée** pour la performance.</p>
                 
                 <div class="mission-grid">
                     <div class="mission-card">
-                        <h4>Audit & Sécurité</h4>
-                        <p>Identifier et neutraliser les menaces potentielles, en implémentant des politiques de sécurité strictes et des solutions de pare-feu avancées.</p>
+                        <h4>Maintenance & Support</h4>
+                        <p>Dépannage rapide, maintenance à distance et sur site pour assurer une interruption minimale des activités.</p>
                     </div>
                     <div class="mission-card">
-                        <h4>Architecture Réseau</h4>
-                        <p>Conception, déploiement et maintenance d'infrastructures TCP/IP complexes pour optimiser le flux de données et la performance globale.</p>
+                        <h4>Infrastructure Réseau</h4>
+                        <p>Installation, configuration et sécurisation des réseaux d'entreprise (câblage, switchs, Wi-Fi professionnel).</p>
                     </div>
                     <div class="mission-card">
-                        <h4>Support Systèmes</h4>
-                        <p>Administration de plateformes Windows Server, gestion des identités (Active Directory) et maintien des serveurs applicatifs.</p>
+                        <h4>Solutions Serveur</h4>
+                        <p>Déploiement et administration de Windows Server (Active Directory, virtualisation Hyper-V/VMware) et solutions de sauvegarde.</p>
                     </div>
                 </div>
             </div>
 
             <div class="section-box">
-                <h3>L'Équipe Technique (Simulation)</h3>
-                <p>L'expertise repose sur une équipe d'administrateurs et d'ingénieurs passionnés, dont le moteur est le <strong>troubleshooting rapide</strong> et la <strong>gestion des incidents</strong>. Nous valorisons la documentation précise et la mise à jour constante des compétences techniques face à l'évolution des menaces.</p>
+                <h3>La Vision du Dirigeant</h3>
+                <p>Samuel Monier s'engage à offrir un service client personnalisé, basé sur la **confiance** et la **transparence**. L'objectif n'est pas seulement de réparer, mais de conseiller et d'accompagner les entreprises dans leur croissance numérique en leur fournissant des outils stables et sécurisés.</p>
             </div>
         </div>
     </main>
