@@ -13,8 +13,8 @@
             /* Couleurs Claires */
             --bg-color: #f8fafc;
             --text-color: #0f172a;
-            --accent-primary: #2563eb; /* Bleu Principal (Réseau) */
-            --accent-secondary: #06b6d4; /* Cyan (Data/Accents) */
+            --accent-primary: #2563eb; 
+            --accent-secondary: #06b6d4;
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
@@ -26,8 +26,8 @@
             /* Couleurs Sombres (Profond et High-Tech) */
             --bg-color: #020617; 
             --text-color: #e2e8f0;
-            --accent-primary: #60a5fa; /* Bleu plus clair pour le contraste */
-            --accent-secondary: #22d3ee; /* Cyan plus clair pour les détails */
+            --accent-primary: #60a5fa;
+            --accent-secondary: #22d3ee;
             --card-bg: #1e293b;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
             --border-color: #334155;
@@ -37,157 +37,144 @@
         /* ========================================================================= */
         /* 2. STYLES GÉNÉRAUX & FOND 🌐 */
         /* ========================================================================= */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            transition: background-color var(--transition-speed), color var(--transition-speed); 
+            line-height: 1.7; 
+            min-height: 100vh; 
+            overflow-x: hidden; 
         }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color var(--transition-speed), color var(--transition-speed);
-            line-height: 1.7;
-            min-height: 100vh;
-            overflow-x: hidden;
+        h1, h2, h3 { 
+            font-family: 'Space Mono', monospace; 
+            font-weight: 700; 
+            line-height: 1.2; 
+            color: var(--text-color); 
         }
-
-        h1, h2, h3 {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            line-height: 1.2;
-            color: var(--text-color);
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 30px;
+        .container { 
+            max-width: 1300px; 
+            margin: 0 auto; 
+            padding: 0 30px; 
         }
 
-        /* ========================================================================= */
-        /* 3. EN-TÊTE ET NAVIGATION (Alignement Stable V5) 🧭 */
-        /* ========================================================================= */
-        header {
-            background-color: var(--card-bg);
-            box-shadow: var(--shadow-strong);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 3px solid var(--accent-primary);
+        /* 3. EN-TÊTE ET NAVIGATION 🧭 */
+        header { 
+            background-color: var(--card-bg); 
+            box-shadow: var(--shadow-strong); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 3px solid var(--accent-primary); 
         }
-
-        .navbar {
-            display: flex;
+        .navbar { 
+            display: flex; 
             justify-content: space-between; 
-            align-items: center;
+            align-items: center; 
             max-width: 1350px; 
-            margin: 0 auto;
-            padding: 20px 30px;
+            margin: 0 auto; 
+            padding: 20px 30px; 
         }
-
-        .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--accent-primary);
-            text-decoration: none;
-            text-shadow: 1px 1px 0 var(--accent-secondary);
+        .logo { 
+            font-size: 2rem; 
+            font-weight: 900; 
+            color: var(--accent-primary); 
+            text-decoration: none; 
+            text-shadow: 1px 1px 0 var(--accent-secondary); 
             margin-right: 0; 
         }
-
-        .nav-controls {
-            display: flex;
-            align-items: center;
+        .nav-controls { 
+            display: flex; 
+            align-items: center; 
             gap: 20px; 
         }
-
-        nav {
-            display: flex;
-            align-items: center;
+        nav { 
+            display: flex; 
+            align-items: center; 
             margin: 0; 
-            padding: 0;
+            padding: 0; 
             gap: 20px; 
         }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 600;
+        nav a { 
+            text-decoration: none; 
+            color: var(--text-color); 
+            font-weight: 600; 
             padding: 10px 18px; 
-            border-radius: 5px;
-            transition: all 0.2s ease-in-out;
+            border-radius: 5px; 
+            transition: all 0.2s ease-in-out; 
             white-space: nowrap; 
             margin: 0; 
         }
-
-        nav a:hover {
-            color: var(--accent-primary);
-            background-color: var(--bg-color);
-            transform: translateY(-2px);
+        nav a:hover { 
+            color: var(--accent-primary); 
+            background-color: var(--bg-color); 
+            transform: translateY(-2px); 
         }
-
-        nav a.active {
-            color: var(--card-bg);
-            background-color: var(--accent-primary);
+        nav a.active { 
+            color: var(--card-bg); 
+            background-color: var(--accent-primary); 
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4); 
-            font-weight: 700;
+            font-weight: 700; 
         }
-
-        .theme-toggle {
-            background: var(--accent-secondary);
-            border: none;
-            color: var(--card-bg);
-            padding: 12px 18px;
+        .theme-toggle { 
+            background: var(--accent-secondary); 
+            border: none; 
+            color: var(--card-bg); 
+            padding: 12px 18px; 
             border-radius: 50px; 
-            cursor: pointer;
-            font-weight: 700;
-            transition: all var(--transition-speed);
+            cursor: pointer; 
+            font-weight: 700; 
+            transition: all var(--transition-speed); 
             box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); 
             margin-left: 0; 
         }
-
-        .theme-toggle:hover {
+        .theme-toggle:hover { 
             background-color: #0891b2; 
-            transform: scale(1.05);
+            transform: scale(1.05); 
         }
         
-        /* ========================================================================= */
-        /* 4. SECTION HÉRO (Code Background) 💻 */
-        /* ========================================================================= */
-        .hero {
+        /* 4. SECTION HÉRO (Code Background Amélioré) 💻 */
+        .hero { 
             min-height: 90vh; 
-            display: flex;
-            align-items: center;
-            position: relative;
+            display: flex; 
+            align-items: center; 
+            position: relative; 
             overflow: hidden; 
-            padding: 120px 0;
+            padding: 120px 0; 
         }
 
         .code-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            /* Hauteur plus grande pour ne pas voir le redémarrage de l'animation */
+            height: 200%; 
+            z-index: 1; 
             opacity: 0.05; 
-            pointer-events: none;
+            pointer-events: none; 
             overflow: hidden;
-            font-family: 'Space Mono', monospace;
-            font-size: 1rem;
+            font-family: 'Space Mono', monospace; 
+            font-size: 1rem; 
             color: var(--code-color);
             line-height: 1.5;
             white-space: nowrap;
         }
 
+        /* Optimisation de l'animation pour utiliser `transform` (plus performant) */
         .code-line {
             animation: scrollCode 60s linear infinite;
         }
 
         @keyframes scrollCode {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-100%); }
+            0% { 
+                /* L'animation commence à 0 et va jusqu'à la moitié de la hauteur du .code-background */
+                transform: translateY(0); 
+            }
+            100% { 
+                transform: translateY(-50%); 
+            }
         }
 
         .hero-content {
@@ -206,7 +193,8 @@
         }
 
         .hero-content h1 {
-            font-size: clamp(3rem, 7vw, 6rem);
+            /* Utilisation de clamp() pour une taille de police fluide et limitée */
+            font-size: clamp(3rem, 7vw + 1rem, 6rem); 
             margin: 0 0 10px 0;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
@@ -227,6 +215,7 @@
         .cta-button {
             display: inline-flex;
             align-items: center;
+            /* Changement du dégradé pour mieux utiliser les variables CSS */
             background-image: linear-gradient(45deg, var(--accent-primary) 0%, #a8c1f9 100%); 
             color: var(--card-bg); 
             text-decoration: none;
@@ -246,9 +235,7 @@
             box-shadow: 0 15px 35px rgba(37, 99, 235, 0.7); 
         }
 
-        /* ========================================================================= */
         /* 5. RESPONSIVE 📱 */
-        /* ========================================================================= */
         @media (max-width: 1024px) {
             .navbar {
                 flex-wrap: wrap;
@@ -271,12 +258,10 @@
                 margin: 0 5px;
                 padding: 8px 10px;
             }
-            .hero-content h1 {
-                font-size: 4rem;
-            }
         }
         @media (max-width: 600px) {
             .hero-content h1 {
+                /* La règle clamp() gère déjà le responsive, mais on peut ajuster ici si besoin */
                 font-size: 3rem;
             }
             .hero-content p {
@@ -298,8 +283,7 @@
         <div class="navbar">
             <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">SYS</span></a>
             <div class="nav-controls"> 
-
-<nav>
+                <nav>
                     <a href="index.html" class="active">Accueil</a>
                     <a href="cv.html">Mon CV</a>
                     <a href="company.html">À Propos de l'Entreprise</a>
@@ -314,6 +298,7 @@
     <main>
         <section class="hero container">
             <div class="code-background">
+                <!-- Répétition des lignes pour un fond dense -->
                 <pre class="code-line">
                     <code>
                         &lt;?php class ThomasBeal { public $role = "Ingénieur Réseau"; // Portfolio de Thomas Beal
@@ -343,12 +328,19 @@
                         function toggleTheme() { /* ... */ }
                     </code>
                 </pre>
-                <pre class="code-line"><code>&lt;?php class ThomasBeal { public $role = "Ingénieur Réseau"; ... ?&gt;</code></pre>
-                <pre class="code-line"><code>&lt;div id="hero" class="systems-focus"&gt; ... if (theme_mode === 'dark') { applyDarkMode(); }</code></pre>
-                <pre class="code-line"><code>&lt;p&gt; const fs = require('fs'); // Monitoring en temps réel ... function toggleTheme() { /* ... */ }</code></pre>
-                <pre class="code-line"><code>&lt;?php class ThomasBeal { public $role = "Ingénieur Réseau"; ... ?&gt;</code></pre>
-                <pre class="code-line"><code>&lt;div id="hero" class="systems-focus"&gt; ... if (theme_mode === 'dark') { applyDarkMode(); }</code></pre>
-                <pre class="code-line"><code>&lt;p&gt; const fs = require('fs'); // Monitoring en temps réel ... function toggleTheme() { /* ... */ }</code></pre>
+                <!-- Répétition pour s'assurer que le fond est plein sur 200% de la hauteur -->
+                <pre class="code-line"><code>// Répétition Ligne 1: Réseau & Systèmes</code></pre>
+                <pre class="code-line"><code>// Répétition Ligne 2: Infrastructure & Sécurité</code></pre>
+                <pre class="code-line"><code>// Répétition Ligne 3: Cloud & Automatisation</code></pre>
+                <pre class="code-line"><code>// Répétition Ligne 1: Réseau & Systèmes</code></pre>
+                <pre class="code-line"><code>// Répétition Ligne 2: Infrastructure & Sécurité</code></pre>
+                <pre class="code-line"><code>// Répétition Ligne 3: Cloud & Automatisation</code></pre>
+                <pre class="code-line"><code>// Répétition Ligne 1: Réseau & Systèmes</code></pre>
+                <pre class="code-line"><code>// Répétition Ligne 2: Infrastructure & Sécurité</code></pre>
+                <pre class="code-line"><code>// Répétition Ligne 3: Cloud & Automatisation</code></pre>
+                <pre class="code-line"><code>// Répétition Ligne 1: Réseau & Systèmes</code></pre>
+                <pre class="code-line"><code>// Répétition Ligne 2: Infrastructure & Sécurité</code></pre>
+                <pre class="code-line"><code>// Répétition Ligne 3: Cloud & Automatisation</code></pre>
             </div>
             
             <div class="hero-content">
