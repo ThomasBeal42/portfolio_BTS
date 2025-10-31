@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau des Compétences | Thomas Beal - Ingénieur Réseau & Systèmes</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========================================================================= */
+        /* 1. VARIABLES & THÈMES (Palette Réseau : Bleu & Cyan) 🌐 */
+        /* ========================================================================= */
+        :root {
+            /* Couleurs Claires */
+            --bg-color: #f8fafc;
+            --text-color: #0f172a;
+            --accent-primary: #2563eb;
+            --accent-secondary: #06b6d4;
+            --card-bg: #ffffff;
+            --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --border-color: #e2e8f0;
+            --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            --table-header-bg: #f1f5f9;
+        }
+
+        [data-theme="dark"] {
+            /* Couleurs Sombres */
+            --bg-color: #020617;
+            --text-color: #e2e8f0;
+            --accent-primary: #60a5fa;
+            --accent-secondary: #22d3ee;
+            --card-bg: #1e293b;
+            --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
+            --border-color: #334155;
+            --table-header-bg: #334155;
+        }
+
+        /* ========================================================================= */
+        /* 2. STYLES GÉNÉRAUX & TYPO 🖋️ */
+        /* ========================================================================= */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* 3. EN-TÊTE ET NAVIGATION (Styles cohérents) 🧭 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-strong);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--accent-primary);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1350px;
+            margin: 0 auto;
+            padding: 20px 30px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent-primary);
+            text-decoration: none;
+            text-shadow: 1px 1px 0 var(--accent-secondary);
+            margin-right: 0;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 5px;
+            transition: all 0.2s ease-in-out;
+            white-space: nowrap;
+            margin: 0;
+        }
+
+        nav a:hover {
+            color: var(--accent-primary);
+            background-color: var(--bg-color);
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            color: var(--card-bg);
+            background-color: var(--accent-primary);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+            font-weight: 700;
+        }
+
+        .theme-toggle {
+            background: var(--accent-secondary);
+            border: none;
+            color: var(--card-bg);
+            padding: 12px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+            margin-left: 0;
+        }
+
+        .theme-toggle:hover {
+            background-color: #0891b2;
+            transform: scale(1.05);
+        }
+
+        /* ========================================================================= */
+        /* 4. CONTENU SPÉCIFIQUE : TABLEAU DE COMPÉTENCES 📊 */
+        /* ========================================================================= */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-strong);
+            border-top: 5px solid var(--accent-secondary);
+        }
+
+        .content-wrapper h1 {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            /* Assure la responsivité sur mobile */
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        table thead th {
+            background-color: var(--table-header-bg);
+            color: var(--text-color);
+            padding: 15px 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        table tbody td {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: top;
+        }
+
+        table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        table tbody tr:hover {
+            background-color: var(--bg-color);
+        }
+
+        table tbody td:first-child {
+            font-weight: 700;
+            color: var(--accent-primary);
+            min-width: 150px;
+        }
+
+        /* Styles pour les barres de maîtrise (optionnel) */
+        .mastery-bar {
+            width: 100%;
+            background-color: var(--border-color);
+            border-radius: 5px;
+            height: 10px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .mastery-level {
+            height: 100%;
+            background-image: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: 5px;
+        }
+
+        /* Niveaux */
+        .level-acquis {
+            width: 90%;
+        }
+
+        .level-maitrise {
+            width: 75%;
+        }
+
+        .level-notions {
+            width: 40%;
+        }
+
+
+        /* ========================================================================= */
+        /* 5. RESPONSIVE 📱 */
+        /* ========================================================================= */
+        @media (max-width: 1024px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .logo {
+                margin-bottom: 15px;
+            }
+
+            .nav-controls {
+                width: 100%;
+                justify-content: center;
+                margin-top: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+
+            nav a {
+                margin: 0 5px;
+                padding: 8px 10px;
+            }
+
+            .content-wrapper {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            table thead {
+                display: none;
+                /* Cache les en-têtes sur mobile */
+            }
+
+            table,
+            table tbody,
+            table tr,
+            table td {
+                display: block;
+                width: 100%;
+            }
+
+            table tr {
+                border-bottom: 2px solid var(--accent-primary);
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+            }
+
+            table td {
+                padding-left: 40%;
+                /* Espace pour le label */
+                position: relative;
+                border-bottom: 1px dotted var(--border-color);
+            }
+
+            table td:last-child {
+                border-bottom: none;
+            }
+
+            table td:before {
+                content: attr(data-label);
+                /* Utilise data-label pour les en-têtes */
+                position: absolute;
+                left: 10px;
+                width: 35%;
+                padding-right: 10px;
+                font-weight: 700;
+                font-family: 'Space Mono', monospace;
+                color: var(--accent-secondary);
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">SYS</span></a>
+            <div class="nav-controls">
+                <nav>
+                    <a href="index.html">Accueil</a>
+                    <a href="cv.html">Mon CV</a>
+                    <a href="company.html">À Propos de l'Entreprise</a>
+                    <a href="veille.html">Veilles Technologiques</a>
+                    <a href="tableau.html" class="active">Tableau des Compétences</a>
+                </nav>
+                <button class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <h1>Tableau des Compétences Techniques</h1>
+            <p style="margin-bottom: 25px;">Voici une synthèse de mes compétences techniques acquises et en cours de
+                développement, essentielles pour l'administration des systèmes et réseaux.</p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Domaine</th>
+                            <th>Compétences Clés</th>
+                            <th>Niveau Actuel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Domaine">Réseau</td>
+                            <td data-label="Compétences">TCP/IP, Modèle OSI, Routage (statique, dynamique), Switching
+                                (VLANs), DNS, DHCP, VPN (WireGuard, OpenVPN).</td>
+                            <td data-label="Niveau">
+                                <strong>Maîtrisé</strong>
+                                <div class="mastery-bar">
+                                    <div class="mastery-level level-maitrise"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-label="Domaine">Systèmes (Microsoft)</td>
+                            <td data-label="Compétences">Windows Server (2019, 2022), Active Directory (Gestion des GPO,
+                                utilisateurs, groupes), Services DNS/DHCP.</td>
+                            <td data-label="Niveau">
+                                <strong>Maîtrisé</strong>
+                                <div class="mastery-bar">
+                                    <div class="mastery-level level-maitrise"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-label="Domaine">Systèmes (Linux)</td>
+                            <td data-label="Compétences">Distribution Debian/Ubuntu, Administration de base (ligne de
+                                commande), Gestion des paquets (APT), Permissions (chmod, chown).</td>
+                            <td data-label="Niveau">
+                                <strong>Acquis</strong>
+                                <div class="mastery-bar">
+                                    <div class="mastery-level level-acquis"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-label="Domaine">Sécurité</td>
+                            <td data-label="Compétences">Configuration de Pare-feu (pfSense, règles de base), Bonnes
+                                pratiques de sécurisation (mises à jour, mots de passe), Veille sur les menaces (CVE).
+                            </td>
+                            <td data-label="Niveau">
+                                <strong>Notions Avancées</strong>
+                                <div class="mastery-bar">
+                                    <div class="mastery-level level-maitrise"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-label="Domaine">Virtualisation</td>
+                            <td data-label="Compétences">Hyper-V (Création et gestion de VMs), VMware Workstation/ESXi
+                                (Bases).</td>
+                            <td data-label="Niveau">
+                                <strong>Notions Solides</strong>
+                                <div class="mastery-bar">
+                                    <div class="mastery-level level-notions"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td data-label="Domaine">Scripting & Algorithme</td>
+                            <td data-label="Compétences">Bases de Python (NSI), Scripting Shell (Bash), Automatisation
+                                simple (PowerShell).</td>
+                            <td data-label="Niveau">
+                                <strong>Notions Solides</strong>
+                                <div class="mastery-bar">
+                                    <div class="mastery-level level-notions"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Logique de gestion du thème et de la persistance (Identique)
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateToggleText(newTheme);
+        }
+
+        function updateToggleText(theme) {
+            document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            updateToggleText(savedTheme);
+
+            // Simule le mode sombre par défaut si localStorage est défini
+            if (savedTheme === 'dark') {
+                document.querySelector('.theme-toggle').textContent = 'Mode Clair';
+            }
+        });
+    </script>
+</body>
+
+</html>

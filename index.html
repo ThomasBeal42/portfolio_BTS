@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil | Thomas Beal - Ingénieur Réseau & Systèmes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
+        rel="stylesheet">
     <style>
         /* ========================================================================= */
         /* 1. VARIABLES & THÈMES (Palette Réseau : Bleu & Cyan) 🌐 */
@@ -13,7 +16,7 @@
             /* Couleurs Claires */
             --bg-color: #f8fafc;
             --text-color: #0f172a;
-            --accent-primary: #2563eb; 
+            --accent-primary: #2563eb;
             --accent-secondary: #06b6d4;
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -24,7 +27,7 @@
 
         [data-theme="dark"] {
             /* Couleurs Sombres (Profond et High-Tech) */
-            --bg-color: #020617; 
+            --bg-color: #020617;
             --text-color: #e2e8f0;
             --accent-primary: #60a5fa;
             --accent-secondary: #22d3ee;
@@ -37,126 +40,144 @@
         /* ========================================================================= */
         /* 2. STYLES GÉNÉRAUX & FOND 🌐 */
         /* ========================================================================= */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            transition: background-color var(--transition-speed), color var(--transition-speed); 
-            line-height: 1.7; 
-            min-height: 100vh; 
-            overflow-x: hidden; 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
-        h1, h2, h3 { 
-            font-family: 'Space Mono', monospace; 
-            font-weight: 700; 
-            line-height: 1.2; 
-            color: var(--text-color); 
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
-        .container { 
-            max-width: 1300px; 
-            margin: 0 auto; 
-            padding: 0 30px; 
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
         }
 
         /* 3. EN-TÊTE ET NAVIGATION 🧭 */
-        header { 
-            background-color: var(--card-bg); 
-            box-shadow: var(--shadow-strong); 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            border-bottom: 3px solid var(--accent-primary); 
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-strong);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--accent-primary);
         }
-        .navbar { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            max-width: 1350px; 
-            margin: 0 auto; 
-            padding: 20px 30px; 
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1350px;
+            margin: 0 auto;
+            padding: 20px 30px;
         }
-        .logo { 
-            font-size: 2rem; 
-            font-weight: 900; 
-            color: var(--accent-primary); 
-            text-decoration: none; 
-            text-shadow: 1px 1px 0 var(--accent-secondary); 
-            margin-right: 0; 
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent-primary);
+            text-decoration: none;
+            text-shadow: 1px 1px 0 var(--accent-secondary);
+            margin-right: 0;
         }
-        .nav-controls { 
-            display: flex; 
-            align-items: center; 
-            gap: 20px; 
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
-        nav { 
-            display: flex; 
-            align-items: center; 
-            margin: 0; 
-            padding: 0; 
-            gap: 20px; 
+
+        nav {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
         }
-        nav a { 
-            text-decoration: none; 
-            color: var(--text-color); 
-            font-weight: 600; 
-            padding: 10px 18px; 
-            border-radius: 5px; 
-            transition: all 0.2s ease-in-out; 
-            white-space: nowrap; 
-            margin: 0; 
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 5px;
+            transition: all 0.2s ease-in-out;
+            white-space: nowrap;
+            margin: 0;
         }
-        nav a:hover { 
-            color: var(--accent-primary); 
-            background-color: var(--bg-color); 
-            transform: translateY(-2px); 
+
+        nav a:hover {
+            color: var(--accent-primary);
+            background-color: var(--bg-color);
+            transform: translateY(-2px);
         }
-        nav a.active { 
-            color: var(--card-bg); 
-            background-color: var(--accent-primary); 
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4); 
-            font-weight: 700; 
+
+        nav a.active {
+            color: var(--card-bg);
+            background-color: var(--accent-primary);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+            font-weight: 700;
         }
-        .theme-toggle { 
-            background: var(--accent-secondary); 
-            border: none; 
-            color: var(--card-bg); 
-            padding: 12px 18px; 
-            border-radius: 50px; 
-            cursor: pointer; 
-            font-weight: 700; 
-            transition: all var(--transition-speed); 
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3); 
-            margin-left: 0; 
+
+        .theme-toggle {
+            background: var(--accent-secondary);
+            border: none;
+            color: var(--card-bg);
+            padding: 12px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all var(--transition-speed);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+            margin-left: 0;
         }
-        .theme-toggle:hover { 
-            background-color: #0891b2; 
-            transform: scale(1.05); 
+
+        .theme-toggle:hover {
+            background-color: #0891b2;
+            transform: scale(1.05);
         }
-        
+
         /* 4. SECTION HÉRO (Code Background Amélioré) 💻 */
-        .hero { 
-            min-height: 90vh; 
-            display: flex; 
-            align-items: center; 
-            position: relative; 
-            overflow: hidden; 
-            padding: 120px 0; 
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0;
         }
 
         .code-background {
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             /* Hauteur plus grande pour ne pas voir le redémarrage de l'animation */
-            height: 200%; 
-            z-index: 1; 
-            opacity: 0.05; 
-            pointer-events: none; 
+            height: 200%;
+            z-index: 1;
+            opacity: 0.05;
+            pointer-events: none;
             overflow: hidden;
-            font-family: 'Space Mono', monospace; 
-            font-size: 1rem; 
+            font-family: 'Space Mono', monospace;
+            font-size: 1rem;
             color: var(--code-color);
             line-height: 1.5;
             white-space: nowrap;
@@ -168,12 +189,13 @@
         }
 
         @keyframes scrollCode {
-            0% { 
+            0% {
                 /* L'animation commence à 0 et va jusqu'à la moitié de la hauteur du .code-background */
-                transform: translateY(0); 
+                transform: translateY(0);
             }
-            100% { 
-                transform: translateY(-50%); 
+
+            100% {
+                transform: translateY(-50%);
             }
         }
 
@@ -194,11 +216,11 @@
 
         .hero-content h1 {
             /* Utilisation de clamp() pour une taille de police fluide et limitée */
-            font-size: clamp(3rem, 7vw + 1rem, 6rem); 
+            font-size: clamp(3rem, 7vw + 1rem, 6rem);
             margin: 0 0 10px 0;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
-        
+
         .hero-content h1 .name {
             color: var(--accent-primary);
             font-style: italic;
@@ -216,8 +238,8 @@
             display: inline-flex;
             align-items: center;
             /* Changement du dégradé pour mieux utiliser les variables CSS */
-            background-image: linear-gradient(45deg, var(--accent-primary) 0%, #a8c1f9 100%); 
-            color: var(--card-bg); 
+            background-image: linear-gradient(45deg, var(--accent-primary) 0%, #a8c1f9 100%);
+            color: var(--card-bg);
             text-decoration: none;
             padding: 18px 40px;
             border-radius: 8px;
@@ -227,12 +249,12 @@
             transition: transform 0.3s, box-shadow 0.3s;
             border: none;
             cursor: pointer;
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5); 
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
         }
 
         .cta-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.7); 
+            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.7);
         }
 
         /* 5. RESPONSIVE 📱 */
@@ -241,36 +263,44 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
+
             .logo {
                 margin-bottom: 15px;
             }
+
             .nav-controls {
                 width: 100%;
                 justify-content: center;
-                margin-top: 15px; 
+                margin-top: 15px;
             }
+
             nav {
                 flex-wrap: wrap;
                 justify-content: center;
                 margin-bottom: 10px;
             }
+
             nav a {
                 margin: 0 5px;
                 padding: 8px 10px;
             }
         }
+
         @media (max-width: 600px) {
             .hero-content h1 {
                 /* La règle clamp() gère déjà le responsive, mais on peut ajuster ici si besoin */
                 font-size: 3rem;
             }
+
             .hero-content p {
                 font-size: 1rem;
             }
+
             .cta-button {
                 width: 100%;
                 justify-content: center;
             }
+
             .nav-controls {
                 flex-wrap: wrap;
                 gap: 10px;
@@ -278,17 +308,18 @@
         }
     </style>
 </head>
+
 <body data-theme="dark">
     <header>
         <div class="navbar">
             <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">SYS</span></a>
-            <div class="nav-controls"> 
+            <div class="nav-controls">
                 <nav>
                     <a href="index.html" class="active">Accueil</a>
                     <a href="cv.html">Mon CV</a>
                     <a href="company.html">À Propos de l'Entreprise</a>
                     <a href="veille.html">Veilles Technologiques</a>
-                    <a href="competences.html">Tableau des Compétences</a>
+                    <a href="tableau.html">Tableau des Compétences</a>
                 </nav>
                 <button class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>
             </div>
@@ -317,7 +348,7 @@
                         if (theme_mode === 'dark') { applyDarkMode(); }
                     </code>
                 </pre>
-                 <pre class="code-line">
+                <pre class="code-line">
                     <code>
                         &lt;p&gt; const fs = require('fs'); // Monitoring en temps réel
                         const deploy = (env) => { console.log(`Déploiement en cours sur ${env} via Ansible...`); };
@@ -342,19 +373,21 @@
                 <pre class="code-line"><code>// Répétition Ligne 2: Infrastructure & Sécurité</code></pre>
                 <pre class="code-line"><code>// Répétition Ligne 3: Cloud & Automatisation</code></pre>
             </div>
-            
+
             <div class="hero-content">
                 <h2>Salut, je suis un ingénieur Réseau & Systèmes</h2>
                 <h1><span class="name">Thomas Beal</span>.</h1>
                 <h1>Architecte d'infrastructure et expert en cybersécurité.</h1>
-                <p>Mon expertise réside dans la <strong>conception, la mise en œuvre et la sécurisation</strong> d'infrastructures informatiques robustes, des réseaux complexes aux serveurs critiques. <strong>Assurons la continuité de votre service</strong>.</p>
+                <p>Mon expertise réside dans la <strong>conception, la mise en œuvre et la sécurisation</strong>
+                    d'infrastructures informatiques robustes, des réseaux complexes aux serveurs critiques.
+                    <strong>Assurons la continuité de votre service</strong>.</p>
                 <a href="cv.html" class="cta-button">
                     Explorer Mon Profil &rarr;
                 </a>
             </div>
         </section>
 
-        </main>
+    </main>
 
     <script>
         // Logique de gestion du thème et de la persistance
@@ -362,7 +395,7 @@
             const body = document.body;
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
+
             body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateToggleText(newTheme);
@@ -380,9 +413,10 @@
 
         // Simule le mode sombre par défaut pour la démo
         if (localStorage.getItem('theme') !== 'light') {
-             document.body.setAttribute('data-theme', 'dark');
-             document.querySelector('.theme-toggle').textContent = 'Mode Clair';
+            document.body.setAttribute('data-theme', 'dark');
+            document.querySelector('.theme-toggle').textContent = 'Mode Clair';
         }
     </script>
 </body>
+
 </html>
