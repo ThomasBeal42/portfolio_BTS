@@ -171,20 +171,17 @@
             margin: 0;
         }
 
-        /* Fin NOUVEAU */
-
         /* Styles pour le conteneur de l'iframe */
         .iframe-container {
             position: relative;
-            /* NOUVEAU : 100% de la hauteur du main (l'espace restant sous le header) */
+            /* 100% de la hauteur du main (l'espace restant sous le header) */
             width: 100%;
             height: 100%;
-            min-height: 600px;
-            /* Conserve un minimum de hauteur */
+            /* Min-hauteur augmentée pour couvrir les grands écrans */
+            min-height: 1200px;
             overflow: hidden;
             border: 0;
             border-radius: 0;
-            /* Ajout d'une ombre et bordure pour encadrer l'iframe (simule un peu le style de l'ancienne carte) */
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
             border-top: 5px solid var(--accent-secondary);
@@ -194,13 +191,12 @@
             position: absolute;
             top: 0;
             left: 0;
-            /* COMPENSATION de la largeur pour le scale(0.85) */
-            width: 118%;
-            /* NOUVEAU : 100% de la hauteur du conteneur */
+            /* COMPENSATION de la largeur pour le scale(0.75) */
+            width: 134%;
             height: 100%;
             border: 0;
-            /* Zoom arrière de 85% */
-            transform: scale(0.85);
+            /* Zoom arrière de 75% */
+            transform: scale(0.75);
             /* Point d'origine du zoom (haut gauche) */
             transform-origin: top left;
         }
@@ -238,7 +234,8 @@
 
             /* Styles spécifiques aux mobiles */
             .iframe-container {
-                height: 70vh;
+                /* On utilise vh car le body n'est pas toujours 100vh sur mobile */
+                height: 85vh;
                 min-height: 500px;
             }
         }
