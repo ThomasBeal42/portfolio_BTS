@@ -9,6 +9,7 @@
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
         rel="stylesheet">
     <style>
+        /* [Reste des styles CSS inchangés] */
         /* ========================================================================= */
         /* 1. VARIABLES & THÈMES (Palette Réseau : Bleu & Cyan) 🌐 */
         /* ========================================================================= */
@@ -178,11 +179,11 @@
         /* Styles pour le conteneur de l'iframe */
         .iframe-container {
             position: relative;
+            /* Changements ici pour une meilleure couverture de l'écran */
             width: 100%;
-            height: 75vh;
-            /* Hauteur de 75% de la fenêtre */
-            min-height: 600px;
-            /* Hauteur minimale pour la lisibilité */
+            height: 90vh;
+            min-height: 800px;
+            /* Hauteur minimale augmentée pour lisibilité */
             overflow: hidden;
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -235,8 +236,10 @@
 
             /* Ajustement de la hauteur de l'iframe pour mobile */
             .iframe-container {
-                height: 60vh;
-                min-height: 400px;
+                height: 70vh;
+                /* Hauteur de l'iframe ajustée pour mobile */
+                min-height: 500px;
+                /* Min-hauteur ajustée pour mobile */
             }
         }
     </style>
@@ -265,7 +268,6 @@
             <p style="margin-bottom: 25px;">Ce tableau est synchronisé directement depuis mon Google Sheet. Toute
                 modification en ligne sera répercutée ici.</p>
 
-            <!-- Remplacement du tableau HTML par l'iframe Google Sheets -->
             <div class="iframe-container">
                 <iframe
                     src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS_GQuJe31_oeN6HVP0D1b5Fo1lZ353rVp_Dv15Lm6r2eOnf-RQ5rJsha1S9i-XW9tKnFY9a5O_VFYE/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
