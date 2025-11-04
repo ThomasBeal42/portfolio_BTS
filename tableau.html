@@ -185,11 +185,10 @@
         /* Styles pour le conteneur de l'iframe */
         .iframe-container {
             position: relative;
-            /* Changements pour une couverture maximale */
-            width: 100%;
-            /* S'étale sur tout le .iframe-full-width */
-            height: 110vh;
             /* Hauteur augmentée pour compenser le zoom arrière */
+            width: 100%;
+            height: 120vh;
+            /* Nouvelle hauteur virtuelle */
             min-height: 800px;
             overflow: hidden;
             border: 0;
@@ -200,10 +199,11 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            /* COMPENSATION de la largeur pour le scale(0.85) */
+            width: 118%;
             height: 100%;
             border: 0;
-            /* Ajout du zoom arrière */
+            /* Zoom arrière de 85% */
             transform: scale(0.85);
             /* Point d'origine du zoom (haut gauche) */
             transform-origin: top left;
