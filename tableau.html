@@ -19,8 +19,7 @@
             --accent-secondary: #06b6d4;
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --border-color: #e2e8f0;
-            --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            --transition-speed: 0.4s;
         }
 
         [data-theme="dark"] {
@@ -30,7 +29,6 @@
             --accent-secondary: #22d3ee;
             --card-bg: #1e293b;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
-            --border-color: #334155;
         }
 
         * {
@@ -39,28 +37,37 @@
             padding: 0;
         }
 
+        /* STRUCTURE DE LA PAGE : 100% de la hauteur, pas de scroll global */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            transition: background-color var(--transition-speed);
-            line-height: 1.7;
             height: 100vh;
+            /* Toute la hauteur de l'écran */
+            width: 100vw;
+            /* Toute la largeur */
             display: flex;
             flex-direction: column;
+            /* Empile Header + Main */
             overflow: hidden;
-            /* Pas de scroll sur la page principale */
+            /* Coupe tout ce qui dépasse */
         }
 
-        /* HEADER (Identique aux autres pages) */
+        h1,
+        h2,
+        h3 {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+        }
+
+        /* HEADER (Fixe en haut) */
         header {
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
-            position: sticky;
-            top: 0;
             z-index: 1000;
             border-bottom: 3px solid var(--accent-primary);
-            flex-shrink: 0;
+            flex: 0 0 auto;
+            /* Ne change pas de taille */
         }
 
         .navbar {
@@ -69,16 +76,14 @@
             align-items: center;
             max-width: 1350px;
             margin: 0 auto;
-            padding: 20px 30px;
+            padding: 15px 30px;
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 900;
             color: var(--accent-primary);
             text-decoration: none;
-            text-shadow: 1px 1px 0 var(--accent-secondary);
-            margin-right: 0;
         }
 
         .nav-controls {
@@ -89,17 +94,14 @@
 
         nav {
             display: flex;
-            align-items: center;
-            margin: 0;
-            padding: 0;
-            gap: 20px;
+            gap: 15px;
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-color);
             font-weight: 600;
-            padding: 10px 18px;
+            padding: 8px 12px;
             border-radius: 5px;
             transition: all 0.2s;
             white-space: nowrap;
@@ -108,68 +110,57 @@
         nav a:hover {
             color: var(--accent-primary);
             background-color: var(--bg-color);
-            transform: translateY(-2px);
         }
 
         nav a.active {
             color: var(--card-bg);
             background-color: var(--accent-primary);
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
         }
 
         .theme-toggle {
             background: var(--accent-secondary);
             border: none;
             color: var(--card-bg);
-            padding: 12px 18px;
+            padding: 8px 15px;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: 'Space Mono', monospace;
-            font-weight: 700;
-            color: var(--text-color);
         }
 
         /* ========================================================================= */
-        /* ZONE TABLEAU (Ajustée pour supprimer le blanc) */
+        /* ZONE PRINCIPALE (Prend tout le reste de la place) */
         /* ========================================================================= */
         main {
-            flex-grow: 1;
+            flex: 1 1 auto;
+            /* Grandit pour remplir le vide */
             position: relative;
-            background-color: var(--card-bg);
+            background-color: #ffffff;
+            /* Fond blanc pour se fondre avec Google Sheets */
             overflow: hidden;
         }
 
-        .iframe-container {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            /* Centre horizontalement */
-            align-items: flex-start;
-            /* Colle en haut */
-        }
-
-        .iframe-container iframe {
+        /* L'IFRAME : CALCUL PRECIS */
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             border: 0;
 
-            /* CADRAGE : On limite la taille pour couper le blanc à droite/bas */
-            width: 165%;
-            height: 165%;
-
-            /* ZOOM : Ajusté pour la lisibilité */
-            transform: scale(0.60);
+            /* RÉGLAGE DU ZOOM :
+               Si tu veux voir PLUS de tableau (plus petit), diminue le Scale (ex: 0.50)
+               et augmente le Width/Height (ex: 200%).
+               
+               Actuellement : Scale 0.55 (55%) -> Width/Height 182%
+               (100 / 0.55 = 181.81...)
+            */
+            width: 182%;
+            height: 182%;
+            transform: scale(0.55);
             transform-origin: top left;
+            /* Colle le tableau en haut à gauche */
         }
 
-        /* RESPONSIVE */
+        /* Responsive Mobile */
         @media (max-width: 1024px) {
 
             .navbar,
@@ -178,15 +169,9 @@
                 justify-content: center;
             }
 
-            .nav-controls {
-                width: 100%;
-                justify-content: center;
-                margin-top: 15px;
-            }
-
-            .iframe-container iframe {
+            iframe {
                 width: 250%;
-                height: 200%;
+                height: 250%;
                 transform: scale(0.40);
             }
         }
@@ -201,20 +186,19 @@
                 <nav>
                     <a href="index.html">Accueil</a>
                     <a href="cv.html">Mon CV</a>
-                    <a href="company.html">À Propos de l'Entreprise</a>
-                    <a href="veille.html">Veilles Technologiques</a>
-                    <a href="tableau.html" class="active">Tableau des Compétences</a>
+                    <a href="company.html">Entreprise</a>
+                    <a href="veille.html">Veilles</a>
+                    <a href="tableau.html" class="active">Compétences E5</a>
                 </nav>
-                <button class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>
+                <button class="theme-toggle" onclick="toggleTheme()">Clair/Sombre</button>
             </div>
         </div>
     </header>
 
     <main>
-        <div class="iframe-container">
-            <iframe
-                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS_GQuJe31_oeN6HVP0D1b5Fo1lZ353rVp_Dv15Lm6r2eOnf-RQ5rJsha1S9i-XW9tKnFY9a5O_VFYE/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-        </div>
+        <iframe
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS_GQuJe31_oeN6HVP0D1b5Fo1lZ353rVp_Dv15Lm6r2eOnf-RQ5rJsha1S9i-XW9tKnFY9a5O_VFYE/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false">
+        </iframe>
     </main>
 
     <script>
@@ -224,16 +208,10 @@
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            updateToggleText(newTheme);
-        }
-        function updateToggleText(theme) {
-            document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
         }
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', savedTheme);
-            updateToggleText(savedTheme);
-            if (savedTheme === 'dark') document.querySelector('.theme-toggle').textContent = 'Mode Clair';
         });
     </script>
 </body>
