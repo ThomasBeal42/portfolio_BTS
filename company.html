@@ -4,16 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos de SPIP Informatique | Thomas Beal - Ingénieur Réseau & Systèmes</title>
+    <title>À Propos de SPIP Informatique</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
         rel="stylesheet">
     <style>
-        /* ========================================================================= */
-        /* 1. VARIABLES & THÈMES (Palette Réseau : Bleu & Cyan) 🌐 */
-        /* ========================================================================= */
+        /* Styles identiques au fichier d'origine */
         :root {
-            /* Couleurs Claires */
             --bg-color: #f8fafc;
             --text-color: #0f172a;
             --accent-primary: #2563eb;
@@ -21,11 +18,10 @@
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
-            --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            --transition-speed: 0.4s;
         }
 
         [data-theme="dark"] {
-            /* Couleurs Sombres */
             --bg-color: #020617;
             --text-color: #e2e8f0;
             --accent-primary: #60a5fa;
@@ -35,9 +31,6 @@
             --border-color: #334155;
         }
 
-        /* ========================================================================= */
-        /* 2. STYLES GÉNÉRAUX & TYPO 🖋️ */
-        /* ========================================================================= */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -59,7 +52,6 @@
         h4 {
             font-family: 'Space Mono', monospace;
             font-weight: 700;
-            line-height: 1.2;
             color: var(--text-color);
         }
 
@@ -69,7 +61,6 @@
             padding: 0 30px;
         }
 
-        /* 3. EN-TÊTE ET NAVIGATION (Styles cohérents) 🧭 */
         header {
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
@@ -94,7 +85,6 @@
             color: var(--accent-primary);
             text-decoration: none;
             text-shadow: 1px 1px 0 var(--accent-secondary);
-            margin-right: 0;
         }
 
         .nav-controls {
@@ -106,8 +96,6 @@
         nav {
             display: flex;
             align-items: center;
-            margin: 0;
-            padding: 0;
             gap: 20px;
         }
 
@@ -117,9 +105,8 @@
             font-weight: 600;
             padding: 10px 18px;
             border-radius: 5px;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.2s;
             white-space: nowrap;
-            margin: 0;
         }
 
         nav a:hover {
@@ -132,7 +119,6 @@
             color: var(--card-bg);
             background-color: var(--accent-primary);
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
-            font-weight: 700;
         }
 
         .theme-toggle {
@@ -143,18 +129,8 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
-            margin-left: 0;
         }
 
-        .theme-toggle:hover {
-            background-color: #0891b2;
-            transform: scale(1.05);
-        }
-
-        /* ========================================================================= */
-        /* 4. CONTENU SPÉCIFIQUE À LA PAGE ENTREPRISE (Adapté à SPIP) 🏭 */
-        /* ========================================================================= */
         .content-wrapper {
             max-width: 1000px;
             margin: 40px auto;
@@ -181,16 +157,8 @@
             border-radius: 8px;
         }
 
-        .section-box h3 {
-            font-size: 1.6rem;
-            color: var(--accent-secondary);
-            margin-bottom: 10px;
-        }
-
-        /* Mise à jour pour la nouvelle structure sémantique (ul) */
         .mission-grid {
             list-style: none;
-            /* Retrait des puces de liste */
             padding: 0;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -198,14 +166,12 @@
             margin-top: 20px;
         }
 
-        /* Style des éléments de la liste (li) */
         .mission-card {
             padding: 20px;
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            /* Ombre plus douce */
             transition: all 0.3s ease;
         }
 
@@ -220,34 +186,12 @@
             margin-bottom: 8px;
         }
 
-        /* ========================================================================= */
-        /* 5. RESPONSIVE 📱 */
-        /* ========================================================================= */
         @media (max-width: 1024px) {
-            .navbar {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
 
-            .logo {
-                margin-bottom: 15px;
-            }
-
-            .nav-controls {
-                width: 100%;
-                justify-content: center;
-                margin-top: 15px;
-            }
-
+            .navbar,
             nav {
                 flex-wrap: wrap;
                 justify-content: center;
-                margin-bottom: 10px;
-            }
-
-            nav a {
-                margin: 0 5px;
-                padding: 8px 10px;
             }
 
             .content-wrapper {
@@ -276,73 +220,59 @@
 
     <main class="container">
         <div class="content-wrapper">
-            <h1>SPIP Informatique : L'entreprise de Samuel Monier</h1>
-            <p>SPIP Informatique est une société de services informatiques dirigée par **Samuel Monier**. Axée sur la
-                **proximité** et l'expertise locale, l'entreprise fournit des solutions **Réseau, Système et de
-                Maintenance** adaptées aux PME et aux professionnels.</p>
+            <h1>SPIP Informatique : Proximité & Expertise</h1>
+            <p>Mon entreprise d'accueil, <strong>SPIP Informatique</strong>, dirigée par <strong>Samuel Monier</strong>,
+                est un acteur clé du service informatique local. Nous intervenons auprès des PME et professionnels pour
+                garantir des systèmes fiables et pérennes.</p>
 
             <div class="section-box">
-                <h3>Notre Mission : Expertise, Réactivité, Durabilité</h3>
-                <p>La mission de SPIP est de garantir que l'infrastructure informatique de ses clients soit un atout, et
-                    non un frein. Cela passe par une **maintenance préventive** rigoureuse, une **sécurisation
-                    proactive** des données et une **gestion de parc optimisée** pour la performance.</p>
+                <h3>Mon rôle en alternance</h3>
+                <p>En tant qu'apprenti BTS SIO, j'assiste M. Monier sur l'ensemble des missions techniques. C'est un
+                    environnement idéal pour apprendre la <strong>polyvalence</strong> et la <strong>relation
+                        client</strong>, des atouts majeurs pour le diplôme.</p>
 
-                <!-- Utilisation de ul/li pour la liste des missions (sémantique améliorée) -->
                 <ul class="mission-grid">
                     <li class="mission-card">
-                        <h4>Maintenance & Support</h4>
-                        <p>Dépannage rapide, maintenance à distance et sur site pour assurer une interruption minimale
-                            des activités.</p>
+                        <h4>Maintenance Parc Informatique</h4>
+                        <p>Gestion quotidienne des pannes matérielles et logicielles chez nos clients (Dépannage, Mises
+                            à jour, Sécurité).</p>
                     </li>
                     <li class="mission-card">
-                        <h4>Infrastructure Réseau</h4>
-                        <p>Installation, configuration et sécurisation des réseaux d'entreprise (câblage, switchs, Wi-Fi
-                            professionnel).</p>
+                        <h4>Réseaux & Infrastructures</h4>
+                        <p>Installation de baies de brassage, configuration de switchs et mise en place de solutions
+                            Wi-Fi performantes.</p>
                     </li>
                     <li class="mission-card">
-                        <h4>Solutions Serveur</h4>
-                        <p>Déploiement et administration de Windows Server (Active Directory, virtualisation
-                            Hyper-V/VMware) et solutions de sauvegarde.</p>
+                        <h4>Vente & Conseil</h4>
+                        <p>Accompagnement des clients dans le choix de leur matériel informatique adapté à leurs besoins
+                            professionnels.</p>
                     </li>
                 </ul>
-            </div>
-
-            <div class="section-box">
-                <h3>La Vision du Dirigeant</h3>
-                <p>Samuel Monier s'engage à offrir un service client personnalisé, basé sur la **confiance** et la
-                    **transparence**. L'objectif n'est pas seulement de réparer, mais de conseiller et d'accompagner les
-                    entreprises dans leur croissance numérique en leur fournissant des outils stables et sécurisés.</p>
             </div>
         </div>
     </main>
 
     <script>
-        // Logique de gestion du thème et de la persistance (Identique)
         function toggleTheme() {
             const body = document.body;
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
             body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateToggleText(newTheme);
         }
-
         function updateToggleText(theme) {
             document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
         }
-
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', savedTheme);
             updateToggleText(savedTheme);
+            if (localStorage.getItem('theme') !== 'light') {
+                document.body.setAttribute('data-theme', 'dark');
+                document.querySelector('.theme-toggle').textContent = 'Mode Clair';
+            }
         });
-
-        // Simule le mode sombre par défaut
-        if (localStorage.getItem('theme') !== 'light') {
-            document.body.setAttribute('data-theme', 'dark');
-            document.querySelector('.theme-toggle').textContent = 'Mode Clair';
-        }
     </script>
 </body>
 
