@@ -10,7 +10,7 @@
         rel="stylesheet">
     <style>
         /* ========================================================================= */
-        /* 1. VARIABLES (IDENTIQUES) */
+        /* 1. VARIABLES */
         /* ========================================================================= */
         :root {
             --bg-color: #f8fafc;
@@ -49,9 +49,10 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            /* Pas de scroll sur la page principale */
         }
 
-        /* HEADER (Code identique) */
+        /* HEADER (Identique aux autres pages) */
         header {
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
@@ -136,7 +137,7 @@
         }
 
         /* ========================================================================= */
-        /* ZONE TABLEAU AJUSTÉE POUR ENLEVER LE BLANC */
+        /* ZONE TABLEAU (Ajustée pour supprimer le blanc) */
         /* ========================================================================= */
         main {
             flex-grow: 1;
@@ -149,30 +150,26 @@
             width: 100%;
             height: 100%;
             position: relative;
-            /* Centre le contenu pour équilibrer */
             display: flex;
             justify-content: center;
+            /* Centre horizontalement */
             align-items: flex-start;
+            /* Colle en haut */
         }
 
         .iframe-container iframe {
             border: 0;
 
-            /* --- REGLAGES DU CADRAGE --- */
-            /* J'ai réduit ces valeurs pour "couper" le blanc inutile à droite et en bas */
-            /* Si tu as encore du blanc à droite, diminue le width (ex: 150%) */
-            /* Si tu as du blanc en bas, diminue le height */
+            /* CADRAGE : On limite la taille pour couper le blanc à droite/bas */
             width: 165%;
             height: 165%;
 
-            /* --- REGLAGES DU ZOOM --- */
-            /* J'ai augmenté un peu le zoom (0.60) pour que ce soit lisible */
-            /* Si c'est trop gros, baisse à 0.50 */
+            /* ZOOM : Ajusté pour la lisibilité */
             transform: scale(0.60);
-
             transform-origin: top left;
         }
 
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
 
             .navbar,
@@ -189,10 +186,8 @@
 
             .iframe-container iframe {
                 width: 250%;
-                /* Plus large sur mobile */
                 height: 200%;
                 transform: scale(0.40);
-                /* Zoom plus petit sur mobile */
             }
         }
     </style>
