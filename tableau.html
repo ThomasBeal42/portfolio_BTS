@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau des Compétences | Thomas Beal - Ingénieur Réseau & Systèmes</title>
+    <title>Tableau des Compétences | Thomas Beal - BTS SIO SISR</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
         rel="stylesheet">
     <style>
         /* ========================================================================= */
-        /* 1. VARIABLES & THÈMES (Palette Réseau : Bleu & Cyan) 🌐 */
+        /* 1. VARIABLES & THÈMES */
         /* ========================================================================= */
         :root {
-            /* Couleurs Claires */
             --bg-color: #f8fafc;
             --text-color: #0f172a;
             --accent-primary: #2563eb;
@@ -26,7 +25,6 @@
         }
 
         [data-theme="dark"] {
-            /* Couleurs Sombres */
             --bg-color: #020617;
             --text-color: #e2e8f0;
             --accent-primary: #60a5fa;
@@ -38,7 +36,7 @@
         }
 
         /* ========================================================================= */
-        /* 2. STYLES GÉNÉRAUX & TYPO 🖋️ */
+        /* 2. STYLES GÉNÉRAUX */
         /* ========================================================================= */
         * {
             box-sizing: border-box;
@@ -53,10 +51,8 @@
             transition: background-color var(--transition-speed), color var(--transition-speed);
             line-height: 1.7;
             min-height: 100vh;
-            /* NOUVEAU : Utilisation de Flexbox pour un layout Header/Content */
             display: flex;
             flex-direction: column;
-            /* Fin NOUVEAU */
         }
 
         h1,
@@ -69,13 +65,7 @@
             color: var(--text-color);
         }
 
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        /* 3. EN-TÊTE ET NAVIGATION (Styles cohérents) 🧭 */
+        /* 3. EN-TÊTE ET NAVIGATION */
         header {
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
@@ -84,7 +74,6 @@
             z-index: 1000;
             border-bottom: 3px solid var(--accent-primary);
             flex-shrink: 0;
-            /* Assure que le header ne soit pas écrasé */
         }
 
         .navbar {
@@ -102,7 +91,6 @@
             color: var(--accent-primary);
             text-decoration: none;
             text-shadow: 1px 1px 0 var(--accent-secondary);
-            margin-right: 0;
         }
 
         .nav-controls {
@@ -114,8 +102,6 @@
         nav {
             display: flex;
             align-items: center;
-            margin: 0;
-            padding: 0;
             gap: 20px;
         }
 
@@ -127,7 +113,6 @@
             border-radius: 5px;
             transition: all 0.2s ease-in-out;
             white-space: nowrap;
-            margin: 0;
         }
 
         nav a:hover {
@@ -152,7 +137,6 @@
             cursor: pointer;
             font-weight: 700;
             box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
-            margin-left: 0;
         }
 
         .theme-toggle:hover {
@@ -161,58 +145,44 @@
         }
 
         /* ========================================================================= */
-        /* 4. CONTENU SPÉCIFIQUE : TABLEAU DE COMPÉTENCES (IFRAME) 📊 */
+        /* 4. CONTENU SPÉCIFIQUE : TABLEAU DE COMPÉTENCES */
         /* ========================================================================= */
-        /* NOUVEAU : Main prend l'espace restant */
         main {
             flex-grow: 1;
             padding: 0;
-            /* Enlève les paddings qui limiteraient l'iframe */
             margin: 0;
+            display: flex;
+            /* Pour que le container prenne toute la hauteur */
         }
 
-        /* Styles pour le conteneur de l'iframe */
         .iframe-container {
             position: relative;
-            /* 100% de la hauteur du main (l'espace restant sous le header) */
             width: 100%;
             height: 100%;
-            /* Min-hauteur augmentée pour couvrir les grands écrans */
-            min-height: 1200px;
-            overflow: hidden;
-            border: 0;
-            border-radius: 0;
+            /* Important : on autorise le scroll si le tableau est trop grand */
+            overflow: auto;
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
             border-top: 5px solid var(--accent-secondary);
+            /* S'assure que le container prend au moins l'espace restant */
+            min-height: 85vh;
         }
 
         .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            /* COMPENSATION de la largeur pour le scale(0.75) */
-            width: 134%;
+            display: block;
+            /* Évite les espaces fantômes */
+            width: 100%;
             height: 100%;
             border: 0;
-            /* Zoom arrière de 75% */
-            transform: scale(0.75);
-            /* Point d'origine du zoom (haut gauche) */
-            transform-origin: top left;
+            min-height: 1000px;
+            /* Force une hauteur min pour voir le contenu */
         }
 
-
-        /* ========================================================================= */
-        /* 5. RESPONSIVE 📱 */
-        /* ========================================================================= */
+        /* 5. RESPONSIVE */
         @media (max-width: 1024px) {
             .navbar {
                 flex-wrap: wrap;
                 justify-content: center;
-            }
-
-            .logo {
-                margin-bottom: 15px;
             }
 
             .nav-controls {
@@ -224,19 +194,11 @@
             nav {
                 flex-wrap: wrap;
                 justify-content: center;
-                margin-bottom: 10px;
             }
 
-            nav a {
-                margin: 0 5px;
-                padding: 8px 10px;
-            }
-
-            /* Styles spécifiques aux mobiles */
             .iframe-container {
-                /* On utilise vh car le body n'est pas toujours 100vh sur mobile */
-                height: 85vh;
-                min-height: 500px;
+                height: auto;
+                min-height: 80vh;
             }
         }
     </style>
@@ -267,12 +229,10 @@
     </main>
 
     <script>
-        // Logique de gestion du thème et de la persistance (Identique)
         function toggleTheme() {
             const body = document.body;
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
             body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateToggleText(newTheme);
@@ -287,7 +247,6 @@
             document.body.setAttribute('data-theme', savedTheme);
             updateToggleText(savedTheme);
 
-            // Simule le mode sombre par défaut si localStorage est défini
             if (savedTheme === 'dark') {
                 document.querySelector('.theme-toggle').textContent = 'Mode Clair';
             }
