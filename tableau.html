@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau des Compétences | Thomas Beal - BTS SIO SISR</title>
+    <title>Tableau des Compétences E5 | Thomas Beal</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
         rel="stylesheet">
     <style>
         /* ========================================================================= */
-        /* 1. VARIABLES */
+        /* 1. VARIABLES & THÈMES (Identique à index.html) */
         /* ========================================================================= */
         :root {
             --bg-color: #f8fafc;
@@ -19,7 +19,9 @@
             --accent-secondary: #06b6d4;
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --transition-speed: 0.4s;
+            --border-color: #e2e8f0;
+            --code-color: #94a3b8;
+            --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         [data-theme="dark"] {
@@ -29,6 +31,8 @@
             --accent-secondary: #22d3ee;
             --card-bg: #1e293b;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
+            --border-color: #334155;
+            --code-color: #475569;
         }
 
         * {
@@ -37,20 +41,15 @@
             padding: 0;
         }
 
-        /* STRUCTURE DE LA PAGE : 100% de la hauteur, pas de scroll global */
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            height: 100vh;
-            /* Toute la hauteur de l'écran */
-            width: 100vw;
-            /* Toute la largeur */
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            line-height: 1.7;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            /* Empile Header + Main */
-            overflow: hidden;
-            /* Coupe tout ce qui dépasse */
         }
 
         h1,
@@ -58,16 +57,19 @@
         h3 {
             font-family: 'Space Mono', monospace;
             font-weight: 700;
+            color: var(--text-color);
         }
 
-        /* HEADER (Fixe en haut) */
+        /* ========================================================================= */
+        /* 2. HEADER (Identique aux autres pages) */
+        /* ========================================================================= */
         header {
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
+            position: sticky;
+            top: 0;
             z-index: 1000;
             border-bottom: 3px solid var(--accent-primary);
-            flex: 0 0 auto;
-            /* Ne change pas de taille */
         }
 
         .navbar {
@@ -76,14 +78,15 @@
             align-items: center;
             max-width: 1350px;
             margin: 0 auto;
-            padding: 15px 30px;
+            padding: 20px 30px;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 900;
             color: var(--accent-primary);
             text-decoration: none;
+            text-shadow: 1px 1px 0 var(--accent-secondary);
         }
 
         .nav-controls {
@@ -94,85 +97,176 @@
 
         nav {
             display: flex;
-            gap: 15px;
+            align-items: center;
+            gap: 20px;
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-color);
             font-weight: 600;
-            padding: 8px 12px;
+            padding: 10px 18px;
             border-radius: 5px;
-            transition: all 0.2s;
+            transition: all 0.2s ease-in-out;
             white-space: nowrap;
         }
 
         nav a:hover {
             color: var(--accent-primary);
             background-color: var(--bg-color);
+            transform: translateY(-2px);
         }
 
         nav a.active {
             color: var(--card-bg);
             background-color: var(--accent-primary);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
         }
 
         .theme-toggle {
             background: var(--accent-secondary);
             border: none;
             color: var(--card-bg);
-            padding: 8px 15px;
+            padding: 12px 18px;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 700;
+            transition: all var(--transition-speed);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
         }
 
         /* ========================================================================= */
-        /* ZONE PRINCIPALE (Prend tout le reste de la place) */
+        /* 3. MAIN CONTENT & TABLEAU */
         /* ========================================================================= */
         main {
-            flex: 1 1 auto;
-            /* Grandit pour remplir le vide */
+            flex: 1;
+            padding: 40px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .intro-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .intro-section p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+
+        /* Barre d'outils au dessus du tableau */
+        .toolbar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .btn-tool {
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-tool:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-primary);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Conteneur du tableau iframe */
+        .iframe-wrapper {
             position: relative;
-            background-color: #ffffff;
-            /* Fond blanc pour se fondre avec Google Sheets */
+            width: 100%;
+            height: 75vh;
+            /* Hauteur confortable */
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-strong);
             overflow: hidden;
+            border: 1px solid var(--border-color);
         }
 
-        /* L'IFRAME : CALCUL PRECIS */
         iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            border: 0;
-
-            /* RÉGLAGE DU ZOOM :
-               Si tu veux voir PLUS de tableau (plus petit), diminue le Scale (ex: 0.50)
-               et augmente le Width/Height (ex: 200%).
-               
-               Actuellement : Scale 0.55 (55%) -> Width/Height 182%
-               (100 / 0.55 = 181.81...)
-            */
-            width: 182%;
-            height: 182%;
-            transform: scale(0.55);
-            transform-origin: top left;
-            /* Colle le tableau en haut à gauche */
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            /* Évite les espaces fantômes */
         }
 
-        /* Responsive Mobile */
-        @media (max-width: 1024px) {
+        /* Loader pour faire patienter */
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--border-color);
+            border-top: 5px solid var(--accent-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            z-index: 0;
+            /* Derrière l'iframe une fois chargé */
+        }
 
-            .navbar,
-            nav {
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .navbar {
                 flex-wrap: wrap;
                 justify-content: center;
             }
 
-            iframe {
-                width: 250%;
-                height: 250%;
-                transform: scale(0.40);
+            .nav-controls {
+                margin-top: 15px;
+            }
+
+            .iframe-wrapper {
+                height: 60vh;
             }
         }
     </style>
@@ -186,18 +280,43 @@
                 <nav>
                     <a href="index.html">Accueil</a>
                     <a href="cv.html">Mon CV</a>
-                    <a href="company.html">Entreprise</a>
-                    <a href="veille.html">Veilles</a>
-                    <a href="tableau.html" class="active">Compétences E5</a>
+                    <a href="company.html">À Propos de l'Entreprise</a>
+                    <a href="veille.html">Veilles Technologiques</a>
+                    <a href="tableau.html" class="active">Tableau des Compétences</a>
                 </nav>
-                <button class="theme-toggle" onclick="toggleTheme()">Clair/Sombre</button>
+                <button class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>
             </div>
         </div>
     </header>
 
     <main>
-        <iframe
-            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTN3nPB1izEXPeoKXbtfHHgKAmKGo0ZegOMtd7NQZGhFgf1eYgtIrquENDGN6FMCBRO-X8zUZSSqkSG/pubhtml?gid=1946600553&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+        <section class="intro-section">
+            <h1>Tableau de Synthèse - Epreuve E5</h1>
+            <p>
+                Suivi détaillé de l'acquisition des compétences du <strong>BTS SIO option SISR</strong>.
+                Réalisé dans le cadre de mon alternance chez <strong>SPIP Informatique</strong> à Crémaux.
+                Ce tableau recense mes activités techniques, de la maintenance parc à l'administration réseau.
+            </p>
+        </section>
+
+        <div class="toolbar">
+            <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTN3nPB1izEXPeoKXbtfHHgKAmKGo0ZegOMtd7NQZGhFgf1eYgtIrquENDGN6FMCBRO-X8zUZSSqkSG/pubhtml?gid=1946600553"
+                target="_blank" class="btn-tool">
+                <span>↗</span> Ouvrir dans Google Sheets
+            </a>
+            <a href="#" onclick="alert('Fonctionnalité export PDF à configurer selon le navigateur.')"
+                class="btn-tool btn-primary">
+                <span>↓</span> Exporter en PDF
+            </a>
+        </div>
+
+        <div class="iframe-wrapper">
+            <div class="loader"></div>
+            <iframe
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTN3nPB1izEXPeoKXbtfHHgKAmKGo0ZegOMtd7NQZGhFgf1eYgtIrquENDGN6FMCBRO-X8zUZSSqkSG/pubhtml?gid=1946600553&amp;single=true&amp;widget=true&amp;headers=false"
+                onload="this.style.zIndex='1'; this.style.position='relative';">
+            </iframe>
+        </div>
     </main>
 
     <script>
@@ -207,10 +326,21 @@
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+            updateToggleText(newTheme);
+        }
+        function updateToggleText(theme) {
+            document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
         }
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', savedTheme);
+            updateToggleText(savedTheme);
+
+            // Force le mode sombre par défaut si pas de préférence
+            if (!localStorage.getItem('theme')) {
+                document.body.setAttribute('data-theme', 'dark');
+                document.querySelector('.theme-toggle').textContent = 'Mode Clair';
+            }
         });
     </script>
 </body>
