@@ -10,7 +10,7 @@
         rel="stylesheet">
     <style>
         /* ========================================================================= */
-        /* 1. VARIABLES (Identiques) */
+        /* 1. VARIABLES */
         /* ========================================================================= */
         :root {
             --bg-color: #f8fafc;
@@ -44,11 +44,9 @@
             background-color: var(--bg-color);
             color: var(--text-color);
             height: 100vh;
-            /* Force la hauteur écran */
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            /* Empêche le scroll sur toute la page */
         }
 
         h1,
@@ -58,16 +56,13 @@
             font-weight: 700;
         }
 
-        /* ========================================================================= */
-        /* 2. HEADER */
-        /* ========================================================================= */
+        /* HEADER */
         header {
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
             z-index: 1000;
             border-bottom: 3px solid var(--accent-primary);
             flex-shrink: 0;
-            /* Empêche le header de rétrécir */
         }
 
         .navbar {
@@ -128,37 +123,46 @@
         }
 
         /* ========================================================================= */
-        /* 3. MAIN (PLEIN ÉCRAN) */
+        /* 3. MAIN (La partie modifiée pour le Zoom) */
         /* ========================================================================= */
         main {
             flex-grow: 1;
-            /* Prend tout l'espace restant */
             position: relative;
             width: 100%;
+            background-color: #fff;
+            /* Fond blanc pour matcher le sheet */
             overflow: hidden;
-            /* COUPE tout ce qui dépasse (le scroll horizontal) */
         }
 
         .iframe-container {
             width: 100%;
             height: 100%;
             overflow: hidden;
-            /* Sécurité supplémentaire */
         }
 
         iframe {
-            width: 100%;
-            height: 100%;
             border: 0;
             display: block;
+
+            /* --- C'EST ICI QUE LA MAGIE DU DEZOOM OPERE --- */
+
+            /* 1. On le rend plus grand que l'écran pour qu'il affiche tout le tableau */
+            width: 155%;
+            height: 155%;
+
+            /* 2. On le rétrécit pour qu'il rentre dans l'écran */
+            transform: scale(0.64);
+
+            /* 3. On le colle en haut à gauche */
+            transform-origin: 0 0;
         }
 
-        /* Petit overlay d'info (optionnel, pour garder le contexte) */
         .info-bubble {
             position: absolute;
             bottom: 20px;
             right: 20px;
             background: var(--card-bg);
+            color: var(--text-color);
             padding: 10px 20px;
             border-radius: 8px;
             box-shadow: var(--shadow-strong);
@@ -166,10 +170,10 @@
             font-size: 0.9rem;
             opacity: 0.9;
             pointer-events: none;
-            /* Laisse passer les clics */
             z-index: 10;
         }
 
+        /* Responsive : Sur mobile on dézoome encore plus */
         @media (max-width: 1024px) {
             .navbar {
                 flex-wrap: wrap;
@@ -178,6 +182,12 @@
 
             .info-bubble {
                 display: none;
+            }
+
+            iframe {
+                width: 250%;
+                height: 250%;
+                transform: scale(0.40);
             }
         }
     </style>
