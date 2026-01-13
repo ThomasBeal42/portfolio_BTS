@@ -145,20 +145,18 @@
             border: 0;
             display: block;
 
-            /* --- CORRECTION DU CADRAGE --- */
-            /* On agrandit la fenêtre (175%) pour voir tout le tableau */
-            /* On dézoome (0.57) pour que ça rentre dans l'écran */
-            /* 175 * 0.57 = 99.75% (Presque plein écran) */
-
+            /* --- REGLAGE FINAL --- */
+            /* Largeur augmentée pour inclure les colonnes de droite */
             width: 175%;
             height: 175%;
+
+            /* Zoom ajusté pour tout faire rentrer dans l'écran */
             transform: scale(0.57);
 
             transform-origin: 0 0;
-            /* Ancrage haut-gauche */
         }
 
-        /* Responsive : Ajustement pour petits écrans */
+        /* Responsive */
         @media (max-width: 1024px) {
             .navbar {
                 flex-wrap: wrap;
