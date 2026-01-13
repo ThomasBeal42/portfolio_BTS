@@ -47,7 +47,6 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            /* Pas de scroll sur la page principale */
         }
 
         h1,
@@ -124,7 +123,7 @@
         }
 
         /* ========================================================================= */
-        /* 3. MAIN & TABLEAU */
+        /* 3. MAIN (Ajustement Dimensions) */
         /* ========================================================================= */
         main {
             flex-grow: 1;
@@ -138,7 +137,6 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            /* Centre le tableau si jamais il y a des marges */
             display: flex;
             justify-content: center;
         }
@@ -147,19 +145,20 @@
             border: 0;
             display: block;
 
-            /* --- REGLAGE DU ZOOM --- */
-            /* Calcul : 100 / 0.80 = 125% */
-            /* Cela "zoome" le texte (plus gros que 0.64) tout en gardant toute la largeur */
+            /* --- CORRECTION DU CADRAGE --- */
+            /* On agrandit la fenêtre (175%) pour voir tout le tableau */
+            /* On dézoome (0.57) pour que ça rentre dans l'écran */
+            /* 175 * 0.57 = 99.75% (Presque plein écran) */
 
-            width: 125%;
-            height: 125%;
-            transform: scale(0.80);
+            width: 175%;
+            height: 175%;
+            transform: scale(0.57);
 
             transform-origin: 0 0;
-            /* Colle en haut à gauche */
+            /* Ancrage haut-gauche */
         }
 
-        /* Responsive */
+        /* Responsive : Ajustement pour petits écrans */
         @media (max-width: 1024px) {
             .navbar {
                 flex-wrap: wrap;
@@ -167,9 +166,9 @@
             }
 
             iframe {
-                width: 200%;
-                height: 200%;
-                transform: scale(0.50);
+                width: 250%;
+                height: 250%;
+                transform: scale(0.40);
             }
         }
     </style>
