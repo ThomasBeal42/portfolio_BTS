@@ -74,12 +74,10 @@
             max-width: 1350px;
             margin: 0 auto;
             padding: 20px 30px;
-            /* Padding standard restauré */
         }
 
         .logo {
             font-size: 2rem;
-            /* Taille standard restaurée */
             font-weight: 900;
             color: var(--accent-primary);
             text-decoration: none;
@@ -103,7 +101,6 @@
             color: var(--text-color);
             font-weight: 600;
             padding: 10px 18px;
-            /* Padding lien standard */
             border-radius: 5px;
             transition: all 0.2s;
             white-space: nowrap;
@@ -126,7 +123,6 @@
             border: none;
             color: var(--card-bg);
             padding: 12px 18px;
-            /* Bouton standard */
             border-radius: 50px;
             cursor: pointer;
             font-weight: 700;
@@ -145,7 +141,6 @@
             position: relative;
             width: 100%;
             background-color: #fff;
-            /* Fond blanc pour matcher le sheet */
             overflow: hidden;
         }
 
@@ -158,17 +153,9 @@
         iframe {
             border: 0;
             display: block;
-
-            /* --- C'EST ICI QUE LA MAGIE DU DEZOOM OPERE --- */
-
-            /* 1. On le rend plus grand que l'écran pour qu'il affiche tout le tableau */
             width: 155%;
             height: 155%;
-
-            /* 2. On le rétrécit pour qu'il rentre dans l'écran */
             transform: scale(0.64);
-
-            /* 3. On le colle en haut à gauche */
             transform-origin: 0 0;
         }
 
@@ -188,7 +175,6 @@
             z-index: 10;
         }
 
-        /* Responsive : Sur mobile on dézoome encore plus */
         @media (max-width: 1024px) {
             .navbar {
                 flex-wrap: wrap;
@@ -217,6 +203,7 @@
                     <a href="index.html">Accueil</a>
                     <a href="cv.html">Mon CV</a>
                     <a href="company.html">À Propos de l'Entreprise</a>
+                    <a href="projet.html">Projets</a>
                     <a href="veille.html">Veilles Technologiques</a>
                     <a href="tableau.html" class="active">Tableau des Compétences</a>
                 </nav>

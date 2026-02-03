@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets | Thomas Beal - BTS SIO SISR</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========================================================================= */
+        /* 1. VARIABLES & THÈMES */
+        /* ========================================================================= */
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #0f172a;
+            --accent-primary: #2563eb;
+            --accent-secondary: #06b6d4;
+            --card-bg: #ffffff;
+            --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --border-color: #e2e8f0;
+            --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #020617;
+            --text-color: #e2e8f0;
+            --accent-primary: #60a5fa;
+            --accent-secondary: #22d3ee;
+            --card-bg: #1e293b;
+            --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* 3. HEADER & NAV (IDENTIQUE AUX AUTRES PAGES) */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-strong);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--accent-primary);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1350px;
+            margin: 0 auto;
+            padding: 20px 30px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent-primary);
+            text-decoration: none;
+            text-shadow: 1px 1px 0 var(--accent-secondary);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 5px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--accent-primary);
+            background-color: var(--bg-color);
+            transform: translateY(-2px);
+        }
+
+        nav a.active {
+            color: var(--card-bg);
+            background-color: var(--accent-primary);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+        }
+
+        .theme-toggle {
+            background: var(--accent-secondary);
+            border: none;
+            color: var(--card-bg);
+            padding: 12px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: transform 0.2s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        /* 4. CONTENU SPÉCIFIQUE PROJET */
+        .project-header {
+            text-align: center;
+            padding: 60px 0 40px 0;
+        }
+
+        .project-header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--accent-primary);
+        }
+
+        .section-block {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-strong);
+            margin-bottom: 40px;
+            border-left: 5px solid var(--accent-secondary);
+        }
+
+        .section-block h2 {
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: var(--accent-secondary);
+        }
+
+        /* Metrics (Icon Boxes) */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow-strong);
+            transition: transform 0.3s;
+            border-top: 3px solid var(--accent-primary);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .metric-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .metric-value {
+            color: var(--accent-secondary);
+            font-family: 'Space Mono', monospace;
+        }
+
+        /* Download Grid */
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .download-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: var(--bg-color);
+            border: 2px solid var(--border-color);
+            padding: 25px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .download-card:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.15);
+        }
+
+        .download-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .btn-download {
+            margin-top: 20px;
+            background-color: var(--accent-primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .download-card:hover .btn-download {
+            background-color: var(--accent-secondary);
+        }
+
+        @media (max-width: 1024px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-controls {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">SYS</span></a>
+            <div class="nav-controls">
+                <nav>
+                    <a href="index.html">Accueil</a>
+                    <a href="cv.html">Mon CV</a>
+                    <a href="company.html">À Propos de l'Entreprise</a>
+                    <a href="projet.html" class="active">Projets</a>
+                    <a href="veille.html">Veilles Technologiques</a>
+                    <a href="tableau.html">Tableau des Compétences</a>
+                </nav>
+                <button class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div class="project-header">
+            <h1>PRÉPARATION DE POSTES (PC)</h1>
+            <p>Standardisation et déploiement de matériel informatique</p>
+        </div>
+
+        <section class="section-block">
+            <h2>CONTEXTE</h2>
+            <p>Une préparation minutieuse du PC pour un client garantit sa satisfaction, la performance optimale de la
+                machine, sa sécurité, économise du temps et contribue à la réputation positive de l'entreprise.</p>
+            <p style="margin-top: 15px;">La préparation d’un poste est différente selon les besoins du client. En
+                alternance chez SPIP Informatique, je m’occupe à 100% des préparations des postes. Voici les procédures
+                pour 3 de nos clients majeurs.</p>
+        </section>
+
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <span class="metric-icon">📅</span>
+                <div class="metric-title">Fréquence</div>
+                <div class="metric-value">Projet Hebdomadaire</div>
+            </div>
+            <div class="metric-card">
+                <span class="metric-icon">⏳</span>
+                <div class="metric-title">Charge de travail</div>
+                <div class="metric-value">4h - 8h / poste</div>
+            </div>
+            <div class="metric-card">
+                <span class="metric-icon">🚀</span>
+                <div class="metric-title">Délai moyen</div>
+                <div class="metric-value">2 à 5 jours</div>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <h2>PROCÉDURES CLIENTS (PDF)</h2>
+            <p>Cliquez ci-dessous pour consulter les rapports de préparation spécifiques :</p>
+
+            <div class="download-grid">
+                <a href="Preparation-PC-Pallanche.pdf" target="_blank" class="download-card">
+                    <div>
+                        <div class="download-title">Client PALLANCHE </div>
+                        <p>Procédure de déploiement spécifique pour l'environnement technique Pallanche.</p>
+                    </div>
+                    <div class="btn-download">Voir le PDF →</div>
+                </a>
+
+                <a href="Preparation-PC-FEMA.pdf" target="_blank" class="download-card">
+                    <div>
+                        <div class="download-title">Client FEMA</div>
+                        <p>Standardisation des postes et installation des logiciels métiers FEMA.</p>
+                    </div>
+                    <div class="btn-download">Voir le PDF →</div>
+                </a>
+
+                <a href="Preparation-PC-RODSI.pdf" target="_blank" class="download-card">
+                    <div>
+                        <div class="download-title">Client RODIS</div>
+                        <p>Configuration réseau et sécurité pour le parc informatique RODIS.</p>
+                    </div>
+                    <div class="btn-download">Voir le PDF →</div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateToggleText(newTheme);
+        }
+        function updateToggleText(theme) {
+            document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            updateToggleText(savedTheme);
+            if (localStorage.getItem('theme') !== 'light') {
+                document.body.setAttribute('data-theme', 'dark');
+                document.querySelector('.theme-toggle').textContent = 'Mode Clair';
+            }
+        });
+    </script>
+</body>
+
+</html>
