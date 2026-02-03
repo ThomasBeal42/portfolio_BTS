@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille VPN | Thomas Beal</title>
+    <title>Veille VPN | Thomas Beal - BTS SIO SISR</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
         rel="stylesheet">
     <style>
+        /* ========================================================================= */
+        /* 1. VARIABLES & THÈMES */
+        /* ========================================================================= */
         :root {
             --bg-color: #f8fafc;
             --text-color: #0f172a;
@@ -17,6 +20,9 @@
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
+            --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            --tag-bg: #e0f2fe;
+            --tag-text: #0284c7;
         }
 
         [data-theme="dark"] {
@@ -27,6 +33,8 @@
             --card-bg: #1e293b;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
             --border-color: #334155;
+            --tag-bg: #0f4a6e;
+            --tag-text: #38bdf8;
         }
 
         * {
@@ -39,26 +47,29 @@
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
             line-height: 1.7;
             min-height: 100vh;
-            transition: 0.4s;
         }
 
         h1,
         h2,
-        h3 {
+        h3,
+        h4 {
             font-family: 'Space Mono', monospace;
             font-weight: 700;
+            line-height: 1.2;
             color: var(--text-color);
         }
 
         .container {
             max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 30px;
+            /* Un peu plus étroit pour la lecture d'article */
+            margin: 40px auto;
+            padding: 0 30px;
         }
 
-        /* HEADER & NAV */
+        /* 3. HEADER & NAV */
         header {
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
@@ -82,9 +93,15 @@
             font-weight: 900;
             color: var(--accent-primary);
             text-decoration: none;
+            text-shadow: 1px 1px 0 var(--accent-secondary);
         }
 
-        .nav-controls,
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         nav {
             display: flex;
             align-items: center;
@@ -97,23 +114,23 @@
             font-weight: 600;
             padding: 10px 18px;
             border-radius: 5px;
-            transition: 0.2s;
+            transition: all 0.2s;
             white-space: nowrap;
         }
 
         nav a:hover {
             color: var(--accent-primary);
-            background: var(--bg-color);
+            background-color: var(--bg-color);
             transform: translateY(-2px);
         }
 
         nav a.active {
             color: var(--card-bg);
-            background: var(--accent-primary);
+            background-color: var(--accent-primary);
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
         }
 
-        /* DROPDOWNS */
+        /* --- MENU DÉROULANT (DROPDOWN) --- */
         .dropdown {
             position: relative;
             display: flex;
@@ -129,20 +146,21 @@
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             cursor: pointer;
+            transition: all 0.2s;
             border-radius: 5px;
-            transition: 0.2s;
         }
 
         .dropdown:hover .dropbtn,
         .dropbtn:hover {
             color: var(--accent-primary);
-            background: var(--bg-color);
+            background-color: var(--bg-color);
             transform: translateY(-2px);
         }
 
         .dropbtn.active {
             color: var(--card-bg);
-            background: var(--accent-primary);
+            background-color: var(--accent-primary);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
         }
 
         .dropdown-content {
@@ -150,7 +168,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: var(--card-bg);
+            background-color: var(--card-bg);
             min-width: 240px;
             box-shadow: var(--shadow-strong);
             border-radius: 8px;
@@ -169,14 +187,19 @@
         .dropdown-content a {
             color: var(--text-color);
             padding: 12px 20px;
+            text-decoration: none;
             font-weight: 500;
+            border-radius: 0;
+            margin: 0;
             text-align: left;
+            white-space: normal;
         }
 
         .dropdown-content a:hover {
-            background: var(--bg-color);
+            background-color: var(--bg-color);
             color: var(--accent-primary);
             transform: translateX(5px);
+            box-shadow: none;
         }
 
         @keyframes fadeIn {
@@ -199,48 +222,79 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: 700;
+            transition: transform 0.2s;
         }
 
-        /* Article Specific */
+        .theme-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        /* ARTICLE STYLE */
         .article-card {
-            background: var(--card-bg);
+            background-color: var(--card-bg);
             border-radius: 12px;
-            padding: 40px;
             box-shadow: var(--shadow-strong);
+            padding: 40px;
             border-top: 4px solid var(--accent-primary);
         }
 
         .tag {
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--accent-primary);
-            padding: 5px 12px;
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 6px 14px;
             border-radius: 20px;
+            font-size: 0.85rem;
             font-weight: 700;
-            font-size: 0.9rem;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 20px;
         }
 
         .article-card h1 {
             font-size: 2.5rem;
-            margin: 20px 0;
+            margin-bottom: 30px;
             color: var(--text-color);
         }
 
         .article-card h2 {
-            font-size: 1.5rem;
-            margin-top: 30px;
+            font-size: 1.8rem;
             color: var(--accent-secondary);
-            margin-bottom: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
         }
 
         .article-card p {
-            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            opacity: 0.9;
+            margin-bottom: 20px;
             text-align: justify;
         }
 
         .article-card ul {
+            margin-bottom: 30px;
             padding-left: 20px;
-            margin-bottom: 20px;
+            list-style-type: none;
+        }
+
+        .article-card ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            opacity: 0.9;
+            font-size: 1.05rem;
+        }
+
+        .article-card ul li::before {
+            content: "→";
+            color: var(--accent-secondary);
+            font-weight: bold;
+            font-size: 1.2em;
+            position: absolute;
+            left: 0;
+            top: 0;
         }
 
         @media (max-width: 1024px) {
@@ -260,13 +314,15 @@
                 <nav>
                     <a href="index.html">Accueil</a>
                     <a href="cv.html">Mon CV</a>
-                    <a href="company.html">Entreprise</a>
+                    <a href="company.html">À Propos de l'Entreprise</a>
+
                     <div class="dropdown">
                         <button class="dropbtn">Projets ▾</button>
                         <div class="dropdown-content">
                             <a href="projet.html">Préparation de Postes (PC)</a>
                         </div>
                     </div>
+
                     <div class="dropdown">
                         <button class="dropbtn active">Veilles ▾</button>
                         <div class="dropdown-content">
@@ -274,7 +330,8 @@
                             <a href="serveur.html">Windows Server 2025</a>
                         </div>
                     </div>
-                    <a href="tableau.html">Compétences</a>
+
+                    <a href="tableau.html">Tableau des Compétences</a>
                 </nav>
                 <button class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>
             </div>
@@ -285,29 +342,59 @@
         <article class="article-card">
             <span class="tag">Sécurité & Réseau</span>
             <h1>Les VPN d'Entreprise : Architecture & Enjeux</h1>
-            <p>Le <strong>Réseau Privé Virtuel (VPN)</strong> est la pierre angulaire de la sécurité périmétrique
-                moderne, assurant la confidentialité des échanges sur des réseaux publics.</p>
+
+            <p>Le <strong>Réseau Privé Virtuel (VPN)</strong> reste la pierre angulaire de la sécurité
+                périmétrique moderne, permettant l'extension du réseau local d'entreprise sur des réseaux
+                publics non sécurisés. Son rôle a évolué d'une simple connectivité site-à-site vers un outil
+                critique de mobilité et de confidentialité.</p>
 
             <h2>Protocoles & Fonctionnement</h2>
+            <p>Le choix du protocole détermine la performance et la sécurité du tunnel chiffré :</p>
             <ul>
-                <li><strong>IPsec (Site-à-Site) :</strong> Standard niveau 3. Assure authentification et chiffrement via
-                    mode Tunnel ou Transport.</li>
-                <li><strong>SSL/TLS (Nomade) :</strong> Plus flexible (OpenVPN), fonctionne au niveau applicatif (couche
-                    7) et traverse mieux les pare-feux.</li>
+                <li><strong>IPsec (Internet Protocol Security) :</strong> Standard de niveau 3 (OSI) pour les
+                    connexions Site-à-Site. Il assure l'authentification, l'intégrité et la confidentialité via
+                    deux modes (Transport ou Tunnel) et utilise IKE pour la négociation des clés.</li>
+                <li><strong>SSL/TLS (OpenVPN) :</strong> Plus flexible pour les utilisateurs nomades
+                    (Client-to-Site), il fonctionne au niveau applicatif (couche 7) via TCP/UDP, traversant plus
+                    facilement les pare-feux (NAT Traversal) que l'IPsec.</li>
             </ul>
 
             <h2>Sécurité & Cryptographie</h2>
-            <p>L'utilisation d'<strong>AES-256</strong> et de groupes Diffie-Hellman robustes est impérative pour
-                garantir la confidentialité persistante.</p>
+            <p>La robustesse d'un VPN repose sur ses algorithmes cryptographiques. Les standards actuels exigent
+                l'utilisation d'<strong>AES-256</strong> pour le chiffrement symétrique et de groupes
+                <strong>Diffie-Hellman</strong> robustes (ex: Groupe 14 ou courbes elliptiques ECDH) pour
+                l'échange de clés, afin de garantir la confidentialité persistante (Perfect Forward Secrecy).
+            </p>
 
-            <h2>Vers le "Zero Trust" (ZTNA)</h2>
-            <p>Le VPN traditionnel est progressivement remplacé par le ZTNA, qui vérifie l'identité et l'état du poste à
-                chaque requête applicative plutôt que de donner un accès réseau total.</p>
+            <h2>Défis Modernes & "Zero Trust"</h2>
+            <p>Avec la généralisation du télétravail, le VPN traditionnel (qui donnait accès à tout le réseau)
+                montre ses limites. L'avenir tend vers le <strong>ZTNA (Zero Trust Network Access)</strong>, où
+                le VPN ne donne plus un accès réseau global, mais un accès granulaire applicatif, vérifiant
+                l'identité de l'utilisateur et l'état de santé du poste à chaque requête.</p>
         </article>
     </main>
+
     <script>
-        function toggleTheme() { const b = document.body; const n = b.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; b.setAttribute('data-theme', n); localStorage.setItem('theme', n); document.querySelector('.theme-toggle').textContent = n === 'dark' ? 'Mode Clair' : 'Mode Sombre'; }
-        document.addEventListener('DOMContentLoaded', () => { const t = localStorage.getItem('theme') || 'light'; document.body.setAttribute('data-theme', t); if (t !== 'light') document.querySelector('.theme-toggle').textContent = 'Mode Clair'; });
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateToggleText(newTheme);
+        }
+        function updateToggleText(theme) {
+            document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            updateToggleText(savedTheme);
+            if (localStorage.getItem('theme') !== 'light') {
+                document.body.setAttribute('data-theme', 'dark');
+                document.querySelector('.theme-toggle').textContent = 'Mode Clair';
+            }
+        });
     </script>
 </body>
 
