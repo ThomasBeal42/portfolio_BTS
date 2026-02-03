@@ -168,7 +168,6 @@
         .veille-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-            /* Cartes plus larges pour le contenu dense */
             gap: 40px;
             margin-bottom: 80px;
             padding: 0 20px;
@@ -327,38 +326,36 @@
                         <span class="tag">Sécurité & Réseau</span>
                         <span class="date">Octobre 2025</span>
                     </div>
-                    <h3>WireGuard : Le Futur des Tunnels VPN</h3>
+                    <h3>Les VPN d'Entreprise : Architecture & Enjeux</h3>
 
-                    <p>Dans un contexte de mobilité accrue et de télétravail, le VPN est la pierre angulaire de la
-                        sécurité. <strong>WireGuard</strong> s'impose aujourd'hui comme le remplaçant technique d'IPsec
-                        et OpenVPN. Intégré directement dans le <strong>noyau Linux (depuis la version 5.6)</strong>, il
-                        redéfinit les standards de performance.</p>
+                    <p>Le <strong>Réseau Privé Virtuel (VPN)</strong> reste la pierre angulaire de la sécurité
+                        périmétrique moderne, permettant l'extension du réseau local d'entreprise sur des réseaux
+                        publics non sécurisés. Son rôle a évolué d'une simple connectivité site-à-site vers un outil
+                        critique de mobilité et de confidentialité.</p>
 
-                    <h4>Architecture & Performance</h4>
-                    <p>La force de WireGuard réside dans son minimalisme : <strong>4 000 lignes de code</strong> contre
-                        plus de 400 000 pour IPsec ou 100 000 pour OpenVPN. Cette légèreté permet :</p>
+                    <h4>Protocoles & Fonctionnement</h4>
+                    <p>Le choix du protocole détermine la performance et la sécurité du tunnel chiffré :</p>
                     <ul>
-                        <li>Une réduction drastique de la surface d'attaque (audit de code facilité).</li>
-                        <li>Une exécution en <strong>Kernel Space</strong> (espace noyau), évitant les coûteux
-                            changements de contexte CPU vers l'espace utilisateur, garantissant des débits proches de la
-                            vitesse de ligne.</li>
-                        <li>Un "Handshake" initial quasi instantané (quelques millisecondes).</li>
+                        <li><strong>IPsec (Internet Protocol Security) :</strong> Standard de niveau 3 (OSI) pour les
+                            connexions Site-à-Site. Il assure l'authentification, l'intégrité et la confidentialité via
+                            deux modes (Transport ou Tunnel) et utilise IKE pour la négociation des clés.</li>
+                        <li><strong>SSL/TLS (OpenVPN) :</strong> Plus flexible pour les utilisateurs nomades
+                            (Client-to-Site), il fonctionne au niveau applicatif (couche 7) via TCP/UDP, traversant plus
+                            facilement les pare-feux (NAT Traversal) que l'IPsec.</li>
                     </ul>
 
-                    <h4>Cryptographie Moderne & Sécurité</h4>
-                    <p>Contrairement à ses prédécesseurs qui offrent un choix (trop) vaste d'algorithmes, WireGuard
-                        impose une suite cryptographique moderne et sécurisée (versionnée) :</p>
-                    <ul>
-                        <li><strong>Curve25519</strong> pour l'échange de clés (ECDH).</li>
-                        <li><strong>ChaCha20</strong> et <strong>Poly1305</strong> pour le chiffrement et
-                            l'authentification (plus rapides que l'AES sur les CPU sans accélération matérielle).</li>
-                        <li><strong>BLAKE2s</strong> pour le hachage et les clés.</li>
-                    </ul>
+                    <h4>Sécurité & Cryptographie</h4>
+                    <p>La robustesse d'un VPN repose sur ses algorithmes cryptographiques. Les standards actuels exigent
+                        l'utilisation d'<strong>AES-256</strong> pour le chiffrement symétrique et de groupes
+                        <strong>Diffie-Hellman</strong> robustes (ex: Groupe 14 ou courbes elliptiques ECDH) pour
+                        l'échange de clés, afin de garantir la confidentialité persistante (Perfect Forward Secrecy).
+                    </p>
 
-                    <h4>Fonctionnement "Stealth" (Furtif)</h4>
-                    <p>Une caractéristique majeure pour la sécurité réseau est son silence. WireGuard ne répond à aucun
-                        paquet non authentifié. Si un scanner de port teste le serveur VPN sans la bonne clé privée, le
-                        serveur reste muet (Drop packet), rendant le service invisible sur le réseau public.</p>
+                    <h4>Défis Modernes & "Zero Trust"</h4>
+                    <p>Avec la généralisation du télétravail, le VPN traditionnel (qui donnait accès à tout le réseau)
+                        montre ses limites. L'avenir tend vers le <strong>ZTNA (Zero Trust Network Access)</strong>, où
+                        le VPN ne donne plus un accès réseau global, mais un accès granulaire applicatif, vérifiant
+                        l'identité de l'utilisateur et l'état de santé du poste à chaque requête.</p>
                 </div>
             </article>
 
