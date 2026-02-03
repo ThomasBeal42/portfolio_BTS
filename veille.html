@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veilles Technologiques | Thomas Beal - Ingénieur Réseau & Systèmes</title>
+    <title>Veilles Technologiques | Thomas Beal - BTS SIO SISR</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
         rel="stylesheet">
     <style>
         /* ========================================================================= */
-        /* 1. VARIABLES & THÈMES (Palette Réseau : Bleu & Cyan) 🌐 */
+        /* 1. VARIABLES & THÈMES 🌐 */
         /* ========================================================================= */
         :root {
-            /* Couleurs Claires */
             --bg-color: #f8fafc;
             --text-color: #0f172a;
             --accent-primary: #2563eb;
@@ -22,13 +21,11 @@
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
             --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-
-            /* Variables spécifiques pour les Veilles */
-            --veille-border-light: var(--accent-primary);
+            --tag-bg: #e0f2fe;
+            --tag-text: #0284c7;
         }
 
         [data-theme="dark"] {
-            /* Couleurs Sombres */
             --bg-color: #020617;
             --text-color: #e2e8f0;
             --accent-primary: #60a5fa;
@@ -36,13 +33,12 @@
             --card-bg: #1e293b;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
             --border-color: #334155;
-
-            /* Variables spécifiques pour les Veilles en Dark Mode */
-            --veille-border-dark: var(--accent-secondary);
+            --tag-bg: #0f4a6e;
+            --tag-text: #38bdf8;
         }
 
         /* ========================================================================= */
-        /* 2. STYLES GÉNÉRAUX & TYPO 🖋️ */
+        /* 2. STYLES GÉNÉRAUX 🖋️ */
         /* ========================================================================= */
         * {
             box-sizing: border-box;
@@ -75,7 +71,7 @@
             padding: 0 30px;
         }
 
-        /* 3. EN-TÊTE ET NAVIGATION 🧭 (Styles cohérents) */
+        /* 3. HEADER & NAV 🧭 */
         header {
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
@@ -100,7 +96,6 @@
             color: var(--accent-primary);
             text-decoration: none;
             text-shadow: 1px 1px 0 var(--accent-secondary);
-            margin-right: 0;
         }
 
         .nav-controls {
@@ -112,8 +107,6 @@
         nav {
             display: flex;
             align-items: center;
-            margin: 0;
-            padding: 0;
             gap: 20px;
         }
 
@@ -123,9 +116,8 @@
             font-weight: 600;
             padding: 10px 18px;
             border-radius: 5px;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.2s;
             white-space: nowrap;
-            margin: 0;
         }
 
         nav a:hover {
@@ -138,7 +130,6 @@
             color: var(--card-bg);
             background-color: var(--accent-primary);
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
-            font-weight: 700;
         }
 
         .theme-toggle {
@@ -149,92 +140,131 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: 700;
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
-            margin-left: 0;
+            transition: transform 0.2s;
         }
 
         .theme-toggle:hover {
-            background-color: #0891b2;
             transform: scale(1.05);
         }
 
-        /* 4. STYLES SPÉCIFIQUES VEILLE */
+        /* 4. VEILLE CONTENT */
         .veille-header {
             text-align: center;
-            padding: 50px 0 30px 0;
+            padding: 60px 0 40px 0;
         }
 
         .veille-header h1 {
             font-size: 3rem;
             color: var(--accent-secondary);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        .veille-container {
-            max-width: 1200px;
-            margin: 0 auto 50px auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        .veille-header p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .veille-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            padding: 0 30px;
+            margin-bottom: 80px;
+            padding: 0 20px;
         }
 
         .veille-card {
-            flex: 1 1 45%;
-            min-width: 300px;
             background-color: var(--card-bg);
-            border-radius: 10px;
+            border-radius: 12px;
             box-shadow: var(--shadow-strong);
             overflow: hidden;
-            transition: transform 0.3s ease;
-            /* Utilisation de la variable de border-top */
-            border-top: 5px solid var(--veille-border-light);
-        }
-
-        /* Ajustement de la border-top en mode sombre pour utiliser la variable dark */
-        [data-theme="dark"] .veille-card {
-            border-top: 5px solid var(--veille-border-dark);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--accent-primary);
+            display: flex;
+            flex-direction: column;
         }
 
         .veille-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transform: translateY(-7px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-top-color: var(--accent-secondary);
         }
 
-        .card-content {
+        .card-body {
             padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
-        .card-content h3 {
-            font-size: 1.6rem;
-            color: var(--accent-primary);
-            margin-bottom: 10px;
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
         }
 
-        .card-content p.date {
-            font-size: 0.95rem;
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .date {
+            font-size: 0.85rem;
             color: var(--accent-secondary);
             font-style: italic;
-            margin-bottom: 20px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 10px;
         }
 
-        .card-content p {
-            margin-bottom: 1.5rem;
+        .card-body h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
             color: var(--text-color);
         }
 
-        /* 5. RESPONSIVE 📱 */
+        .card-body p {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            opacity: 0.9;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-primary);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: auto;
+            transition: color 0.2s;
+        }
+
+        .read-more:hover {
+            color: var(--accent-secondary);
+        }
+
+        .read-more::after {
+            content: '→';
+            margin-left: 5px;
+            transition: transform 0.2s;
+        }
+
+        .read-more:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* 5. RESPONSIVE */
         @media (max-width: 1024px) {
             .navbar {
                 flex-wrap: wrap;
                 justify-content: center;
-            }
-
-            .logo {
-                margin-bottom: 15px;
             }
 
             .nav-controls {
@@ -246,20 +276,10 @@
             nav {
                 flex-wrap: wrap;
                 justify-content: center;
-                margin-bottom: 10px;
             }
 
-            nav a {
-                margin: 0 5px;
-                padding: 8px 10px;
-            }
-
-            .veille-container {
-                padding: 0 20px;
-            }
-
-            .veille-card {
-                flex: 1 1 100%;
+            .veille-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -282,74 +302,146 @@
         </div>
     </header>
 
-    <main>
-        <div class="veille-header container">
-            <h1>Veilles Technologiques Récentes</h1>
-            <p>Mon engagement constant envers les nouvelles tendances, les outils et les pratiques d'excellence en
-                <strong>sécurité, infrastructure et administration système</strong>.</p>
+    <main class="container">
+        <div class="veille-header">
+            <h1>Actualités & Tendances IT</h1>
+            <p>Une sélection des sujets techniques majeurs que je surveille activement pour rester à la pointe en
+                <strong>administration systèmes, réseaux et cybersécurité</strong>.</p>
         </div>
 
-        <div class="veille-container">
+        <div class="veille-grid">
 
-            <div class="veille-card">
-                <div class="card-content">
-                    <h3>Sécurité : L'Évolution des VPN et l'Adoption de WireGuard</h3>
-                    <p class="date">Publié le 07/10/2025</p>
-                    <p>La technologie des <strong>Réseaux Privés Virtuels (VPN)</strong> continue d'évoluer, avec une
-                        adoption croissante de protocoles modernes comme <strong>WireGuard</strong>. WireGuard offre une
-                        cryptographie de pointe avec une empreinte logicielle beaucoup plus petite, ce qui se traduit
-                        par des connexions plus rapides et plus stables que les anciens protocoles comme OpenVPN et
-                        IPSec, tout en simplifiant l'audit de sécurité. Sa conception modulaire et performante en fait
-                        la référence pour la sécurisation des échanges et l'accès distant dans les infrastructures
-                        modernes.</p>
-
+            <article class="veille-card">
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Système</span>
+                        <span class="date">Octobre 2025</span>
+                    </div>
+                    <h3>Windows Server 2025 & Azure Arc</h3>
+                    <p>L'hybridation est devenue la norme. Avec Windows Server 2025, Microsoft pousse l'intégration
+                        d'<strong>Azure Arc</strong> pour gérer les serveurs on-premise comme des ressources Cloud.
+                        <br><br>
+                        <strong>Points clés :</strong> Hotpatching (Mises à jour sans redémarrage), sécurité renforcée
+                        via TLS 1.3 par défaut, et améliorations drastiques des performances SMB pour le stockage
+                        distant.
+                    </p>
+                    <a href="#" class="read-more">Lire l'analyse</a>
                 </div>
-            </div>
+            </article>
 
-            <div class="veille-card">
-                <div class="card-content">
-                    <h3>Windows Server : Gestion de l'Infrastructure et Hybridation</h3>
-                    <p class="date">Publié le 05/10/2025</p>
-                    <p><strong>Windows Server</strong> reste un pilier des infrastructures d'entreprise, mais l'accent
-                        est désormais mis sur <strong>l'hybridation</strong>. Les nouvelles versions mettent en avant
-                        l'intégration avec <strong>Azure</strong> via des outils comme <strong>Azure Arc</strong> pour
-                        gérer des ressources locales et cloud de manière unifiée. L'administration système se concentre
-                        de plus en plus sur l'orchestration des conteneurs (via Kubernetes) et la virtualisation (via
-                        Hyper-V) dans des environnements distribués, nécessitant une convergence des compétences SysOps
-                        vers le Cloud hybride.</p>
+            <article class="veille-card">
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Cybersécurité</span>
+                        <span class="date">Septembre 2025</span>
+                    </div>
+                    <h3>L'architecture "Zero Trust"</h3>
+                    <p>Le modèle de sécurité périmétrique classique est obsolète. Le principe <strong>"Never Trust,
+                            Always Verify"</strong> s'impose dans les PME.
+                        <br><br>
+                        Cela implique une segmentation réseau stricte (VLANs), une authentification forte (MFA)
+                        systématique pour tous les accès (VPN, SaaS, Admin) et une surveillance continue des
+                        comportements suspects.
+                    </p>
+                    <a href="#" class="read-more">Voir les impacts</a>
                 </div>
-            </div>
+            </article>
+
+            <article class="veille-card">
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Réseau</span>
+                        <span class="date">Août 2025</span>
+                    </div>
+                    <h3>Wi-Fi 7 (802.11be) : La Révolution Sans-Fil</h3>
+                    <p>Le Wi-Fi 7 arrive avec des débits théoriques dépassant les 40 Gbps. Pour les entreprises, c'est
+                        la promesse d'une latence ultra-faible.
+                        <br><br>
+                        L'utilisation de la bande <strong>6 GHz</strong> et du MLO (Multi-Link Operation) permet aux
+                        appareils de se connecter simultanément sur plusieurs bandes pour éviter les congestions dans
+                        les environnements denses.
+                    </p>
+                    <a href="#" class="read-more">Comprendre le 802.11be</a>
+                </div>
+            </article>
+
+            <article class="veille-card">
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Virtualisation</span>
+                        <span class="date">Juillet 2025</span>
+                    </div>
+                    <h3>Proxmox VE vs VMware : Le virage Open Source</h3>
+                    <p>Suite aux changements de licences chez VMware (Broadcom), de nombreuses entreprises migrent vers
+                        <strong>Proxmox VE</strong>.
+                        <br><br>
+                        Cette solution open-source offre une gestion unifiée des machines virtuelles (KVM) et des
+                        conteneurs (LXC), tout en intégrant nativement des fonctionnalités de sauvegarde et de
+                        clustering haute disponibilité sans surcoût.
+                    </p>
+                    <a href="#" class="read-more">Comparatif technique</a>
+                </div>
+            </article>
+
+            <article class="veille-card">
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Automation</span>
+                        <span class="date">Juin 2025</span>
+                    </div>
+                    <h3>Powershell 7 & Ansible</h3>
+                    <p>L'administration manuelle disparaît au profit de l'Infrastructure as Code (IaC).
+                        <br><br>
+                        L'utilisation de scripts <strong>PowerShell</strong> modulaires et de playbooks
+                        <strong>Ansible</strong> permet de déployer des configurations conformes sur des centaines de
+                        postes en quelques minutes, réduisant les erreurs humaines et le temps de maintenance.
+                    </p>
+                    <a href="#" class="read-more">Exemples de scripts</a>
+                </div>
+            </article>
+
+            <article class="veille-card">
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span class="tag">Sécurité</span>
+                        <span class="date">Mai 2025</span>
+                    </div>
+                    <h3>Ransomware : La menace double-extorsion</h3>
+                    <p>Les attaques par ransomware ne se contentent plus de chiffrer les données : elles menacent de les
+                        divulguer (exfiltration).
+                        <br><br>
+                        <strong>La parade :</strong> Des sauvegardes immuables (Veeam, stockage hors ligne), une
+                        sensibilisation accrue des utilisateurs (phishing) et des plans de reprise d'activité (PRA)
+                        testés régulièrement.
+                    </p>
+                    <a href="#" class="read-more">Stratégies de défense</a>
+                </div>
+            </article>
 
         </div>
     </main>
 
     <script>
-        // Logique de gestion du thème et de la persistance (Identique)
         function toggleTheme() {
             const body = document.body;
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
             body.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             updateToggleText(newTheme);
         }
-
         function updateToggleText(theme) {
             document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
         }
-
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', savedTheme);
             updateToggleText(savedTheme);
+            if (localStorage.getItem('theme') !== 'light') {
+                document.body.setAttribute('data-theme', 'dark');
+                document.querySelector('.theme-toggle').textContent = 'Mode Clair';
+            }
         });
-
-        // Simule le mode sombre par défaut
-        if (localStorage.getItem('theme') !== 'light') {
-            document.body.setAttribute('data-theme', 'dark');
-            document.querySelector('.theme-toggle').textContent = 'Mode Clair';
-        }
     </script>
 </body>
 
