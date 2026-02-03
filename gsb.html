@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet GSB (E6) | Thomas Beal</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ========================================================================= */
+        /* 1. VARIABLES & THÈMES */
+        /* ========================================================================= */
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #0f172a;
+            --accent-primary: #2563eb;
+            --accent-secondary: #06b6d4;
+            --card-bg: #ffffff;
+            --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --border-color: #e2e8f0;
+            --code-bg: #1e293b;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #020617;
+            --text-color: #e2e8f0;
+            --accent-primary: #60a5fa;
+            --accent-secondary: #22d3ee;
+            --card-bg: #1e293b;
+            --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
+            --border-color: #334155;
+            --code-bg: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            min-height: 100vh;
+            transition: 0.4s;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
+
+        /* HEADER & NAV */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-strong);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--accent-primary);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1350px;
+            margin: 0 auto;
+            padding: 20px 30px;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        .nav-controls,
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 5px;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--accent-primary);
+            background-color: var(--bg-color);
+            transform: translateY(-2px);
+        }
+
+        /* DROPDOWNS */
+        .dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropbtn {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 10px 18px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            border-radius: 5px;
+        }
+
+        .dropdown:hover .dropbtn,
+        .dropbtn:hover {
+            color: var(--accent-primary);
+            background-color: var(--bg-color);
+            transform: translateY(-2px);
+        }
+
+        .dropbtn.active {
+            color: var(--card-bg);
+            background-color: var(--accent-primary);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--card-bg);
+            min-width: 240px;
+            box-shadow: var(--shadow-strong);
+            border-radius: 8px;
+            z-index: 1001;
+            border: 1px solid var(--border-color);
+            flex-direction: column;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--bg-color);
+            color: var(--accent-primary);
+            transform: translateX(5px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .theme-toggle {
+            background: var(--accent-secondary);
+            border: none;
+            color: var(--card-bg);
+            padding: 12px 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        /* GSB CONTENT STYLES */
+        .project-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .project-title h1 {
+            font-size: 3rem;
+            color: var(--accent-primary);
+            margin-bottom: 10px;
+        }
+
+        .project-title span {
+            background: var(--accent-secondary);
+            color: var(--card-bg);
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        /* ENVIRONNEMENT CARD */
+        .env-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: var(--shadow-strong);
+        }
+
+        .env-info h3 {
+            margin-bottom: 10px;
+            color: var(--accent-secondary);
+        }
+
+        .env-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 2.5rem;
+        }
+
+        /* MISSION SECTIONS */
+        .mission-section {
+            margin-bottom: 60px;
+        }
+
+        .mission-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .mission-number {
+            background: var(--accent-primary);
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Space Mono';
+        }
+
+        /* TERMINAL / CODE STYLE */
+        .terminal {
+            background: var(--code-bg);
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Space Mono', monospace;
+            color: #e2e8f0;
+            overflow-x: auto;
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cmd {
+            color: var(--accent-secondary);
+        }
+
+        .comment {
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .output {
+            color: #4ade80;
+        }
+
+        .var {
+            color: #facc15;
+        }
+
+        /* CALCULATION TABLE */
+        .calc-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+            margin-top: 20px;
+        }
+
+        .calc-table th,
+        .calc-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .calc-table th {
+            background: var(--bg-color);
+            color: var(--accent-primary);
+        }
+
+        .highlight {
+            color: var(--accent-secondary);
+            font-weight: 700;
+            font-family: 'Space Mono';
+        }
+
+        @media (max-width: 1024px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .env-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <header>
+        <div class="navbar">
+            <a href="index.html" class="logo">TB.<span style="color: var(--accent-secondary);">SYS</span></a>
+            <div class="nav-controls">
+                <nav>
+                    <a href="index.html">Accueil</a>
+                    <a href="cv.html">Mon CV</a>
+                    <a href="company.html">Entreprise</a>
+
+                    <div class="dropdown">
+                        <button class="dropbtn active">Projets ▾</button>
+                        <div class="dropdown-content">
+                            <a href="pc.html">Préparation de Postes (PC)</a>
+                            <a href="gsb.html">Contexte GSB (E6)</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Veilles ▾</button>
+                        <div class="dropdown-content">
+                            <a href="vpn.html">VPN d'Entreprise</a>
+                            <a href="serveur.html">Windows Server 2025</a>
+                        </div>
+                    </div>
+                    <a href="tableau.html">Compétences</a>
+                </nav>
+                <button class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div class="project-title">
+            <span>ÉPREUVE E6 - BTS SIO SISR</span>
+            <h1>CONTEXTE GSB</h1>
+            <p>Mise en place d'une infrastructure DHCP et Audit Active Directory</p>
+        </div>
+
+        <section class="env-card">
+            <div class="env-info">
+                <h3>Architecture Labo</h3>
+                <p>Environnement virtualisé sous <strong>Proxmox VE</strong>.</p>
+                <ul style="list-style: none; margin-top: 10px;">
+                    <li>• 1 VM <strong>Windows Server 2022</strong> (AD, DNS, DHCP)</li>
+                    <li>• 2 VMs <strong>Windows 11 Pro</strong> (Clients domaine)</li>
+                </ul>
+            </div>
+            <div class="env-icons">
+                🖥️ 🔌 🛡️
+            </div>
+        </section>
+
+        <section class="mission-section">
+            <div class="mission-header">
+                <div class="mission-number">1</div>
+                <h2>Serveur DHCP & Sous-réseaux</h2>
+            </div>
+            <p><strong>Besoin :</strong> Isoler 4 machines critiques dans un sous-réseau spécifique à partir du réseau
+                principal <code>10.42.1.0/24</code>.</p>
+
+            <div class="terminal">
+                <p><span class="comment"># Calcul du masque de sous-réseau</span></p>
+                <p>Besoin : 4 hôtes minimum.</p>
+                <p>Formule : 2^n - 2 >= 4</p>
+                <p>Si n=3 bits (000), 2^3 - 2 = 6 hôtes utilisables. (Suffisant)</p>
+                <br>
+                <p>Nouveau masque CIDR : 32 - 3 = <span class="cmd">/29</span></p>
+                <p>Masque décimal : <span class="cmd">255.255.255.248</span></p>
+            </div>
+
+            <table class="calc-table">
+                <thead>
+                    <tr>
+                        <th>Paramètre</th>
+                        <th>Valeur Calculée</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Adresse Réseau</td>
+                        <td class="highlight">10.42.1.0</td>
+                    </tr>
+                    <tr>
+                        <td>Premier Hôte</td>
+                        <td>10.42.1.1</td>
+                    </tr>
+                    <tr>
+                        <td>Dernier Hôte</td>
+                        <td>10.42.1.6</td>
+                    </tr>
+                    <tr>
+                        <td>Broadcast</td>
+                        <td>10.42.1.7</td>
+                    </tr>
+                    <tr>
+                        <td>Masque</td>
+                        <td class="highlight">255.255.255.248 (/29)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 15px; font-size: 0.9rem; font-style: italic;">*Configuration appliquée sur le rôle
+                DHCP de Windows Server 2022.</p>
+        </section>
+
+        <section class="mission-section">
+            <div class="mission-header">
+                <div class="mission-number">2</div>
+                <h2>Audit Active Directory (PowerShell)</h2>
+            </div>
+            <p><strong>Objectif :</strong> Créer un script pour lister les utilisateurs (tri alphabétique), les
+                ordinateurs par OS, et afficher les statistiques globales.</p>
+
+            <div class="terminal">
+                <p><span class="comment"># 1. Récupération des utilisateurs triés</span></p>
+                <p><span class="cmd">Write-Host</span> "--- LISTE UTILISATEURS ---"</p>
+                <p><span class="var">$users</span> = <span class="cmd">Get-ADUser</span> -Filter * | <span
+                        class="cmd">Sort-Object</span> Name</p>
+                <p><span class="var">$users</span>.Name</p>
+                <br>
+                <p><span class="comment"># 2. Ordinateurs classés par OS</span></p>
+                <p><span class="cmd">Write-Host</span> "--- PARC INFORMATIQUE PAR OS ---"</p>
+                <p><span class="var">$computers</span> = <span class="cmd">Get-ADComputer</span> -Filter * -Property
+                    OperatingSystem</p>
+                <p><span class="var">$computers</span> | <span class="cmd">Group-Object</span> OperatingSystem | <span
+                        class="cmd">Select-Object</span> Name, Count</p>
+                <br>
+                <p><span class="comment"># 3. Totaux</span></p>
+                <p><span class="cmd">Write-Host</span> "TOTAL USERS : " <span class="var">$users</span>.Count</p>
+                <p><span class="cmd">Write-Host</span> "TOTAL PC : " <span class="var">$computers</span>.Count</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateToggleText(newTheme);
+        }
+        function updateToggleText(theme) {
+            document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.setAttribute('data-theme', savedTheme);
+            updateToggleText(savedTheme);
+            if (localStorage.getItem('theme') !== 'light') {
+                document.body.setAttribute('data-theme', 'dark');
+                document.querySelector('.theme-toggle').textContent = 'Mode Clair';
+            }
+        });
+    </script>
+</body>
+
+</html>
