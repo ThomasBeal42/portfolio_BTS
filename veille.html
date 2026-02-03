@@ -167,8 +167,8 @@
 
         .veille-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            /* Cartes plus larges */
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            /* Cartes plus larges pour le contenu dense */
             gap: 40px;
             margin-bottom: 80px;
             padding: 0 20px;
@@ -191,7 +191,7 @@
         }
 
         .card-body {
-            padding: 35px;
+            padding: 40px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -201,8 +201,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px dashed var(--border-color);
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-color);
             padding-bottom: 15px;
         }
 
@@ -224,9 +224,18 @@
         }
 
         .card-body h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 20px;
             color: var(--text-color);
+        }
+
+        .card-body h4 {
+            font-size: 1.2rem;
+            color: var(--accent-primary);
+            margin-top: 25px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .card-body p {
@@ -245,14 +254,14 @@
 
         .card-body ul li {
             position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
+            padding-left: 25px;
+            margin-bottom: 10px;
             color: var(--text-color);
             opacity: 0.9;
         }
 
         .card-body ul li::before {
-            content: "•";
+            content: "→";
             color: var(--accent-secondary);
             font-weight: bold;
             font-size: 1.2em;
@@ -306,8 +315,8 @@
     <main class="container">
         <div class="veille-header">
             <h1>Veilles Technologiques</h1>
-            <p>Analyse approfondie des évolutions majeures en <strong>Infrastructure</strong> et <strong>Sécurité
-                    Réseau</strong>.</p>
+            <p>Dossiers techniques approfondis sur les standards émergents en <strong>Infrastructure</strong> et
+                <strong>Sécurité Réseau</strong>.</p>
         </div>
 
         <div class="veille-grid">
@@ -318,26 +327,38 @@
                         <span class="tag">Sécurité & Réseau</span>
                         <span class="date">Octobre 2025</span>
                     </div>
-                    <h3>L'Ère WireGuard : Révolutionner les VPN</h3>
+                    <h3>WireGuard : Le Futur des Tunnels VPN</h3>
 
-                    <p>La technologie des Réseaux Privés Virtuels (VPN) subit une transformation majeure avec l'adoption
-                        massive de <strong>WireGuard</strong>. Contrairement aux protocoles historiques comme IPsec
-                        (complexe) ou OpenVPN (lourd), WireGuard mise sur la simplicité radicale et la performance.</p>
+                    <p>Dans un contexte de mobilité accrue et de télétravail, le VPN est la pierre angulaire de la
+                        sécurité. <strong>WireGuard</strong> s'impose aujourd'hui comme le remplaçant technique d'IPsec
+                        et OpenVPN. Intégré directement dans le <strong>noyau Linux (depuis la version 5.6)</strong>, il
+                        redéfinit les standards de performance.</p>
 
-                    <p><strong>Pourquoi cette technologie s'impose :</strong></p>
+                    <h4>Architecture & Performance</h4>
+                    <p>La force de WireGuard réside dans son minimalisme : <strong>4 000 lignes de code</strong> contre
+                        plus de 400 000 pour IPsec ou 100 000 pour OpenVPN. Cette légèreté permet :</p>
                     <ul>
-                        <li><strong>Surface d'attaque réduite :</strong> Avec seulement 4 000 lignes de code (contre
-                            plus de 100 000 pour OpenVPN), l'audit de sécurité est simplifié et les failles potentielles
-                            sont drastiquement limitées.</li>
-                        <li><strong>Cryptographie moderne :</strong> Utilisation par défaut de primitives
-                            cryptographiques de pointe (Noise protocol framework, Curve25519, ChaCha20, Poly1305),
-                            éliminant les risques de mauvaise configuration.</li>
-                        <li><strong>Performance & Roaming :</strong> Une connexion quasi instantanée et une gestion
-                            native du changement de réseau (passer du Wi-Fi à la 4G sans coupure de session), idéal pour
-                            les flottes mobiles d'entreprise.</li>
+                        <li>Une réduction drastique de la surface d'attaque (audit de code facilité).</li>
+                        <li>Une exécution en <strong>Kernel Space</strong> (espace noyau), évitant les coûteux
+                            changements de contexte CPU vers l'espace utilisateur, garantissant des débits proches de la
+                            vitesse de ligne.</li>
+                        <li>Un "Handshake" initial quasi instantané (quelques millisecondes).</li>
                     </ul>
-                    <p>En tant qu'administrateur, cette évolution simplifie le déploiement des accès distants tout en
-                        renforçant la sécurité "Zero Trust" des infrastructures.</p>
+
+                    <h4>Cryptographie Moderne & Sécurité</h4>
+                    <p>Contrairement à ses prédécesseurs qui offrent un choix (trop) vaste d'algorithmes, WireGuard
+                        impose une suite cryptographique moderne et sécurisée (versionnée) :</p>
+                    <ul>
+                        <li><strong>Curve25519</strong> pour l'échange de clés (ECDH).</li>
+                        <li><strong>ChaCha20</strong> et <strong>Poly1305</strong> pour le chiffrement et
+                            l'authentification (plus rapides que l'AES sur les CPU sans accélération matérielle).</li>
+                        <li><strong>BLAKE2s</strong> pour le hachage et les clés.</li>
+                    </ul>
+
+                    <h4>Fonctionnement "Stealth" (Furtif)</h4>
+                    <p>Une caractéristique majeure pour la sécurité réseau est son silence. WireGuard ne répond à aucun
+                        paquet non authentifié. Si un scanner de port teste le serveur VPN sans la bonne clé privée, le
+                        serveur reste muet (Drop packet), rendant le service invisible sur le réseau public.</p>
                 </div>
             </article>
 
@@ -347,28 +368,39 @@
                         <span class="tag">Système & Cloud</span>
                         <span class="date">Septembre 2025</span>
                     </div>
-                    <h3>Windows Server 2025 : L'Hybridation Native</h3>
+                    <h3>Windows Server 2025 : L'Ère de l'Hybridation</h3>
 
-                    <p>Microsoft redéfinit le rôle du serveur "On-Premise" avec Windows Server 2025. L'objectif n'est
-                        plus de tout basculer dans le Cloud, mais de créer un pont transparent via <strong>Azure
-                            Arc</strong>, permettant de gérer les serveurs physiques locaux avec la même interface que
-                        les ressources Cloud.</p>
+                    <p>Microsoft opère un tournant stratégique avec Windows Server 2025. L'objectif n'est plus de forcer
+                        la migration totale vers le Cloud, mais d'apporter les capacités du Cloud (Azure) au cœur des
+                        Datacenters locaux (On-Premise) via <strong>Azure Arc</strong>.</p>
 
-                    <p><strong>Les avancées techniques majeures :</strong></p>
+                    <h4>Active Directory "Next Gen"</h4>
+                    <p>Pour la première fois depuis Windows Server 2003, la structure même de la base de données Active
+                        Directory (AD) évolue significativement :</p>
                     <ul>
-                        <li><strong>Hotpatching :</strong> Cette fonctionnalité révolutionnaire permet d'appliquer des
-                            correctifs de sécurité critiques sur les contrôleurs de domaine et serveurs de fichiers sans
-                            aucun redémarrage, garantissant une disponibilité de service proche de 100%.</li>
-                        <li><strong>SMB over QUIC :</strong> Une alternative sécurisée au VPN pour l'accès aux fichiers.
-                            Le protocole QUIC (basé sur UDP et TLS 1.3) permet un accès aux partages fichiers via
-                            Internet de manière chiffrée et performante, sans la lourdeur d'un tunnel VPN traditionnel.
-                        </li>
-                        <li><strong>Sécurité Active Directory :</strong> Durcissement par défaut avec l'abandon des
-                            protocoles obsolètes (NTLM) au profit de Kerberos et une intégration poussée avec Azure AD
-                            pour l'authentification multifacteur (MFA).</li>
+                        <li><strong>Pages de base de données de 32k :</strong> La taille des pages passe de 8k à 32k.
+                            Cela permet de briser les limitations historiques, d'accueillir des objets avec des
+                            attributs multivalués massifs et d'améliorer drastiquement les performances de réplication
+                            pour les très gros environnements.</li>
+                        <li><strong>Sécurité NUMA :</strong> Optimisation de la gestion de la mémoire sur les
+                            processeurs modernes (Non-Uniform Memory Access) pour les contrôleurs de domaine (DC) à
+                            forte charge.</li>
                     </ul>
-                    <p>Cette version marque un tournant pour les administrateurs systèmes, nécessitant une double
-                        compétence : la maîtrise du matériel local et la gestion des services Azure.</p>
+
+                    <h4>Hotpatching (Mise à jour à chaud)</h4>
+                    <p>Directement hérité d'Azure Automanage, le Hotpatching arrive sur les serveurs physiques. Cette
+                        technologie permet d'appliquer des correctifs de sécurité critiques en mémoire <strong>sans
+                            redémarrer le serveur</strong>. Cela réduit les fenêtres de maintenance et garantit une
+                        disponibilité continue des services critiques (Hyper-V, Serveurs de fichiers, DCs).</p>
+
+                    <h4>Stockage & Réseau : SMB over QUIC</h4>
+                    <p>Le protocole <strong>SMB over QUIC</strong> change la donne pour l'accès aux fichiers à distance.
+                        Il utilise le protocole QUIC (UDP + TLS 1.3) pour transporter les données :</p>
+                    <ul>
+                        <li>Permet l'accès aux partages de fichiers via Internet de manière sécurisée sans VPN.</li>
+                        <li>Gère nativement le changement de réseau (passage Wi-Fi/4G) sans couper le transfert.</li>
+                        <li>Remplace progressivement les VPNs clients lourds pour les travailleurs nomades.</li>
+                    </ul>
                 </div>
             </article>
 
