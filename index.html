@@ -20,8 +20,8 @@
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
-            --code-color: #94a3b8;
             --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            --grid-color: rgba(37, 99, 235, 0.05);
         }
 
         [data-theme="dark"] {
@@ -32,10 +32,9 @@
             --card-bg: #1e293b;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
             --border-color: #334155;
-            --code-color: #475569;
+            --grid-color: rgba(96, 165, 250, 0.05);
         }
 
-        /* 2. STYLES GÉNÉRAUX */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -67,7 +66,7 @@
             padding: 0 30px;
         }
 
-        /* 3. EN-TÊTE ET NAVIGATION */
+        /* 3. HEADER & NAV (INCHANGÉ) */
         header {
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
@@ -112,7 +111,7 @@
             font-weight: 600;
             padding: 10px 18px;
             border-radius: 5px;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.2s;
             white-space: nowrap;
         }
 
@@ -126,7 +125,6 @@
             color: var(--card-bg);
             background-color: var(--accent-primary);
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
-            font-weight: 700;
         }
 
         .theme-toggle {
@@ -137,139 +135,238 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: 700;
-            transition: all var(--transition-speed);
-            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+            transition: transform 0.2s;
         }
 
         .theme-toggle:hover {
-            background-color: #0891b2;
             transform: scale(1.05);
         }
 
-        /* 4. HERO SECTION */
+        /* 4. HERO SECTION (NOUVEAU DESIGN) */
         .hero {
-            min-height: 90vh;
+            position: relative;
+            padding: 80px 0 60px 0;
             display: flex;
             align-items: center;
-            position: relative;
-            overflow: hidden;
-            padding: 120px 0;
+            justify-content: space-between;
+            gap: 40px;
+            min-height: 80vh;
         }
 
-        .code-background {
+        /* Fond technique (Grille) */
+        .tech-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 200%;
-            z-index: 1;
-            opacity: 0.05;
-            pointer-events: none;
-            overflow: hidden;
-            font-family: 'Space Mono', monospace;
-            font-size: 1rem;
-            color: var(--code-color);
-            line-height: 1.5;
-            white-space: nowrap;
+            height: 100%;
+            background-image:
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: -1;
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
         }
 
-        .code-line {
-            animation: scrollCode 60s linear infinite;
+        .hero-text {
+            flex: 1;
+            max-width: 700px;
         }
 
-        @keyframes scrollCode {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-50%);
-            }
-        }
-
-        .hero-content {
-            z-index: 2;
-            position: relative;
-            max-width: 850px;
-        }
-
-        .hero-content h2 {
-            font-size: 1.5rem;
-            font-weight: 400;
+        .hero-subtitle {
             color: var(--accent-secondary);
-            margin-bottom: 5px;
-            letter-spacing: 2px;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: inline-block;
+            background: rgba(6, 182, 212, 0.1);
+            padding: 5px 10px;
+            border-radius: 4px;
         }
 
-        .hero-content h1 {
-            font-size: clamp(3rem, 7vw + 1rem, 6rem);
-            margin: 0 0 10px 0;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        .hero-text h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1.1;
         }
 
-        .hero-content h1 .name {
+        .hero-text h1 span {
             color: var(--accent-primary);
+            position: relative;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+            opacity: 0.9;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-primary);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--accent-secondary);
+            color: var(--accent-secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-secondary);
+            color: var(--card-bg);
+        }
+
+        /* Hero Visual (Carte Terminal) */
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .terminal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: var(--shadow-strong);
+            overflow: hidden;
+            transform: rotate(2deg);
+            transition: transform 0.4s;
+        }
+
+        .terminal-card:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .terminal-header {
+            background: #1e293b;
+            padding: 10px 15px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .red {
+            background: #ef4444;
+        }
+
+        .yellow {
+            background: #eab308;
+        }
+
+        .green {
+            background: #22c55e;
+        }
+
+        .terminal-body {
+            padding: 25px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .cmd {
+            color: var(--accent-secondary);
+        }
+
+        .str {
+            color: var(--accent-primary);
+        }
+
+        .comment {
+            color: #94a3b8;
             font-style: italic;
         }
 
-        .hero-content p {
-            font-size: 1.3rem;
-            color: var(--text-color);
-            max-width: 700px;
-            margin-bottom: 40px;
-            font-weight: 300;
+        /* 5. CARDS SECTION */
+        .features {
+            padding: 50px 0 80px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            background-image: linear-gradient(45deg, var(--accent-primary) 0%, #a8c1f9 100%);
-            color: var(--card-bg);
-            text-decoration: none;
-            padding: 18px 40px;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-strong);
+            border-top: 4px solid var(--accent-secondary);
+            transition: transform 0.3s;
         }
 
-        .cta-button:hover {
+        .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(37, 99, 235, 0.7);
         }
 
-        /* RESPONSIVE */
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
         @media (max-width: 1024px) {
             .navbar {
                 flex-wrap: wrap;
                 justify-content: center;
             }
 
-            .nav-controls {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 40px;
+            }
+
+            .hero-visual {
                 width: 100%;
-                justify-content: center;
-                margin-top: 15px;
             }
 
-            nav {
-                flex-wrap: wrap;
+            .cta-group {
                 justify-content: center;
             }
-        }
 
-        @media (max-width: 600px) {
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
-            .cta-button {
-                width: 100%;
-                justify-content: center;
+            .terminal-card {
+                transform: rotate(0);
             }
         }
     </style>
@@ -292,50 +389,67 @@
         </div>
     </header>
 
-    <main>
-        <section class="hero container">
-            <div class="code-background">
-                <pre class="code-line">
-                    <code>
-                        &lt;?php class ThomasBeal { public $statut = "Alternant BTS SIO"; // Portfolio SISR
-                        const ECOLE = "CFAI LDA"; const ENTREPRISE = "SPIP Informatique";
-                        public function get_mission() { return ["Maintenance", "Réseau", "Support Client"]; }
-                        // Apprentissage actif au CFAI Saint-Étienne
-                        private function study_hard($topic) { return new Competence(name: $topic, level: "En cours"); } ?&gt;
-                    </code>
-                </pre>
-                <pre class="code-line">
-                    <code>
-                        &lt;div id="hero" class="sisr-student"&gt; // Focus Infrastructure & Systèmes
-                        &lt;h1&gt;Bienvenue, je suis Thomas.&lt;/h1&gt; &lt;p&gt;Futur administrateur réseau.&lt;/p&gt;
-                        &lt;a href="./cv.html" class="cta-primary"&gt;Voir mon parcours&lt;/a&gt;
-                        const region = "Auvergne-Rhône-Alpes";
-                        // Passionné par la cybersécurité et l'administration système.
-                    </code>
-                </pre>
-                <pre class="code-line"><code>// Répétition Ligne 1: BTS SIO SISR - CFAI LDA</code></pre>
-                <pre class="code-line"><code>// Répétition Ligne 2: Alternance SPIP Informatique</code></pre>
-                <pre class="code-line"><code>// Répétition Ligne 3: Windows Server & Linux</code></pre>
-                <pre class="code-line"><code>// Répétition Ligne 1: BTS SIO SISR - CFAI LDA</code></pre>
-                <pre class="code-line"><code>// Répétition Ligne 2: Alternance SPIP Informatique</code></pre>
-                <pre class="code-line"><code>// Répétition Ligne 1: BTS SIO SISR - CFAI LDA</code></pre>
-                <pre class="code-line"><code>// Répétition Ligne 2: Alternance SPIP Informatique</code></pre>
-                <pre class="code-line"><code>// Répétition Ligne 3: Windows Server & Linux</code></pre>
+    <main class="container">
+        <div class="tech-bg"></div>
+
+        <section class="hero">
+            <div class="hero-text">
+                <span class="hero-subtitle">BTS SIO • Option SISR</span>
+                <h1>Thomas <span>Beal</span></h1>
+                <h3>Apprenti Administrateur Systèmes & Réseaux</h3>
+                <p>Passionné par l'infrastructure informatique et la cybersécurité. En alternance chez <strong>SPIP
+                        Informatique</strong>, je transforme la théorie en expertise terrain.</p>
+
+                <div class="cta-group">
+                    <a href="cv.html" class="btn btn-primary">Voir mon CV</a>
+                    <a href="veille.html" class="btn btn-secondary">Mes Veilles</a>
+                </div>
             </div>
 
-            <div class="hero-content">
-                <h2>Étudiant en BTS SIO Option SISR</h2>
-                <h1><span class="name">Thomas Beal</span>.</h1>
-                <h1>Apprenti Administrateur Systèmes & Réseaux.</h1>
-                <p>Actuellement en alternance chez <strong>SPIP Informatique</strong> et en formation au <strong>CFAI
-                        LDA</strong> de Saint-Étienne.
-                    Je me forme à la <strong>conception d'infrastructures</strong>, au support utilisateur et à la
-                    cybersécurité.</p>
-                <a href="cv.html" class="cta-button">
-                    Explorer Mon Parcours &rarr;
-                </a>
+            <div class="hero-visual">
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                    </div>
+                    <div class="terminal-body">
+                        <p><span class="cmd">thomas@portfolio:~$</span> ./whoami.sh</p>
+                        <p>> Étudiant CFAI Loire-Drôme-Ardèche</p>
+                        <p>> Alternant @ SPIP Informatique</p>
+                        <br>
+                        <p><span class="cmd">thomas@portfolio:~$</span> cat skills.txt</p>
+                        <p class="str">"Windows Server", "Active Directory", "Linux", "Réseaux", "Support"</p>
+                        <br>
+                        <p><span class="comment"># Prêt pour de nouveaux défis...</span></p>
+                        <p><span class="cmd">thomas@portfolio:~$</span> <span
+                                style="animation: blink 1s infinite">_</span></p>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <span class="feature-icon">🖥️</span>
+                <h3>Systèmes</h3>
+                <p>Administration de serveurs Windows & Linux. Gestion Active Directory, DHCP, DNS et virtualisation
+                    (Proxmox/Hyper-V).</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🌐</span>
+                <h3>Réseaux</h3>
+                <p>Configuration de switchs, routage, mise en place de VLANs et déploiement de solutions Wi-Fi
+                    performantes.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3>Sécurité</h3>
+                <p>Mise en place de VPN, pare-feux, gestion des droits utilisateurs et sensibilisation aux bonnes
+                    pratiques.</p>
+            </div>
+        </section>
+
     </main>
 
     <script>
@@ -360,6 +474,20 @@
             }
         });
     </script>
+
+    <style>
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
 </body>
 
 </html>
