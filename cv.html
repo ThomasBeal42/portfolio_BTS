@@ -122,6 +122,90 @@
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
         }
 
+        /* --- MENU DÉROULANT (DROPDOWN) --- */
+        .dropdown {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .dropbtn {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 10px 18px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-radius: 5px;
+        }
+
+        .dropdown:hover .dropbtn,
+        .dropbtn:hover {
+            color: var(--accent-primary);
+            background-color: var(--bg-color);
+            transform: translateY(-2px);
+        }
+
+        .dropbtn.active {
+            color: var(--card-bg);
+            background-color: var(--accent-primary);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--card-bg);
+            min-width: 240px;
+            box-shadow: var(--shadow-strong);
+            border-radius: 8px;
+            z-index: 1001;
+            border: 1px solid var(--border-color);
+            flex-direction: column;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 0;
+            margin: 0;
+            text-align: left;
+            white-space: normal;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--bg-color);
+            color: var(--accent-primary);
+            transform: translateX(5px);
+            box-shadow: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .theme-toggle {
             background: var(--accent-secondary);
             border: none;
@@ -290,7 +374,14 @@
                     <a href="index.html">Accueil</a>
                     <a href="cv.html" class="active">Mon CV</a>
                     <a href="company.html">À Propos de l'Entreprise</a>
-                    <a href="projet.html">Projets</a>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Projets ▾</button>
+                        <div class="dropdown-content">
+                            <a href="projet.html">Préparation de Postes (PC)</a>
+                        </div>
+                    </div>
+
                     <a href="veille.html">Veilles Technologiques</a>
                     <a href="tableau.html">Tableau des Compétences</a>
                 </nav>
