@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPIP Informatique | Thomas Beal</title>
+    <title>Veille VPN | Thomas Beal</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
         rel="stylesheet">
@@ -46,17 +46,16 @@
 
         h1,
         h2,
-        h3,
-        h4 {
+        h3 {
             font-family: 'Space Mono', monospace;
             font-weight: 700;
             color: var(--text-color);
         }
 
         .container {
-            max-width: 1300px;
-            margin: 40px auto;
-            padding: 0 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 30px;
         }
 
         /* HEADER & NAV */
@@ -202,58 +201,49 @@
             font-weight: 700;
         }
 
-        /* Company Specific */
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-            color: var(--accent-primary);
-        }
-
-        .intro-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-            align-items: center;
-        }
-
-        .intro-img img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: var(--shadow-strong);
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .tool-card {
+        /* Article Specific */
+        .article-card {
             background: var(--card-bg);
-            padding: 30px;
             border-radius: 12px;
+            padding: 40px;
             box-shadow: var(--shadow-strong);
-            text-align: center;
             border-top: 4px solid var(--accent-primary);
-            transition: 0.3s;
         }
 
-        .tool-card:hover {
-            transform: translateY(-5px);
+        .tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--accent-primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
         }
 
-        .tool-card img {
-            max-height: 80px;
+        .article-card h1 {
+            font-size: 2.5rem;
+            margin: 20px 0;
+            color: var(--text-color);
+        }
+
+        .article-card h2 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            color: var(--accent-secondary);
+            margin-bottom: 15px;
+        }
+
+        .article-card p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .article-card ul {
+            padding-left: 20px;
             margin-bottom: 20px;
         }
 
         @media (max-width: 1024px) {
-            .intro-grid {
-                grid-template-columns: 1fr;
-            }
-
             .navbar {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -270,7 +260,7 @@
                 <nav>
                     <a href="index.html">Accueil</a>
                     <a href="cv.html">Mon CV</a>
-                    <a href="company.html" class="active">Entreprise</a>
+                    <a href="company.html">Entreprise</a>
                     <div class="dropdown">
                         <button class="dropbtn">Projets ▾</button>
                         <div class="dropdown-content">
@@ -278,7 +268,7 @@
                         </div>
                     </div>
                     <div class="dropdown">
-                        <button class="dropbtn">Veilles ▾</button>
+                        <button class="dropbtn active">Veilles ▾</button>
                         <div class="dropdown-content">
                             <a href="vpn.html">VPN d'Entreprise</a>
                             <a href="serveur.html">Windows Server 2025</a>
@@ -292,51 +282,28 @@
     </header>
 
     <main class="container">
-        <section>
-            <h1 class="section-title">SPIP INFORMATIQUE</h1>
-            <div class="intro-grid">
-                <div class="intro-text">
-                    <h2>Services & Prestations</h2>
-                    <p>Gestion de parc informatique, proximité et expertise technique.</p>
-                    <br>
-                    <h3>SAMUEL MONIER</h3>
-                    <p><strong>Gérant & Expert Technique</strong></p>
-                </div>
-                <div class="intro-img">
-                    <img src="https://estebane.alphaprimo.fr/wp-content/uploads/2024/04/cover-logo-original-5-600x380-1.jpg"
-                        alt="Locaux">
-                </div>
-            </div>
-        </section>
+        <article class="article-card">
+            <span class="tag">Sécurité & Réseau</span>
+            <h1>Les VPN d'Entreprise : Architecture & Enjeux</h1>
+            <p>Le <strong>Réseau Privé Virtuel (VPN)</strong> est la pierre angulaire de la sécurité périmétrique
+                moderne, assurant la confidentialité des échanges sur des réseaux publics.</p>
 
-        <section>
-            <h2 class="section-title">Nos Outils</h2>
-            <div class="tools-grid">
-                <div class="tool-card"><img
-                        src="https://estebane.alphaprimo.fr/wp-content/uploads/2024/04/terra-computer-offer.jpg"
-                        alt="Terra">
-                    <h4>TERRA</h4>
-                </div>
-                <div class="tool-card"><img
-                        src="https://estebane.alphaprimo.fr/wp-content/uploads/2024/04/veeam_propartner_cloud_service_provider_registered_main_logo_pp_new.png.web_.1920.1920.webp"
-                        alt="Veeam">
-                    <h4>VEEAM</h4>
-                </div>
-                <div class="tool-card"><img
-                        src="https://estebane.alphaprimo.fr/wp-content/uploads/2024/04/homepage-slider.png" alt="3CX">
-                    <h4>3CX</h4>
-                </div>
-                <div class="tool-card"><img
-                        src="https://estebane.alphaprimo.fr/wp-content/uploads/2024/04/Aruba_Networks_logo.svg_-1024x500.png"
-                        alt="Aruba">
-                    <h4>ARUBA</h4>
-                </div>
-                <div class="tool-card"><img
-                        src="https://estebane.alphaprimo.fr/wp-content/uploads/2024/04/atera-box-logo.webp" alt="Atera">
-                    <h4>ATERA</h4>
-                </div>
-            </div>
-        </section>
+            <h2>Protocoles & Fonctionnement</h2>
+            <ul>
+                <li><strong>IPsec (Site-à-Site) :</strong> Standard niveau 3. Assure authentification et chiffrement via
+                    mode Tunnel ou Transport.</li>
+                <li><strong>SSL/TLS (Nomade) :</strong> Plus flexible (OpenVPN), fonctionne au niveau applicatif (couche
+                    7) et traverse mieux les pare-feux.</li>
+            </ul>
+
+            <h2>Sécurité & Cryptographie</h2>
+            <p>L'utilisation d'<strong>AES-256</strong> et de groupes Diffie-Hellman robustes est impérative pour
+                garantir la confidentialité persistante.</p>
+
+            <h2>Vers le "Zero Trust" (ZTNA)</h2>
+            <p>Le VPN traditionnel est progressivement remplacé par le ZTNA, qui vérifie l'identité et l'état du poste à
+                chaque requête applicative plutôt que de donner un accès réseau total.</p>
+        </article>
     </main>
     <script>
         function toggleTheme() { const b = document.body; const n = b.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; b.setAttribute('data-theme', n); localStorage.setItem('theme', n); document.querySelector('.theme-toggle').textContent = n === 'dark' ? 'Mode Clair' : 'Mode Sombre'; }

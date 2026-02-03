@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV | Thomas Beal - BTS SIO SISR</title>
+    <title>CV | Thomas Beal</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
         rel="stylesheet">
     <style>
-        /* Styles conservés à l'identique */
         :root {
             --bg-color: #f8fafc;
             --text-color: #0f172a;
@@ -18,7 +17,6 @@
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
-            --transition-speed: 0.4s;
         }
 
         [data-theme="dark"] {
@@ -41,9 +39,9 @@
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            transition: background-color var(--transition-speed), color var(--transition-speed);
             line-height: 1.7;
             min-height: 100vh;
+            transition: 0.4s;
         }
 
         h1,
@@ -85,15 +83,9 @@
             font-weight: 900;
             color: var(--accent-primary);
             text-decoration: none;
-            text-shadow: 1px 1px 0 var(--accent-secondary);
         }
 
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
+        .nav-controls,
         nav {
             display: flex;
             align-items: center;
@@ -106,23 +98,23 @@
             font-weight: 600;
             padding: 10px 18px;
             border-radius: 5px;
-            transition: all 0.2s;
+            transition: 0.2s;
             white-space: nowrap;
         }
 
         nav a:hover {
             color: var(--accent-primary);
-            background-color: var(--bg-color);
+            background: var(--bg-color);
             transform: translateY(-2px);
         }
 
         nav a.active {
             color: var(--card-bg);
-            background-color: var(--accent-primary);
+            background: var(--accent-primary);
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
         }
 
-        /* --- MENU DÉROULANT (DROPDOWN) --- */
+        /* DROPDOWNS */
         .dropdown {
             position: relative;
             display: flex;
@@ -138,21 +130,20 @@
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             cursor: pointer;
-            transition: all 0.2s;
             border-radius: 5px;
+            transition: 0.2s;
         }
 
         .dropdown:hover .dropbtn,
         .dropbtn:hover {
             color: var(--accent-primary);
-            background-color: var(--bg-color);
+            background: var(--bg-color);
             transform: translateY(-2px);
         }
 
         .dropbtn.active {
             color: var(--card-bg);
-            background-color: var(--accent-primary);
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+            background: var(--accent-primary);
         }
 
         .dropdown-content {
@@ -160,7 +151,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: var(--card-bg);
+            background: var(--card-bg);
             min-width: 240px;
             box-shadow: var(--shadow-strong);
             border-radius: 8px;
@@ -179,19 +170,14 @@
         .dropdown-content a {
             color: var(--text-color);
             padding: 12px 20px;
-            text-decoration: none;
             font-weight: 500;
-            border-radius: 0;
-            margin: 0;
             text-align: left;
-            white-space: normal;
         }
 
         .dropdown-content a:hover {
-            background-color: var(--bg-color);
+            background: var(--bg-color);
             color: var(--accent-primary);
             transform: translateX(5px);
-            box-shadow: none;
         }
 
         @keyframes fadeIn {
@@ -216,31 +202,15 @@
             font-weight: 700;
         }
 
-        /* CV Styles */
-        .cv-main-title {
-            text-align: center;
-            padding: 40px 0 20px 0;
-        }
-
-        .cv-main-title h1 {
-            font-size: 3rem;
-            color: var(--accent-primary);
-            margin-bottom: 5px;
-        }
-
-        .cv-main-title p {
-            font-size: 1.2rem;
-            color: var(--accent-secondary);
-        }
-
+        /* CV Specific */
         .cv-container {
             max-width: 1300px;
-            margin: 0 auto 50px auto;
+            margin: 30px auto;
             display: grid;
             grid-template-columns: 350px 1fr;
             gap: 40px;
             padding: 30px;
-            background-color: var(--card-bg);
+            background: var(--card-bg);
             box-shadow: var(--shadow-strong);
             border-radius: 12px;
         }
@@ -250,95 +220,27 @@
             border-right: 1px solid var(--border-color);
         }
 
-        .cv-right {
-            padding-left: 20px;
-        }
-
         .cv-section {
             margin-bottom: 30px;
-            padding-bottom: 15px;
             border-bottom: 1px solid var(--border-color);
-        }
-
-        .cv-section:last-child {
-            border-bottom: none;
+            padding-bottom: 15px;
         }
 
         .cv-section h3 {
             font-size: 1.5rem;
             color: var(--accent-primary);
             margin-bottom: 15px;
-            position: relative;
-            padding-left: 15px;
-        }
-
-        .cv-section h3::before {
-            content: "//";
-            color: var(--accent-secondary);
-            font-size: 1.2rem;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        .contact-info dt {
-            display: none;
-        }
-
-        .contact-info dd {
-            margin-bottom: 10px;
-            color: var(--text-color);
-        }
-
-        .contact-info dd a {
-            color: var(--accent-primary);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .details-item {
-            margin-bottom: 20px;
         }
 
         .details-item h4 {
             font-size: 1.15rem;
             margin: 0;
-            color: var(--text-color);
         }
 
-        .details-item p.date {
+        .date {
             font-style: italic;
             color: var(--accent-secondary);
-            margin-bottom: 5px;
             font-size: 0.95rem;
-        }
-
-        .details-item ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 5px;
-        }
-
-        .details-item ul li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 5px;
-            color: var(--text-color);
-        }
-
-        .details-item ul li::before {
-            content: '→';
-            color: var(--accent-primary);
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-        }
-
-        .list-unstyled li {
-            margin-bottom: 10px;
-            padding-left: 10px;
-            border-left: 3px solid var(--accent-secondary);
-            color: var(--text-color);
         }
 
         @media (max-width: 1024px) {
@@ -349,12 +251,6 @@
             .cv-left {
                 border-right: none;
                 border-bottom: 1px solid var(--border-color);
-                padding-right: 0;
-                padding-bottom: 20px;
-            }
-
-            .cv-right {
-                padding-left: 0;
             }
 
             .navbar {
@@ -373,146 +269,86 @@
                 <nav>
                     <a href="index.html">Accueil</a>
                     <a href="cv.html" class="active">Mon CV</a>
-                    <a href="company.html">À Propos de l'Entreprise</a>
-
+                    <a href="company.html">Entreprise</a>
                     <div class="dropdown">
                         <button class="dropbtn">Projets ▾</button>
                         <div class="dropdown-content">
                             <a href="projet.html">Préparation de Postes (PC)</a>
                         </div>
                     </div>
-
-                    <a href="veille.html">Veilles Technologiques</a>
-                    <a href="tableau.html">Tableau des Compétences</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">Veilles ▾</button>
+                        <div class="dropdown-content">
+                            <a href="vpn.html">VPN d'Entreprise</a>
+                            <a href="serveur.html">Windows Server 2025</a>
+                        </div>
+                    </div>
+                    <a href="tableau.html">Compétences</a>
                 </nav>
                 <button class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>
             </div>
         </div>
     </header>
 
-    <div class="cv-main-title">
-        <h1>Thomas BEAL</h1>
-        <p>Apprenti Technicien Informatique</p>
+    <div style="text-align:center; padding: 40px 0;">
+        <h1 style="font-size:3rem; color:var(--accent-primary);">Thomas BEAL</h1>
+        <p style="font-size:1.2rem; color:var(--accent-secondary);">Apprenti Technicien Informatique</p>
     </div>
 
     <div class="cv-container">
         <div class="cv-left">
             <section class="cv-section">
                 <h3>CONTACT</h3>
-                <dl class="contact-info">
-                    <dt>Email</dt>
-                    <dd><a href="mailto:thomas.beal852@gmail.com">thomas.beal852@gmail.com</a></dd>
-                    <dt>Téléphone</dt>
-                    <dd>07 69 97 18 13</dd>
-                    <dt>Localisation</dt>
-                    <dd>Saint martin la sauveté, 42260</dd>
-                    <dt>Date de naissance</dt>
-                    <dd>Né le 25/07/2006</dd>
-                </dl>
+                <p><strong>Email:</strong> <a href="mailto:thomas.beal852@gmail.com"
+                        style="color:var(--accent-primary)">thomas.beal852@gmail.com</a></p>
+                <p><strong>Tél:</strong> 07 69 97 18 13</p>
+                <p><strong>Lieu:</strong> Saint martin la sauveté, 42260</p>
             </section>
-
-            <section class="cv-section">
-                <h3>OBJECTIF</h3>
-                <p>Mon objectif est de poursuivre ma montée en compétences en intégrant un <strong>Bac +3 CPI en
-                        alternance</strong>, fort d'une expérience de terrain polyvalente en infrastructure et réseaux.
-                </p>
-            </section>
-
             <section class="cv-section">
                 <h3>INFORMATIQUE</h3>
-                <ul class="list-unstyled">
-                    <li>Montage/DEMONTAGE d'ordinateurs et résolution de problèmes</li>
-                    <li>Python (NSI)</li>
-                    <li>C#, PowerShell, BASH</li>
-                    <li>HTML, CSS et JavaScript</li>
+                <ul style="padding-left:20px;">
+                    <li>Montage/Dépannage PC</li>
+                    <li>Python, C#, PowerShell</li>
+                    <li>HTML, CSS, JS</li>
                 </ul>
             </section>
-
-            <section class="cv-section" style="border-bottom: none;">
+            <section class="cv-section" style="border:none;">
                 <h3>CENTRES D'INTÉRÊT</h3>
-                <ul class="list-unstyled">
+                <ul style="padding-left:20px;">
                     <li>Foot en club</li>
                     <li>Informatique</li>
                     <li>Enduro</li>
                 </ul>
             </section>
         </div>
-
         <div class="cv-right">
             <section class="cv-section">
-                <h3>EXPÉRIENCES PROFESSIONNELLES</h3>
+                <h3>EXPÉRIENCES</h3>
                 <div class="details-item">
                     <h4>Apprenti Technicien Informatique</h4>
-                    <p class="date">2024 - 2026 | SPIP-Informatique, Cremeaux</p>
-                    <ul>
-                        <li>Gestion en autonomie de l'infrastructure client (accès intégral au parc informatique).</li>
-                        <li>Maintenance préventive/curative et résolution de problèmes complexes.</li>
-                        <li>Configuration et déploiement de postes et de serveurs.</li>
-                    </ul>
-                </div>
-                <div class="details-item">
-                    <h4>Stages</h4>
-                    <p class="date">Années précédentes</p>
-                    <ul>
-                        <li>Entreprise de Travaux Agricole (1ère)</li>
-                        <li>Électricien (3ème)</li>
-                    </ul>
-                </div>
-                <div class="details-item">
-                    <h4>Divers</h4>
-                    <ul>
-                        <li>Aide à la caisse en boucherie.</li>
+                    <p class="date">2024 - 2026 | SPIP-Informatique</p>
+                    <ul style="padding-left:20px; margin-top:10px;">
+                        <li>Gestion autonomie infra client.</li>
+                        <li>Maintenance et déploiement.</li>
                     </ul>
                 </div>
             </section>
-
             <section class="cv-section">
                 <h3>FORMATION</h3>
                 <div class="details-item">
-                    <h4>BTS SIO option SISR en alternance</h4>
+                    <h4>BTS SIO (SISR)</h4>
                     <p class="date">2024 - Présent</p>
                 </div>
                 <div class="details-item">
                     <h4>BAC Général</h4>
-                    <p class="date">Obtenu avec spécialités Maths et NSI</p>
-                </div>
-                <div class="details-item">
-                    <h4>Brevet des collèges</h4>
-                </div>
-            </section>
-
-            <section class="cv-section">
-                <h3>PROJETS</h3>
-                <div class="details-item">
-                    <ul>
-                        <li>Création d'un site web en HTML, CSS et JavaScript.</li>
-                    </ul>
+                    <p class="date">Spécialités Maths & NSI</p>
                 </div>
             </section>
         </div>
     </div>
-
     <script>
-        function toggleTheme() {
-            const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateToggleText(newTheme);
-        }
-        function updateToggleText(theme) {
-            document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.body.setAttribute('data-theme', savedTheme);
-            updateToggleText(savedTheme);
-            if (localStorage.getItem('theme') !== 'light') {
-                document.body.setAttribute('data-theme', 'dark');
-                document.querySelector('.theme-toggle').textContent = 'Mode Clair';
-            }
-        });
+        function toggleTheme() { const b = document.body; const n = b.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; b.setAttribute('data-theme', n); localStorage.setItem('theme', n); document.querySelector('.theme-toggle').textContent = n === 'dark' ? 'Mode Clair' : 'Mode Sombre'; }
+        document.addEventListener('DOMContentLoaded', () => { const t = localStorage.getItem('theme') || 'light'; document.body.setAttribute('data-theme', t); if (t !== 'light') document.querySelector('.theme-toggle').textContent = 'Mode Clair'; });
     </script>
 </body>
 

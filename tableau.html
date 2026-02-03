@@ -4,14 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau des Compétences E5 | Thomas Beal</title>
+    <title>Tableau E5 | Thomas Beal</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
         rel="stylesheet">
     <style>
-        /* ========================================================================= */
-        /* 1. VARIABLES (Identiques à index.html) */
-        /* ========================================================================= */
         :root {
             --bg-color: #f8fafc;
             --text-color: #0f172a;
@@ -20,7 +17,6 @@
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
-            --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         [data-theme="dark"] {
@@ -50,15 +46,11 @@
         }
 
         h1,
-        h2,
-        h3 {
+        h2 {
             font-family: 'Space Mono', monospace;
             font-weight: 700;
         }
 
-        /* ========================================================================= */
-        /* 2. HEADER STANDARD (Copie conforme index.html) */
-        /* ========================================================================= */
         header {
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
@@ -81,15 +73,9 @@
             font-weight: 900;
             color: var(--accent-primary);
             text-decoration: none;
-            text-shadow: 1px 1px 0 var(--accent-secondary);
         }
 
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
+        .nav-controls,
         nav {
             display: flex;
             align-items: center;
@@ -102,23 +88,23 @@
             font-weight: 600;
             padding: 10px 18px;
             border-radius: 5px;
-            transition: all 0.2s;
+            transition: 0.2s;
             white-space: nowrap;
         }
 
         nav a:hover {
             color: var(--accent-primary);
-            background-color: var(--bg-color);
+            background: var(--bg-color);
             transform: translateY(-2px);
         }
 
         nav a.active {
             color: var(--card-bg);
-            background-color: var(--accent-primary);
+            background: var(--accent-primary);
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
         }
 
-        /* --- MENU DÉROULANT (DROPDOWN) --- */
+        /* DROPDOWNS */
         .dropdown {
             position: relative;
             display: flex;
@@ -134,21 +120,20 @@
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             cursor: pointer;
-            transition: all 0.2s;
             border-radius: 5px;
+            transition: 0.2s;
         }
 
         .dropdown:hover .dropbtn,
         .dropbtn:hover {
             color: var(--accent-primary);
-            background-color: var(--bg-color);
+            background: var(--bg-color);
             transform: translateY(-2px);
         }
 
         .dropbtn.active {
             color: var(--card-bg);
-            background-color: var(--accent-primary);
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+            background: var(--accent-primary);
         }
 
         .dropdown-content {
@@ -156,7 +141,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: var(--card-bg);
+            background: var(--card-bg);
             min-width: 240px;
             box-shadow: var(--shadow-strong);
             border-radius: 8px;
@@ -175,19 +160,14 @@
         .dropdown-content a {
             color: var(--text-color);
             padding: 12px 20px;
-            text-decoration: none;
             font-weight: 500;
-            border-radius: 0;
-            margin: 0;
             text-align: left;
-            white-space: normal;
         }
 
         .dropdown-content a:hover {
-            background-color: var(--bg-color);
+            background: var(--bg-color);
             color: var(--accent-primary);
             transform: translateX(5px);
-            box-shadow: none;
         }
 
         @keyframes fadeIn {
@@ -210,16 +190,8 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: 700;
-            transition: all var(--transition-speed);
         }
 
-        .theme-toggle:hover {
-            transform: scale(1.05);
-        }
-
-        /* ========================================================================= */
-        /* 3. MAIN (Le réglage du tableau qui ne coupe pas) */
-        /* ========================================================================= */
         main {
             flex-grow: 1;
             position: relative;
@@ -243,30 +215,10 @@
             transform-origin: 0 0;
         }
 
-        .info-bubble {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: var(--card-bg);
-            color: var(--text-color);
-            padding: 10px 20px;
-            border-radius: 8px;
-            box-shadow: var(--shadow-strong);
-            border-left: 4px solid var(--accent-primary);
-            font-size: 0.9rem;
-            opacity: 0.9;
-            pointer-events: none;
-            z-index: 10;
-        }
-
         @media (max-width: 1024px) {
             .navbar {
                 flex-wrap: wrap;
                 justify-content: center;
-            }
-
-            .info-bubble {
-                display: none;
             }
 
             iframe {
@@ -286,54 +238,35 @@
                 <nav>
                     <a href="index.html">Accueil</a>
                     <a href="cv.html">Mon CV</a>
-                    <a href="company.html">À Propos de l'Entreprise</a>
-
+                    <a href="company.html">Entreprise</a>
                     <div class="dropdown">
                         <button class="dropbtn">Projets ▾</button>
                         <div class="dropdown-content">
                             <a href="projet.html">Préparation de Postes (PC)</a>
                         </div>
                     </div>
-
-                    <a href="veille.html">Veilles Technologiques</a>
-                    <a href="tableau.html" class="active">Tableau des Compétences</a>
+                    <div class="dropdown">
+                        <button class="dropbtn">Veilles ▾</button>
+                        <div class="dropdown-content">
+                            <a href="vpn.html">VPN d'Entreprise</a>
+                            <a href="serveur.html">Windows Server 2025</a>
+                        </div>
+                    </div>
+                    <a href="tableau.html" class="active">Compétences</a>
                 </nav>
                 <button class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>
             </div>
         </div>
     </header>
-
     <main>
         <div class="iframe-container">
             <iframe
                 src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTN3nPB1izEXPeoKXbtfHHgKAmKGo0ZegOMtd7NQZGhFgf1eYgtIrquENDGN6FMCBRO-X8zUZSSqkSG/pubhtml?gid=293622591&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
         </div>
     </main>
-
     <script>
-        function toggleTheme() {
-            const body = document.body;
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateToggleText(newTheme);
-        }
-
-        function updateToggleText(theme) {
-            document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.body.setAttribute('data-theme', savedTheme);
-            updateToggleText(savedTheme);
-
-            if (localStorage.getItem('theme') !== 'light') {
-                document.body.setAttribute('data-theme', 'dark');
-                updateToggleText('dark');
-            }
-        });
+        function toggleTheme() { const b = document.body; const n = b.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; b.setAttribute('data-theme', n); localStorage.setItem('theme', n); document.querySelector('.theme-toggle').textContent = n === 'dark' ? 'Mode Clair' : 'Mode Sombre'; }
+        document.addEventListener('DOMContentLoaded', () => { const t = localStorage.getItem('theme') || 'light'; document.body.setAttribute('data-theme', t); if (t !== 'light') document.querySelector('.theme-toggle').textContent = 'Mode Clair'; });
     </script>
 </body>
 
