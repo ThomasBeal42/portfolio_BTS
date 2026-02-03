@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau des Compétences E5 | Thomas Beal</title>
+    <title>Formation BTS SIO SISR | Thomas Beal</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
         rel="stylesheet">
     <style>
         /* ========================================================================= */
-        /* 1. VARIABLES (Identiques à index.html) */
+        /* 1. VARIABLES & THÈMES (Identique aux autres pages) */
         /* ========================================================================= */
         :root {
             --bg-color: #f8fafc;
@@ -20,7 +20,7 @@
             --card-bg: #ffffff;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
             --border-color: #e2e8f0;
-            --transition-speed: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            --code-bg: #1e293b;
         }
 
         [data-theme="dark"] {
@@ -31,6 +31,7 @@
             --card-bg: #1e293b;
             --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.6);
             --border-color: #334155;
+            --code-bg: #0f172a;
         }
 
         * {
@@ -43,28 +44,34 @@
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
+            line-height: 1.7;
+            min-height: 100vh;
+            transition: 0.4s;
         }
 
         h1,
         h2,
-        h3 {
+        h3,
+        h4 {
             font-family: 'Space Mono', monospace;
             font-weight: 700;
+            color: var(--text-color);
         }
 
-        /* ========================================================================= */
-        /* 2. HEADER STANDARD (Copie conforme index.html) */
-        /* ========================================================================= */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
+
+        /* HEADER & NAV */
         header {
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
+            position: sticky;
+            top: 0;
             z-index: 1000;
             border-bottom: 3px solid var(--accent-primary);
-            flex-shrink: 0;
         }
 
         .navbar {
@@ -81,15 +88,9 @@
             font-weight: 900;
             color: var(--accent-primary);
             text-decoration: none;
-            text-shadow: 1px 1px 0 var(--accent-secondary);
         }
 
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
+        .nav-controls,
         nav {
             display: flex;
             align-items: center;
@@ -102,7 +103,7 @@
             font-weight: 600;
             padding: 10px 18px;
             border-radius: 5px;
-            transition: all 0.2s;
+            transition: 0.2s;
             white-space: nowrap;
         }
 
@@ -118,7 +119,7 @@
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
         }
 
-        /* --- MENU DÉROULANT (DROPDOWN) --- */
+        /* DROPDOWNS */
         .dropdown {
             position: relative;
             display: flex;
@@ -134,7 +135,7 @@
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: 0.2s;
             border-radius: 5px;
         }
 
@@ -143,12 +144,6 @@
             color: var(--accent-primary);
             background-color: var(--bg-color);
             transform: translateY(-2px);
-        }
-
-        .dropbtn.active {
-            color: var(--card-bg);
-            background-color: var(--accent-primary);
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
         }
 
         .dropdown-content {
@@ -177,17 +172,13 @@
             padding: 12px 20px;
             text-decoration: none;
             font-weight: 500;
-            border-radius: 0;
-            margin: 0;
             text-align: left;
-            white-space: normal;
         }
 
         .dropdown-content a:hover {
             background-color: var(--bg-color);
             color: var(--accent-primary);
             transform: translateX(5px);
-            box-shadow: none;
         }
 
         @keyframes fadeIn {
@@ -210,53 +201,101 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: 700;
-            transition: all var(--transition-speed);
         }
 
-        .theme-toggle:hover {
-            transform: scale(1.05);
+        /* FORMATION CONTENT */
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
         }
 
-        /* ========================================================================= */
-        /* 3. MAIN (Le réglage du tableau qui ne coupe pas) */
-        /* ========================================================================= */
-        main {
-            flex-grow: 1;
-            position: relative;
-            width: 100%;
-            background-color: #fff;
-            overflow: hidden;
+        .page-header h1 {
+            font-size: 3rem;
+            color: var(--accent-primary);
+            margin-bottom: 15px;
         }
 
-        .iframe-container {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        iframe {
-            border: 0;
-            display: block;
-            width: 155%;
-            height: 155%;
-            transform: scale(0.64);
-            transform-origin: 0 0;
-        }
-
-        .info-bubble {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: var(--card-bg);
-            color: var(--text-color);
-            padding: 10px 20px;
-            border-radius: 8px;
-            box-shadow: var(--shadow-strong);
-            border-left: 4px solid var(--accent-primary);
-            font-size: 0.9rem;
+        .page-header p {
+            font-size: 1.2rem;
             opacity: 0.9;
-            pointer-events: none;
-            z-index: 10;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: start;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: var(--shadow-strong);
+            border-top: 4px solid var(--accent-secondary);
+            height: 100%;
+        }
+
+        .info-card h2 {
+            color: var(--accent-secondary);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .info-card h3 {
+            color: var(--accent-primary);
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 10px;
+        }
+
+        .info-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .info-card ul li::before {
+            content: "▹";
+            color: var(--accent-primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--accent-primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-family: 'Space Mono';
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .school-location {
+            margin-top: 30px;
+            background: var(--bg-color);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-primary);
         }
 
         @media (max-width: 1024px) {
@@ -265,14 +304,8 @@
                 justify-content: center;
             }
 
-            .info-bubble {
-                display: none;
-            }
-
-            iframe {
-                width: 250%;
-                height: 250%;
-                transform: scale(0.40);
+            .split-section {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -286,13 +319,12 @@
                 <nav>
                     <a href="index.html">Accueil</a>
                     <a href="cv.html">Mon CV</a>
-                    <a href="company.html">À Propos de l'Entreprise</a>
-                    <a href="formation.html">Formation</a>
-
+                    <a href="company.html">Entreprise</a>
+                    <a href="formation.html" class="active">Formation</a>
                     <div class="dropdown">
                         <button class="dropbtn">Projets ▾</button>
                         <div class="dropdown-content">
-                            <a href="pc.html">Préparation de Postes (PC)</a>
+                            <a href="projet.html">Préparation de Postes (PC)</a>
                             <a href="gsb.html">Contexte GSB (E6)</a>
                         </div>
                     </div>
@@ -304,19 +336,78 @@
                             <a href="serveur.html">Windows Server 2025</a>
                         </div>
                     </div>
-
-                    <a href="tableau.html" class="active">Tableau des Compétences</a>
+                    <a href="tableau.html">Compétences</a>
                 </nav>
                 <button class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>
             </div>
         </div>
     </header>
 
-    <main>
-        <div class="iframe-container">
-            <iframe
-                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTN3nPB1izEXPeoKXbtfHHgKAmKGo0ZegOMtd7NQZGhFgf1eYgtIrquENDGN6FMCBRO-X8zUZSSqkSG/pubhtml?gid=293622591&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+    <main class="container">
+
+        <div class="page-header">
+            <h1>MA FORMATION</h1>
+            <p>Mon parcours académique en alternance au cœur des systèmes et réseaux.</p>
         </div>
+
+        <div class="split-section">
+
+            <article class="info-card">
+                <h2>LE DIPLÔME</h2>
+                <h3>BTS SIO • Option SISR</h3>
+                <p>Le <strong>Brevet de Technicien Supérieur - Services Informatiques aux Organisations</strong> forme
+                    des experts de l'infrastructure.</p>
+                <p>L'option <strong>SISR (Solutions d'Infrastructure, Systèmes et Réseaux)</strong> est dédiée à la
+                    gestion, la sécurisation et la maintenance des parcs informatiques.</p>
+
+                <h3>Compétences Clés</h3>
+                <ul>
+                    <li><strong>Administration Système :</strong> Installation et configuration de serveurs (Windows
+                        Server, Linux). Gestion des utilisateurs (AD) et des services (DHCP, DNS).</li>
+                    <li><strong>Réseau :</strong> Conception d'architectures, configuration de commutateurs/routeurs
+                        (VLAN, Routage), supervision.</li>
+                    <li><strong>Cybersécurité :</strong> Protection des données, sécurisation des accès, mise en place
+                        de pare-feux et VPN.</li>
+                    <li><strong>Virtualisation :</strong> Déploiement de machines virtuelles (Proxmox, VMware, Hyper-V).
+                    </li>
+                </ul>
+
+                <div class="tag-container">
+                    <span class="tag">Bac +2</span>
+                    <span class="tag">RNCP 35340</span>
+                    <span class="tag">Admin Sys</span>
+                    <span class="tag">Cyber</span>
+                </div>
+            </article>
+
+            <article class="info-card">
+                <h2>L'ÉCOLE</h2>
+                <h3>CFAI Loire-Drôme-Ardèche</h3>
+                <p>Je suis ma formation au <strong>Pôle Formation CFAI</strong> sur le site de
+                    <strong>Saint-Étienne</strong>. Cet établissement est spécialisé dans les formations industrielles
+                    et technologiques en apprentissage.</p>
+
+                <h3>Pourquoi ce centre ?</h3>
+                <ul>
+                    <li><strong>Pédagogie par l'action :</strong> Des plateaux techniques performants et des
+                        laboratoires dédiés.</li>
+                    <li><strong>L'Alternance :</strong> Un rythme (généralement 2 semaines en cours / 2 semaines en
+                        entreprise) qui permet d'appliquer immédiatement les concepts théoriques en environnement réel.
+                    </li>
+                    <li><strong>Proximité Entreprises :</strong> Des formations créées "par et pour" les entreprises
+                        locales.</li>
+                </ul>
+
+                <div class="school-location">
+                    <h4 style="margin-bottom: 10px; color: var(--text-color);">📍 Localisation</h4>
+                    <p><strong>Cité des Entreprises</strong><br>
+                        16 Boulevard de l'Etivallière<br>
+                        42000 Saint-Étienne</p>
+                </div>
+            </article>
+
+        </div>
+
     </main>
 
     <script>
@@ -328,19 +419,16 @@
             localStorage.setItem('theme', newTheme);
             updateToggleText(newTheme);
         }
-
         function updateToggleText(theme) {
             document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
         }
-
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.body.setAttribute('data-theme', savedTheme);
             updateToggleText(savedTheme);
-
             if (localStorage.getItem('theme') !== 'light') {
                 document.body.setAttribute('data-theme', 'dark');
-                updateToggleText('dark');
+                document.querySelector('.theme-toggle').textContent = 'Mode Clair';
             }
         });
     </script>
