@@ -291,22 +291,22 @@
         }
 
         /* TERMINAL / CODE STYLE */
-        .terminal-container {
-            position: relative;
-            margin-top: 20px;
-        }
-
         .terminal {
             background: var(--code-bg);
             border-radius: 8px;
-            padding: 35px 20px 20px 20px;
+            padding: 20px;
             font-family: 'Space Mono', monospace;
             color: #e2e8f0;
             overflow-x: auto;
+            margin-top: 20px;
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            white-space: pre;
-            /* Important pour le formatage du script */
+        }
+
+        /* STYLE AJOUTÉ POUR LE BOUTON COPIER */
+        .terminal-container {
+            position: relative;
+            margin-top: 20px;
         }
 
         .copy-btn {
@@ -464,13 +464,13 @@
                 principal <code>10.42.1.0/24</code>.</p>
 
             <div class="terminal">
-                <p><span class="comment"># Calcul du masque de sous-réseau</span></p>
-                <p>Besoin : 4 hôtes minimum.</p>
-                <p>Formule : 2^n - 2 >= 4</p>
-                <p>Si n=3 bits (000), 2^3 - 2 = 6 hôtes utilisables. (Suffisant)</p>
+                <span class="comment"># Calcul du masque de sous-réseau</span><br>
+                Besoin : 4 hôtes minimum.<br>
+                Formule : 2^n - 2 >= 4<br>
+                Si n=3 bits (000), 2^3 - 2 = 6 hôtes utilisables. (Suffisant)<br>
                 <br>
-                <p>Nouveau masque CIDR : 32 - 3 = <span class="cmd">/29</span></p>
-                <p>Masque décimal : <span class="cmd">255.255.255.248</span></p>
+                Nouveau masque CIDR : 32 - 3 = <span class="cmd">/29</span><br>
+                Masque décimal : <span class="cmd">255.255.255.248</span>
             </div>
 
             <table class="calc-table">
@@ -517,7 +517,7 @@
 
             <div class="terminal-container">
                 <button onclick="copyCode()" class="copy-btn">Copier le script</button>
-                <div class="terminal" id="ps-script">
+                <div class="terminal" id="ps-script" style="white-space: pre;">
                     <span class="comment"># 1. Liste des utilisateurs triés</span>
                     <span class="cmd">Write-Host</span> "`n--- LISTE DES UTILISATEURS (Alpha) ---" <span
                         class="var">-ForegroundColor</span> Cyan
@@ -567,7 +567,7 @@
             document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
         }
 
-        // Fonction pour copier le script
+        // MODIFICATION ICI : Fonction pour copier
         function copyCode() {
             const code = document.getElementById('ps-script').innerText;
             navigator.clipboard.writeText(code).then(() => {
