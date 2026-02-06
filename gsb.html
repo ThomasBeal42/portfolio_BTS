@@ -9,7 +9,6 @@
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
         rel="stylesheet">
     <style>
-        /* Mêmes variables que partout */
         :root {
             --bg-color: #f8fafc;
             --text-color: #0f172a;
@@ -62,7 +61,6 @@
             padding: 0 30px;
         }
 
-        /* HEADER & NAV */
         header {
             background-color: var(--card-bg);
             box-shadow: var(--shadow-strong);
@@ -125,7 +123,6 @@
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
         }
 
-        /* DROPDOWNS */
         .dropdown {
             position: relative;
             display: flex;
@@ -148,17 +145,6 @@
             align-items: center;
         }
 
-        .dropdown:hover .dropbtn,
-        .dropbtn:hover {
-            color: var(--accent-primary);
-            background-color: var(--bg-color);
-        }
-
-        .dropbtn.active {
-            color: var(--accent-primary);
-            border-bottom: 3px solid var(--accent-primary);
-        }
-
         .dropdown-content {
             display: none;
             position: absolute;
@@ -173,7 +159,6 @@
             border-top: none;
             flex-direction: column;
             overflow: hidden;
-            margin-top: 0;
         }
 
         .dropdown:hover .dropdown-content {
@@ -186,26 +171,7 @@
             padding: 15px 20px;
             text-decoration: none;
             font-weight: 500;
-            text-align: left;
-            border-bottom: 1px solid var(--grid-color);
-        }
-
-        .dropdown-content a:hover {
-            background-color: var(--bg-color);
-            color: var(--accent-primary);
-            transform: translateX(5px);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(5px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            border-bottom: 1px solid var(--border-color);
         }
 
         .theme-toggle {
@@ -218,7 +184,6 @@
             font-weight: 700;
         }
 
-        /* GSB CONTENT STYLES */
         .project-title {
             text-align: center;
             margin-bottom: 50px;
@@ -227,19 +192,8 @@
         .project-title h1 {
             font-size: 3rem;
             color: var(--accent-primary);
-            margin-bottom: 10px;
         }
 
-        .project-title span {
-            background: var(--accent-secondary);
-            color: var(--card-bg);
-            padding: 5px 15px;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 700;
-        }
-
-        /* ENVIRONNEMENT CARD */
         .env-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -252,18 +206,6 @@
             box-shadow: var(--shadow-strong);
         }
 
-        .env-info h3 {
-            margin-bottom: 10px;
-            color: var(--accent-secondary);
-        }
-
-        .env-icons {
-            display: flex;
-            gap: 20px;
-            font-size: 2.5rem;
-        }
-
-        /* MISSION SECTIONS */
         .mission-section {
             margin-bottom: 60px;
         }
@@ -290,17 +232,43 @@
             font-family: 'Space Mono';
         }
 
-        /* TERMINAL / CODE STYLE */
+        /* TERMINAL ET BOUTON COPIER */
+        .terminal-container {
+            position: relative;
+            margin-top: 20px;
+        }
+
         .terminal {
             background: var(--code-bg);
             border-radius: 8px;
-            padding: 20px;
+            padding: 35px 20px 20px 20px;
             font-family: 'Space Mono', monospace;
             color: #e2e8f0;
             overflow-x: auto;
-            margin-top: 20px;
             border: 1px solid var(--border-color);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            white-space: pre;
+            line-height: 1.5;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.75rem;
+            transition: 0.3s;
+            z-index: 10;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent-secondary);
         }
 
         .cmd {
@@ -312,63 +280,34 @@
             font-style: italic;
         }
 
-        .output {
-            color: #4ade80;
-        }
-
         .var {
             color: #facc15;
         }
 
-        /* CALCULATION TABLE */
         .calc-table {
             width: 100%;
             border-collapse: collapse;
             background: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow-strong);
             margin-top: 20px;
+            box-shadow: var(--shadow-strong);
         }
 
         .calc-table th,
         .calc-table td {
             padding: 15px;
+            border: 1px solid var(--border-color);
             text-align: left;
-            border-bottom: 1px solid var(--border-color);
         }
 
-        .calc-table th {
-            background: var(--bg-color);
-            color: var(--accent-primary);
-        }
-
-        .highlight {
-            color: var(--accent-secondary);
-            font-weight: 700;
-            font-family: 'Space Mono';
-        }
-
-        @media (max-width: 1024px) {
-            .navbar {
-                height: auto;
-                flex-wrap: wrap;
-                justify-content: center;
-                padding: 20px;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
             }
 
-            .env-card {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-
-            .dropdown-content {
-                position: static;
-                width: 100%;
-                box-shadow: none;
-                border: none;
-                margin-top: 10px;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
@@ -382,25 +321,15 @@
                 <nav>
                     <a href="index.html">Accueil</a>
                     <a href="cv.html">Mon CV</a>
-                    <a href="company.html">À Propos de l'Entreprise</a>
-                    <a href="formation.html">Formation</a>
-
+                    <a href="company.html">À Propos</a>
                     <div class="dropdown">
                         <button class="dropbtn active">Projets ▾</button>
                         <div class="dropdown-content">
-                            <a href="pc.html">Préparation de Postes (PC)</a>
+                            <a href="pc.html">Préparation PC</a>
                             <a href="gsb.html">Contexte GSB (E6)</a>
                         </div>
                     </div>
-
-                    <div class="dropdown">
-                        <button class="dropbtn">Veilles ▾</button>
-                        <div class="dropdown-content">
-                            <a href="vpn.html">VPN d'Entreprise</a>
-                            <a href="serveur.html">Windows Server 2025</a>
-                        </div>
-                    </div>
-                    <a href="tableau.html">Tableau des Compétences</a>
+                    <a href="tableau.html">Compétences</a>
                 </nav>
                 <button class="theme-toggle" onclick="toggleTheme()">Mode Clair</button>
             </div>
@@ -408,7 +337,6 @@
     </header>
 
     <main class="container">
-
         <div class="project-title">
             <span>ÉPREUVE E6 - BTS SIO SISR</span>
             <h1>CONTEXTE GSB</h1>
@@ -419,14 +347,9 @@
             <div class="env-info">
                 <h3>Architecture Labo</h3>
                 <p>Environnement virtualisé sous <strong>Proxmox VE</strong>.</p>
-                <ul style="list-style: none; margin-top: 10px;">
-                    <li>• 1 VM <strong>Windows Server 2022</strong> (AD, DNS, DHCP)</li>
-                    <li>• 2 VMs <strong>Windows 11 Pro</strong> (Clients domaine)</li>
-                </ul>
+                <p>OS : Windows Server 2022 (ADDS, DHCP).</p>
             </div>
-            <div class="env-icons">
-                🖥️ 🔌 🛡️
-            </div>
+            <div class="env-icons">🖥️ 🔌 🛡️</div>
         </section>
 
         <section class="mission-section">
@@ -434,51 +357,30 @@
                 <div class="mission-number">1</div>
                 <h2>Serveur DHCP & Sous-réseaux</h2>
             </div>
-            <p><strong>Besoin :</strong> Isoler 4 machines critiques dans un sous-réseau spécifique à partir du réseau
-                principal <code>10.42.1.0/24</code>.</p>
-
-            <div class="terminal">
-                <p><span class="comment"># Calcul du masque de sous-réseau</span></p>
-                <p>Besoin : 4 hôtes minimum.</p>
-                <p>Formule : 2^n - 2 >= 4</p>
-                <p>Si n=3 bits (000), 2^3 - 2 = 6 hôtes utilisables. (Suffisant)</p>
-                <br>
-                <p>Nouveau masque CIDR : 32 - 3 = <span class="cmd">/29</span></p>
-                <p>Masque décimal : <span class="cmd">255.255.255.248</span></p>
-            </div>
-
+            <p><strong>Besoin :</strong> Isoler 4 machines dans un nouveau VLAN sur le segment
+                <code>10.42.1.0/24</code>.</p>
             <table class="calc-table">
-                <thead>
-                    <tr>
-                        <th>Paramètre</th>
-                        <th>Valeur Calculée</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Adresse Réseau</td>
-                        <td class="highlight">10.42.1.0</td>
-                    </tr>
-                    <tr>
-                        <td>Premier Hôte</td>
-                        <td>10.42.1.1</td>
-                    </tr>
-                    <tr>
-                        <td>Dernier Hôte</td>
-                        <td>10.42.1.6</td>
-                    </tr>
-                    <tr>
-                        <td>Broadcast</td>
-                        <td>10.42.1.7</td>
-                    </tr>
-                    <tr>
-                        <td>Masque</td>
-                        <td class="highlight">255.255.255.248 (/29)</td>
-                    </tr>
-                </tbody>
+                <tr>
+                    <th>Paramètre</th>
+                    <th>Valeur</th>
+                </tr>
+                <tr>
+                    <td>Adresse Réseau</td>
+                    <td>10.42.1.0</td>
+                </tr>
+                <tr>
+                    <td>Masque de sous-réseau</td>
+                    <td style="color:var(--accent-secondary)">255.255.255.248 (/29)</td>
+                </tr>
+                <tr>
+                    <td>Plage utile</td>
+                    <td>10.42.1.1 - 10.42.1.6</td>
+                </tr>
+                <tr>
+                    <td>Broadcast</td>
+                    <td>10.42.1.7</td>
+                </tr>
             </table>
-            <p style="margin-top: 15px; font-size: 0.9rem; font-style: italic;">*Configuration appliquée sur le rôle
-                DHCP de Windows Server 2022.</p>
         </section>
 
         <section class="mission-section">
@@ -486,29 +388,45 @@
                 <div class="mission-number">2</div>
                 <h2>Audit Active Directory (PowerShell)</h2>
             </div>
-            <p><strong>Objectif :</strong> Créer un script pour lister les utilisateurs (tri alphabétique), les
-                ordinateurs par OS, et afficher les statistiques globales.</p>
+            <p><strong>Objectif :</strong> Automatiser l'inventaire des utilisateurs et du parc informatique classé par
+                système d'exploitation.</p>
 
-            <div class="terminal">
-                <p><span class="comment"># 1. Récupération des utilisateurs triés</span></p>
-                <p><span class="cmd">Write-Host</span> "--- LISTE UTILISATEURS ---"</p>
-                <p><span class="var">$users</span> = <span class="cmd">Get-ADUser</span> -Filter * | <span
-                        class="cmd">Sort-Object</span> Name</p>
-                <p><span class="var">$users</span>.Name</p>
-                <br>
-                <p><span class="comment"># 2. Ordinateurs classés par OS</span></p>
-                <p><span class="cmd">Write-Host</span> "--- PARC INFORMATIQUE PAR OS ---"</p>
-                <p><span class="var">$computers</span> = <span class="cmd">Get-ADComputer</span> -Filter * -Property
-                    OperatingSystem</p>
-                <p><span class="var">$computers</span> | <span class="cmd">Group-Object</span> OperatingSystem | <span
-                        class="cmd">Select-Object</span> Name, Count</p>
-                <br>
-                <p><span class="comment"># 3. Totaux</span></p>
-                <p><span class="cmd">Write-Host</span> "TOTAL USERS : " <span class="var">$users</span>.Count</p>
-                <p><span class="cmd">Write-Host</span> "TOTAL PC : " <span class="var">$computers</span>.Count</p>
+            <div class="terminal-container">
+                <button onclick="copyCode()" class="copy-btn">Copier le script</button>
+                <div class="terminal" id="ps-script">
+                    <span class="comment"># 1. Liste des utilisateurs triés</span>
+                    <span class="cmd">Write-Host</span> "`n--- LISTE DES UTILISATEURS (Alpha) ---" <span
+                        class="var">-ForegroundColor</span> Cyan
+                    <span class="var">$users</span> = <span class="cmd">Get-ADUser</span> -Filter * | <span
+                        class="cmd">Sort-Object</span> Name
+                    <span class="var">$users</span>.Name
+
+                    <span class="comment"># 2. Parc informatique classé par OS</span>
+                    <span class="cmd">Write-Host</span> "`n--- PARC INFORMATIQUE PAR OS ---" <span
+                        class="var">-ForegroundColor</span> Cyan
+                    <span class="var">$computers</span> = <span class="cmd">Get-ADComputer</span> -Filter * -Property
+                    OperatingSystem
+
+                    <span class="comment"># Groupement et affichage du détail par OS</span>
+                    <span class="var">$groups</span> = <span class="var">$computers</span> | <span
+                        class="cmd">Group-Object</span> OperatingSystem
+                    <span class="cmd">foreach</span> (<span class="var">$group</span> in <span
+                        class="var">$groups</span>) {
+                    <span class="cmd">Write-Host</span> "`nOS: <span class="var">$($group.Name)</span> (<span
+                        class="var">$($group.Count)</span>)" <span class="var">-Font-Weight</span> Bold
+                    <span class="var">$group</span>.Group | <span class="cmd">Select-Object</span> -ExpandProperty Name
+                    }
+
+                    <span class="comment"># 3. Totaux finaux</span>
+                    <span class="cmd">Write-Host</span> "`n--- RÉSUMÉ GLOBAL ---" <span
+                        class="var">-ForegroundColor</span> Yellow
+                    <span class="cmd">Write-Host</span> "Nombre total d'utilisateurs : <span
+                        class="var">$($users.Count)</span>"
+                    <span class="cmd">Write-Host</span> "Nombre total d'ordinateurs : <span
+                        class="var">$($computers.Count)</span>"
+                </div>
             </div>
         </section>
-
     </main>
 
     <script>
@@ -520,17 +438,24 @@
             localStorage.setItem('theme', newTheme);
             updateToggleText(newTheme);
         }
+
         function updateToggleText(theme) {
             document.querySelector('.theme-toggle').textContent = theme === 'dark' ? 'Mode Clair' : 'Mode Sombre';
         }
+
+        function copyCode() {
+            const code = document.getElementById('ps-script').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = 'Copié !';
+                setTimeout(() => { btn.textContent = 'Copier le script'; }, 2000);
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'light';
+            const savedTheme = localStorage.getItem('theme') || 'dark';
             document.body.setAttribute('data-theme', savedTheme);
             updateToggleText(savedTheme);
-            if (localStorage.getItem('theme') !== 'light') {
-                document.body.setAttribute('data-theme', 'dark');
-                document.querySelector('.theme-toggle').textContent = 'Mode Clair';
-            }
         });
     </script>
 </body>
