@@ -1,56 +1,50 @@
 /* =========================================================================
-   Portfolio BTS SIO SISR — Grande lisibilité, mise en forme soignée
-   Typo: Syne + Outfit | Palette: Bleu profond + Cyan
+   Portfolio BTS SIO SISR — Lisible et propre
+   Typo: Syne + Outfit | Palette: Slate + Vert émeraude
    ========================================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --bg-color: #f0f4f8;
-    --text-color: #0c1929;
-    --accent-primary: #0369a1;
-    --accent-secondary: #0891b2;
-    --accent-gradient: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
-    --accent-glow: linear-gradient(135deg, rgba(2, 132, 199, 0.12) 0%, rgba(6, 182, 212, 0.08) 100%);
+    --bg-color: #f8fafc;
+    --text-color: #1e293b;
+    --accent-primary: #059669;
+    --accent-secondary: #10b981;
+    --accent-gradient: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    --accent-glow: linear-gradient(135deg, rgba(5, 150, 105, 0.1) 0%, rgba(16, 185, 129, 0.08) 100%);
     --card-bg: #ffffff;
-    --card-border: rgba(2, 132, 199, 0.1);
-    --shadow-soft: 0 4px 24px rgba(12, 25, 41, 0.06);
-    --shadow-strong: 0 24px 64px rgba(12, 25, 41, 0.1);
-    --shadow-card: 0 12px 40px rgba(12, 25, 41, 0.07);
-    --shadow-glow: 0 0 48px rgba(2, 132, 199, 0.1);
-    --border-color: #cbd5e1;
-    --border-radius: 24px;
-    --border-radius-lg: 32px;
+    --card-border: rgba(5, 150, 105, 0.12);
+    --shadow-soft: 0 4px 24px rgba(30, 41, 59, 0.06);
+    --shadow-strong: 0 24px 64px rgba(30, 41, 59, 0.1);
+    --shadow-card: 0 12px 40px rgba(30, 41, 59, 0.07);
+    --shadow-glow: 0 0 48px rgba(5, 150, 105, 0.08);
+    --border-color: #e2e8f0;
+    --border-radius: 14px;
+    --border-radius-lg: 20px;
     --transition-speed: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-    --grid-color: rgba(2, 132, 199, 0.06);
-    --tag-bg: #e0f2fe;
-    --tag-text: #0369a1;
-    --code-bg: #0f172a;
-    --space-xs: 0.5rem;
-    --space-sm: 1rem;
-    --space-md: 1.5rem;
-    --space-lg: 2.5rem;
-    --space-xl: 4rem;
-    --space-2xl: 6rem;
+    --grid-color: rgba(5, 150, 105, 0.06);
+    --tag-bg: #d1fae5;
+    --tag-text: #047857;
+    --code-bg: #1e293b;
 }
 
 [data-theme="dark"] {
-    --bg-color: #0a0f1a;
+    --bg-color: #1a1f2e;
     --text-color: #e2e8f0;
-    --accent-primary: #38bdf8;
-    --accent-secondary: #22d3ee;
-    --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 100%);
-    --accent-glow: linear-gradient(135deg, rgba(14, 165, 233, 0.15) 0%, rgba(34, 211, 238, 0.1) 100%);
-    --card-bg: #111827;
-    --card-border: rgba(56, 189, 248, 0.15);
-    --shadow-soft: 0 4px 28px rgba(0, 0, 0, 0.35);
-    --shadow-strong: 0 28px 64px rgba(0, 0, 0, 0.45);
-    --shadow-card: 0 16px 48px rgba(0, 0, 0, 0.3);
-    --shadow-glow: 0 0 56px rgba(56, 189, 248, 0.12);
-    --border-color: #1e293b;
-    --grid-color: rgba(56, 189, 248, 0.05);
-    --tag-bg: #0c4a6e;
-    --tag-text: #7dd3fc;
-    --code-bg: #020617;
+    --accent-primary: #34d399;
+    --accent-secondary: #6ee7b7;
+    --accent-gradient: linear-gradient(135deg, #34d399 0%, #6ee7b7 100%);
+    --accent-glow: linear-gradient(135deg, rgba(52, 211, 153, 0.12) 0%, rgba(110, 231, 183, 0.08) 100%);
+    --card-bg: #252b3b;
+    --card-border: rgba(52, 211, 153, 0.2);
+    --shadow-soft: 0 4px 24px rgba(0, 0, 0, 0.2);
+    --shadow-strong: 0 24px 56px rgba(0, 0, 0, 0.35);
+    --shadow-card: 0 12px 40px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 48px rgba(52, 211, 153, 0.1);
+    --border-color: #334155;
+    --grid-color: rgba(52, 211, 153, 0.06);
+    --tag-bg: #064e3b;
+    --tag-text: #6ee7b7;
+    --code-bg: #0f172a;
 }
 
 * {
@@ -75,14 +69,14 @@ body {
     position: relative;
 }
 
-/* Fond : léger dégradé bleu/cyan */
+/* Fond : léger dégradé */
 body::before {
     content: '';
     position: fixed;
     inset: 0;
     background:
         radial-gradient(ellipse 100% 70% at 90% 0%, var(--accent-glow) 0%, transparent 55%),
-        radial-gradient(ellipse 80% 60% at 10% 100%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+        radial-gradient(ellipse 80% 60% at 10% 100%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
 }
@@ -118,8 +112,8 @@ header {
 }
 
 [data-theme="dark"] header {
-    background: rgba(17, 24, 39, 0.9);
-    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
+    background: rgba(37, 43, 59, 0.92);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
 
 header::after {
@@ -191,7 +185,7 @@ nav a:hover {
 nav a.active {
     color: #fff;
     background: var(--accent-gradient);
-    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.35);
     font-weight: 600;
 }
 
@@ -286,12 +280,12 @@ nav a.active {
     font-size: 0.9rem;
     font-family: 'Outfit', sans-serif;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.3);
 }
 
 .theme-toggle:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.45);
+    box-shadow: 0 8px 28px rgba(5, 150, 105, 0.4);
 }
 
 /* -------------------------------------------------------------------------
@@ -381,12 +375,12 @@ nav a.active {
 .btn-primary {
     background: var(--accent-gradient);
     color: #fff;
-    box-shadow: 0 10px 32px rgba(2, 132, 199, 0.4);
+    box-shadow: 0 10px 32px rgba(5, 150, 105, 0.35);
 }
 
 .btn-primary:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(2, 132, 199, 0.5);
+    box-shadow: 0 16px 40px rgba(5, 150, 105, 0.45);
 }
 
 .btn-secondary {
@@ -457,7 +451,7 @@ nav a.active {
 .features {
     padding: 3.5rem 0 4.5rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.75rem;
 }
 
@@ -494,21 +488,21 @@ nav a.active {
 }
 
 /* -------------------------------------------------------------------------
-   PAGES ARTICLE (VPN, Serveur, etc.) — Gros texte, mise en forme claire
+   PAGES ARTICLE (VPN, Serveur, etc.) — Lisible et propre
    ------------------------------------------------------------------------- */
 main.container {
-    max-width: 900px;
-    margin: 4rem auto 5rem;
-    padding: 0 40px;
+    max-width: 860px;
+    margin: 2.5rem auto 3rem;
+    padding: 0 28px;
 }
 
 .article-card {
     background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
+    border-radius: var(--border-radius);
     box-shadow: var(--shadow-card);
-    padding: 4rem 4rem 4.5rem;
-    border: 2px solid var(--card-border);
-    border-left: 6px solid var(--accent-primary);
+    padding: 2.5rem 2.5rem 3rem;
+    border: 1px solid var(--card-border);
+    border-left: 4px solid var(--accent-primary);
     transition: box-shadow var(--transition-speed);
 }
 
@@ -519,117 +513,117 @@ main.container {
 .tag {
     background: var(--tag-bg);
     color: var(--tag-text);
-    padding: 12px 22px;
-    border-radius: 50px;
-    font-size: 0.9rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     display: inline-block;
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
     font-family: 'Outfit', sans-serif;
 }
 
 .article-card h1 {
-    font-size: 2.75rem;
-    margin-bottom: 1.75rem;
-}
-
-.article-card h2 {
     font-size: 2rem;
-    color: var(--accent-secondary);
-    margin-top: 3.5rem;
     margin-bottom: 1.25rem;
 }
 
+.article-card h2 {
+    font-size: 1.5rem;
+    color: var(--accent-secondary);
+    margin-top: 2.25rem;
+    margin-bottom: 1rem;
+}
+
 .article-card p {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     color: var(--text-color);
-    opacity: 0.92;
-    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    margin-bottom: 1.25rem;
     text-align: justify;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
 .article-card ul {
-    margin-bottom: 2.25rem;
+    margin-bottom: 1.75rem;
     padding-left: 0;
     list-style: none;
 }
 
 .article-card ul li {
     position: relative;
-    padding-left: 2.5rem;
-    margin-bottom: 1.25rem;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
     color: var(--text-color);
-    opacity: 0.92;
-    font-size: 1.18rem;
-    line-height: 1.7;
+    opacity: 0.9;
+    font-size: 1.05rem;
+    line-height: 1.65;
 }
 
 .article-card ul li::before {
     content: "→";
     color: var(--accent-secondary);
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.1em;
     position: absolute;
     left: 0;
     top: 0;
 }
 
 /* -------------------------------------------------------------------------
-   CV — Grande lisibilité
+   CV — Lisible et propre
    ------------------------------------------------------------------------- */
 .cv-main-title {
     text-align: center;
-    padding: 4rem 0 2.5rem;
+    padding: 2.5rem 0 1.5rem;
     position: relative;
     z-index: 1;
 }
 
 .cv-main-title h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .cv-main-title p {
-    font-size: 1.35rem;
+    font-size: 1.1rem;
     color: var(--accent-secondary);
     font-weight: 600;
 }
 
 .cv-container {
-    max-width: 1200px;
-    margin: 0 auto 5rem;
+    max-width: 1000px;
+    margin: 0 auto 3rem;
     display: grid;
-    grid-template-columns: 380px 1fr;
-    gap: 4rem;
-    padding: 4rem;
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+    padding: 2.5rem;
     background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
+    border-radius: var(--border-radius);
     box-shadow: var(--shadow-strong);
-    border: 2px solid var(--card-border);
+    border: 1px solid var(--card-border);
     position: relative;
     z-index: 1;
 }
 
 .cv-left {
-    padding-right: 2.5rem;
-    border-right: 2px solid var(--border-color);
+    padding-right: 2rem;
+    border-right: 1px solid var(--border-color);
 }
 
 .cv-right {
-    padding-left: 2.5rem;
+    padding-left: 2rem;
 }
 
 .cv-section {
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.75rem;
-    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .cv-section:last-child {
@@ -637,11 +631,11 @@ main.container {
 }
 
 .cv-section h3 {
-    font-size: 1.6rem;
+    font-size: 1.35rem;
     color: var(--accent-primary);
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     position: relative;
-    padding-left: 1.75rem;
+    padding-left: 1.5rem;
 }
 
 .cv-section h3::before {
@@ -656,9 +650,9 @@ main.container {
 .contact-info dt { display: none; }
 
 .contact-info dd {
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
     color: var(--text-color);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .contact-info dd a {
@@ -668,11 +662,11 @@ main.container {
 }
 
 .details-item {
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
 }
 
 .details-item h4 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin: 0;
     color: var(--text-color);
 }
@@ -680,8 +674,8 @@ main.container {
 .details-item p.date {
     font-style: italic;
     color: var(--accent-secondary);
-    margin-bottom: 0.5rem;
-    font-size: 1.05rem;
+    margin-bottom: 0.35rem;
+    font-size: 0.9rem;
 }
 
 .details-item ul {
@@ -692,10 +686,10 @@ main.container {
 
 .details-item ul li {
     position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.6rem;
+    padding-left: 1.25rem;
+    margin-bottom: 0.4rem;
     color: var(--text-color);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .details-item ul li::before {
@@ -707,55 +701,58 @@ main.container {
 }
 
 .list-unstyled li {
-    margin-bottom: 1rem;
-    padding-left: 1.25rem;
-    border-left: 4px solid var(--accent-secondary);
+    margin-bottom: 0.6rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--accent-secondary);
     color: var(--text-color);
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 /* -------------------------------------------------------------------------
-   FORMATION — Gros titres, cartes aérées
+   FORMATION — Lisible et propre
    ------------------------------------------------------------------------- */
 .page-header {
     text-align: center;
-    margin-bottom: 4.5rem;
+    margin-bottom: 2.5rem;
     position: relative;
     z-index: 1;
 }
 
 .page-header h1 {
-    font-size: 3.25rem;
+    font-size: 2.25rem;
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 1.25rem;
+    margin-bottom: 0.75rem;
 }
 
 .page-header p {
-    font-size: 1.3rem;
-    opacity: 0.92;
-    max-width: 720px;
+    font-size: 1.05rem;
+    opacity: 0.9;
+    max-width: 640px;
     margin: 0 auto;
-    line-height: 1.75;
+    line-height: 1.65;
 }
 
 .split-section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3.5rem;
-    margin-bottom: 5rem;
+    grid-template-columns: minmax(380px, 1fr) minmax(380px, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 3rem;
     align-items: start;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .info-card {
     background: var(--card-bg);
-    border-radius: var(--border-radius-lg);
-    padding: 3.5rem;
+    border-radius: var(--border-radius);
+    padding: 2rem;
     box-shadow: var(--shadow-card);
-    border: 2px solid var(--card-border);
-    border-top: 6px solid var(--accent-secondary);
+    border: 1px solid var(--card-border);
+    border-top: 4px solid var(--accent-secondary);
     height: 100%;
     transition: box-shadow var(--transition-speed);
 }
@@ -766,17 +763,17 @@ main.container {
 
 .info-card h2 {
     color: var(--accent-secondary);
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 1rem;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
 }
 
 .info-card h3 {
     color: var(--accent-primary);
-    margin-top: 2.25rem;
-    margin-bottom: 1rem;
-    font-size: 1.45rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
 .info-card ul {
@@ -785,10 +782,10 @@ main.container {
 }
 
 .info-card ul li {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     position: relative;
-    padding-left: 2rem;
-    font-size: 1.12rem;
+    padding-left: 1.5rem;
+    font-size: 1rem;
 }
 
 .info-card ul li::before {
@@ -811,21 +808,21 @@ main.container {
 }
 
 .school-location {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     background: var(--grid-color);
-    padding: 1.75rem 2rem;
-    border-radius: 20px;
-    border-left: 5px solid var(--accent-primary);
-    font-size: 1.1rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 14px;
+    border-left: 4px solid var(--accent-primary);
+    font-size: 1rem;
 }
 
 /* -------------------------------------------------------------------------
-   COMPANY — Titres marqués, grilles aérées
+   COMPANY — Lisible et propre
    ------------------------------------------------------------------------- */
 .section-title {
     text-align: center;
-    margin-bottom: 4rem;
-    font-size: 2.75rem;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -839,96 +836,96 @@ main.container {
 .section-title::after {
     content: '';
     display: block;
-    width: 88px;
-    height: 5px;
+    width: 56px;
+    height: 3px;
     background: var(--accent-gradient);
-    margin: 1.25rem auto 0;
-    border-radius: 3px;
+    margin: 0.75rem auto 0;
+    border-radius: 2px;
 }
 
 .intro-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 5rem;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
     align-items: center;
 }
 
 .intro-text h2 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--accent-secondary);
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .intro-text p {
-    font-size: 1.2rem;
-    line-height: 1.75;
+    font-size: 1.05rem;
+    line-height: 1.65;
 }
 
 .intro-img img {
     width: 100%;
-    border-radius: var(--border-radius-lg);
+    border-radius: var(--border-radius);
     box-shadow: var(--shadow-strong);
 }
 
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-    margin-bottom: 5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
 }
 
 .tool-card {
     background: var(--card-bg);
-    padding: 3rem;
+    padding: 2rem 1.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-card);
     text-align: center;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    border: 2px solid var(--card-border);
-    border-top: 6px solid var(--accent-primary);
+    border: 1px solid var(--card-border);
+    border-top: 4px solid var(--accent-primary);
 }
 
 .tool-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-strong);
 }
 
 .tool-card img {
-    max-height: 90px;
+    max-height: 72px;
     max-width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     object-fit: contain;
 }
 
 .tool-card h4 {
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
 }
 
 .tool-card p {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: var(--text-color);
-    opacity: 0.92;
-    line-height: 1.7;
+    opacity: 0.9;
+    line-height: 1.6;
 }
 
 .clients-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 2rem;
-    margin-bottom: 5rem;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
 }
 
 .client-card {
     background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 22px;
+    padding: 1.5rem;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: var(--shadow-soft);
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
@@ -949,98 +946,98 @@ main.container {
 }
 
 /* -------------------------------------------------------------------------
-   PROJET PC — Gros blocs, lisibilité
+   PROJET PC — Lisible et propre
    ------------------------------------------------------------------------- */
 .project-header {
     text-align: center;
-    padding: 4.5rem 0 3.5rem;
+    padding: 2.5rem 0 2rem;
     position: relative;
     z-index: 1;
 }
 
 .project-header h1 {
-    font-size: 3.25rem;
+    font-size: 2.25rem;
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .project-header p {
-    opacity: 0.92;
-    font-size: 1.3rem;
+    opacity: 0.9;
+    font-size: 1.05rem;
     line-height: 1.6;
 }
 
 .section-block {
     background: var(--card-bg);
-    padding: 3.5rem 4rem;
+    padding: 2rem 2.25rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-card);
-    margin-bottom: 3.5rem;
-    border: 2px solid var(--card-border);
-    border-left: 6px solid var(--accent-secondary);
+    margin-bottom: 2rem;
+    border: 1px solid var(--card-border);
+    border-left: 4px solid var(--accent-secondary);
 }
 
 .section-block h2 {
-    margin-bottom: 1.5rem;
-    font-size: 2.1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
     color: var(--accent-secondary);
 }
 
 .section-block p {
-    font-size: 1.18rem;
-    line-height: 1.8;
+    font-size: 1.05rem;
+    line-height: 1.7;
 }
 
 .metrics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2.5rem;
-    margin: 4rem 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2.5rem 0;
 }
 
 .metric-card {
     background: var(--card-bg);
-    padding: 3rem;
+    padding: 2rem 1.5rem;
     border-radius: var(--border-radius);
     text-align: center;
     box-shadow: var(--shadow-card);
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    border: 2px solid var(--card-border);
-    border-top: 6px solid var(--accent-primary);
+    border: 1px solid var(--card-border);
+    border-top: 4px solid var(--accent-primary);
 }
 
 .metric-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-strong);
 }
 
 .metric-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
     display: block;
 }
 
 .metric-title {
     font-weight: 700;
-    font-size: 1.2rem;
-    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .metric-value {
     color: var(--accent-secondary);
     font-family: 'Syne', 'Outfit', sans-serif;
-    font-size: 1.15rem;
+    font-size: 0.95rem;
     font-weight: 600;
 }
 
 .download-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2.5rem;
-    margin-top: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
 .download-card {
@@ -1048,8 +1045,8 @@ main.container {
     flex-direction: column;
     justify-content: space-between;
     background: var(--bg-color);
-    border: 2px solid var(--border-color);
-    padding: 2.5rem 3rem;
+    border: 1px solid var(--border-color);
+    padding: 1.75rem 2rem;
     border-radius: var(--border-radius);
     transition: all var(--transition-speed);
     text-decoration: none;
@@ -1058,79 +1055,79 @@ main.container {
 
 .download-card:hover {
     border-color: var(--accent-primary);
-    box-shadow: 0 20px 48px rgba(2, 132, 199, 0.12);
-    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.1);
+    transform: translateY(-3px);
 }
 
 .download-title {
-    font-size: 1.45rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .download-card p {
-    font-size: 1.12rem;
-    line-height: 1.7;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .btn-download {
-    margin-top: 1.75rem;
+    margin-top: 1.25rem;
     background: var(--accent-gradient);
     color: #fff;
-    padding: 18px 28px;
-    border-radius: 50px;
+    padding: 12px 20px;
+    border-radius: 10px;
     text-align: center;
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 0.9rem;
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.28);
 }
 
 .download-card:hover .btn-download {
-    transform: scale(1.03);
-    box-shadow: 0 8px 28px rgba(2, 132, 199, 0.45);
+    transform: scale(1.02);
+    box-shadow: 0 6px 18px rgba(5, 150, 105, 0.35);
 }
 
 /* -------------------------------------------------------------------------
-   GSB — Blocs bien séparés, texte lisible
+   GSB — Lisible et propre
    ------------------------------------------------------------------------- */
 .project-title {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
     position: relative;
     z-index: 1;
 }
 
 .project-title h1 {
-    font-size: 3.25rem;
+    font-size: 2.25rem;
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .project-title span {
     background: var(--accent-secondary);
     color: #fff;
-    padding: 10px 22px;
-    border-radius: 50px;
-    font-size: 1rem;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
     font-weight: 600;
 }
 
 .project-title p {
-    opacity: 0.92;
-    font-size: 1.25rem;
+    opacity: 0.9;
+    font-size: 1.05rem;
     line-height: 1.6;
 }
 
 .env-card {
     background: var(--card-bg);
-    border: 2px solid var(--card-border);
-    border-radius: var(--border-radius-lg);
-    padding: 3.5rem 4rem;
-    margin-bottom: 4rem;
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 2rem 2.5rem;
+    margin-bottom: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1143,97 +1140,97 @@ main.container {
 }
 
 .env-info h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: var(--accent-secondary);
-    font-size: 1.75rem;
+    font-size: 1.4rem;
 }
 
 .env-info p,
 .env-info ul {
-    font-size: 1.15rem;
-    line-height: 1.75;
+    font-size: 1rem;
+    line-height: 1.65;
 }
 
 .env-icons {
     display: flex;
-    gap: 2rem;
-    font-size: 3rem;
+    gap: 1.5rem;
+    font-size: 2.25rem;
 }
 
 .mission-section {
-    margin-bottom: 4.5rem;
+    margin-bottom: 2.5rem;
 }
 
 .mission-section p {
-    font-size: 1.18rem;
-    line-height: 1.8;
+    font-size: 1.05rem;
+    line-height: 1.7;
 }
 
 .mission-header {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 1.25rem;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
 }
 
 .mission-header h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .mission-number {
     background: var(--accent-gradient);
     color: #fff;
-    width: 56px;
-    height: 56px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     font-family: 'Syne', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .terminal-container {
     position: relative;
-    margin-top: 2rem;
+    margin-top: 1.25rem;
 }
 
 .copy-btn {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 8px;
+    right: 8px;
     background: var(--accent-gradient);
     color: #fff;
     border: none;
-    padding: 12px 22px;
-    border-radius: 50px;
+    padding: 8px 14px;
+    border-radius: 8px;
     cursor: pointer;
     font-family: 'Outfit', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     font-weight: 600;
     transition: transform var(--transition-speed);
     z-index: 10;
 }
 
 .copy-btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .terminal {
     background: var(--code-bg);
-    border-radius: 22px;
-    padding: 2.25rem 2.5rem;
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
     font-family: 'Syne', 'Outfit', sans-serif;
-    font-size: 1.05rem;
-    color: #f1f5f9;
+    font-size: 0.9rem;
+    color: #e2e8f0;
     overflow-x: auto;
-    margin-top: 2rem;
-    border: 2px solid var(--border-color);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
-    line-height: 1.85;
+    margin-top: 1.25rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    line-height: 1.75;
 }
 
 .terminal .cmd { color: var(--accent-secondary); }
@@ -1245,26 +1242,25 @@ main.container {
     width: 100%;
     border-collapse: collapse;
     background: var(--card-bg);
-    border-radius: 22px;
+    border-radius: 14px;
     overflow: hidden;
     box-shadow: var(--shadow-card);
-    margin-top: 2.5rem;
-    border: 2px solid var(--border-color);
+    margin-top: 1.5rem;
+    border: 1px solid var(--border-color);
 }
 
 .calc-table th,
 .calc-table td {
-    padding: 1.25rem 1.75rem;
+    padding: 1rem 1.25rem;
     text-align: left;
-    border-bottom: 2px solid var(--border-color);
-    font-size: 1.1rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1rem;
 }
 
 .calc-table th {
     background: var(--grid-color);
     color: var(--accent-primary);
     font-weight: 700;
-    font-size: 1.15rem;
 }
 
 .calc-table tr:last-child td {
@@ -1316,19 +1312,19 @@ body:has(main .iframe-container) main {
 
 .info-bubble {
     position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 1.25rem;
+    right: 1.25rem;
     background: var(--card-bg);
     color: var(--text-color);
-    padding: 1.25rem 1.75rem;
-    border-radius: 22px;
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
     box-shadow: var(--shadow-strong);
-    border-left: 5px solid var(--accent-primary);
-    font-size: 1.05rem;
+    border-left: 4px solid var(--accent-primary);
+    font-size: 0.9rem;
     opacity: 0.95;
     pointer-events: none;
     z-index: 10;
-    border: 2px solid var(--border-color);
+    border: 1px solid var(--border-color);
 }
 
 /* -------------------------------------------------------------------------
@@ -1391,6 +1387,23 @@ body:has(main .iframe-container) main {
 
     .split-section {
         grid-template-columns: 1fr;
+        max-width: none;
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .download-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .intro-grid {
@@ -1415,15 +1428,15 @@ body:has(main .iframe-container) main {
 }
 
 @media (max-width: 640px) {
-    body { font-size: 1.05rem; }
-    .container { padding: 0 24px; }
-    main.container { padding: 0 24px; margin: 3rem auto 4rem; }
-    .article-card { padding: 2.5rem 2rem; }
-    .article-card h1 { font-size: 2.2rem; }
-    .article-card h2 { font-size: 1.65rem; }
-    .article-card p, .article-card ul li { font-size: 1.1rem; }
-    .cv-container { padding: 2.5rem; }
-    .section-block { padding: 2.5rem 2rem; }
-    .hero-text h1 { font-size: 2.75rem; }
-    .hero-text p { font-size: 1.2rem; }
+    .container { padding: 0 20px; }
+    main.container { padding: 0 20px; margin: 2rem auto 2.5rem; }
+    .article-card { padding: 1.75rem 1.5rem; }
+    .cv-container { padding: 1.75rem; }
+    .section-block { padding: 1.5rem 1.25rem; }
+    .features,
+    .metrics-grid,
+    .download-grid,
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
 }
