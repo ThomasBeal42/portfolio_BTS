@@ -350,6 +350,13 @@
                 la migration totale vers le Cloud, mais d'apporter les capacités du Cloud (Azure) au cœur des
                 Datacenters locaux (On-Premise) via <strong>Azure Arc</strong>.</p>
 
+            <p><strong>Pourquoi une veille sur Windows Server 2025 ?</strong> En BTS SIO SISR, l’infrastructure
+                Microsoft (AD, GPO, Hyper-V, serveurs de fichiers) reste très présente en entreprise. Windows Server 2025
+                (LTSC 2025) apporte des changements structurels (AD, hotpatch, SMB over QUIC) qui impactent directement
+                la conception et l’exploitation des parcs. Suivre cette évolution permet de préparer les migrations,
+                d’argumenter les choix techniques face à la direction et de rester cohérent avec l’écosystème Azure
+                (hybride).</p>
+
             <h2>Active Directory "Next Gen"</h2>
             <p>Pour la première fois depuis Windows Server 2003, la structure même de la base de données Active
                 Directory (AD) évolue significativement :</p>
@@ -360,14 +367,23 @@
                     pour les très gros environnements.</li>
                 <li><strong>Sécurité NUMA :</strong> Optimisation de la gestion de la mémoire sur les
                     processeurs modernes (Non-Uniform Memory Access) pour les contrôleurs de domaine (DC) à
-                    forte charge.</li>
+                    forte charge. Cela améliore la stabilité et les performances sur les serveurs multi-sockets
+                    courants en datacenter, et réduit les risques de contentions mémoire en charge élevée.</li>
             </ul>
+            <p><em>Argument :</em> Les pages 32k et la sécurité NUMA répondent aux limites rencontrées dans les
+                très grands domaines (milliers d’objets, réplication inter-sites). Pour une PME/ETI, ces évolutions
+                préparent la scalabilité future ; pour les grands comptes, elles lèvent des plafonds opérationnels
+                concrets.</p>
 
             <h2>Hotpatching (Mise à jour à chaud)</h2>
             <p>Directement hérité d'Azure Automanage, le Hotpatching arrive sur les serveurs physiques. Cette
                 technologie permet d'appliquer des correctifs de sécurité critiques en mémoire <strong>sans
                     redémarrer le serveur</strong>. Cela réduit les fenêtres de maintenance et garantit une
                 disponibilité continue des services critiques (Hyper-V, Serveurs de fichiers, DCs).</p>
+            <p><em>Argument :</em> En environnement de production, les redémarrages planifiés restent une source
+                de contraintes (plages horaires, RTO/RPO). Le hotpatching permet d’appliquer les correctifs
+                de sécurité mensuels (Patch Tuesday) avec un impact minimal, ce qui renforce la posture de
+                conformité et la continuité de service sans multiplier les interventions de nuit ou le week-end.</p>
 
             <h2>Stockage & Réseau : SMB over QUIC</h2>
             <p>Le protocole <strong>SMB over QUIC</strong> change la donne pour l'accès aux fichiers à distance.
@@ -377,6 +393,14 @@
                 <li>Gère nativement le changement de réseau (passage Wi-Fi/4G) sans couper le transfert.</li>
                 <li>Remplace progressivement les VPNs clients lourds pour les travailleurs nomades.</li>
             </ul>
+            <p><em>Argument :</em> SMB over QUIC s’inscrit dans la tendance « accès aux ressources sans VPN »
+                (voir veille VPN : ZTNA). Il simplifie l’accès aux partages de fichiers depuis l’extérieur
+                (TLS 1.3, port 443) et améliore l’expérience utilisateur (mobilité réseau). Pour un admin SISR,
+                c’est une alternative à évaluer face au VPN classique pour les scénarios « accès fichiers à distance ».</p>
+            <p><strong>En résumé :</strong> La veille Windows Server 2025 couvre à la fois l’évolution de l’annuaire
+                (AD), la disponibilité (hotpatch) et l’accès distant (SMB over QUIC), en lien avec la stratégie
+                hybride Azure Arc. Elle est directement utile pour les projets de modernisation d’infrastructure
+                et pour le positionnement « administrateur système et réseau » en entreprise.</p>
         </article>
     </main>
 

@@ -351,6 +351,13 @@
                 publics non sécurisés. Son rôle a évolué d'une simple connectivité site-à-site vers un outil
                 critique de mobilité et de confidentialité.</p>
 
+            <p><strong>Pourquoi une veille sur les VPN ?</strong> En contexte BTS SIO SISR, le VPN est au cœur
+                des compétences « Infrastructures » et « Cybersécurité ». Les entreprises exigent de plus en plus
+                un accès distant fiable et sécurisé (télétravail, filiales, prestataires). Suivre l’évolution des
+                protocoles (WireGuard, post-quantique) et des modèles (ZTNA, SASE) permet d’anticiper les
+                choix d’architecture et de rester aligné avec les recommandations ANSSI et les bonnes pratiques
+                sectorielles.</p>
+
             <h2>Protocoles & Fonctionnement : Le "Legacy" vs "Moderne"</h2>
             <p>Le choix du protocole détermine la performance, la sécurité et la facilité de déploiement :</p>
             <ul>
@@ -365,6 +372,9 @@
                     <br><em>Avantages :</em> Codebase minimaliste (~4000 lignes vs 400k+), cryptographie de pointe
                     (ChaCha20, Curve25519), performance inégalée (en Kernel space Linux) et reconnexion instantanée
                     (roaming mobile).
+                    <br><em>Argument :</em> Une surface d’attaque réduite (moins de code = moins de vulnérabilités) et
+                    une adoption croissante (Linux 5.6+, Windows 10/11 natif, iOS/Android) en font un candidat sérieux
+                    pour les déploiements neufs, y compris en entreprise.
                 </li>
             </ul>
 
@@ -377,7 +387,9 @@
                 <li><strong>Échange de Clés :</strong> Groupes Diffie-Hellman robustes (ECDH P-256/P-384) pour la
                     confidentialité persistante (PFS).</li>
                 <li><strong>Futur :</strong> L'intégration d'algorithmes résistants aux ordinateurs quantiques (PQC) est
-                    déjà à l'étude pour IPsec et WireGuard.</li>
+                    déjà à l'étude pour IPsec et WireGuard. Le NIST a standardisé des schémas PQC (CRYSTALS-Kyber, etc.) ;
+                    les équipementiers et éditeurs commencent à les intégrer. Une veille sur la cryptographie post-quantique
+                    est pertinente pour les infrastructures à longue durée de vie (contrats, conformité future).</li>
             </ul>
 
             <h2>Défis Modernes : Vers le ZTNA et SASE</h2>
@@ -393,6 +405,10 @@
                     (ZTNA, CASB, FWaaS) dans le Cloud. Le VPN devient une simple "brique" d'accès dans une architecture
                     globale orientée service.</li>
             </ul>
+            <p><strong>En résumé :</strong> La veille VPN ne se limite pas au « tunnel » : elle couvre les protocoles,
+                la cryptographie, et l’évolution vers le Zero Trust et le SASE. Pour un administrateur système et réseau,
+                ces notions permettent de conseiller l’entreprise sur le choix entre VPN classique, ZTNA ou approche hybride,
+                en fonction du niveau de risque et des contraintes opérationnelles.</p>
         </article>
     </main>
 
