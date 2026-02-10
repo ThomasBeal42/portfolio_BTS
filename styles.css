@@ -624,6 +624,23 @@ main.container {
     z-index: 1;
 }
 
+.cv-photo-wrapper {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.cv-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 3 / 4;
+}
+
 .cv-left {
     padding-right: 2rem;
     border-right: 1px solid var(--border-color);
