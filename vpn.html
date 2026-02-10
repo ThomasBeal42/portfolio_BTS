@@ -351,29 +351,48 @@
                 publics non sécurisés. Son rôle a évolué d'une simple connectivité site-à-site vers un outil
                 critique de mobilité et de confidentialité.</p>
 
-            <h2>Protocoles & Fonctionnement</h2>
-            <p>Le choix du protocole détermine la performance et la sécurité du tunnel chiffré :</p>
+            <h2>Protocoles & Fonctionnement : Le "Legacy" vs "Moderne"</h2>
+            <p>Le choix du protocole détermine la performance, la sécurité et la facilité de déploiement :</p>
             <ul>
-                <li><strong>IPsec (Internet Protocol Security) :</strong> Standard de niveau 3 (OSI) pour les
-                    connexions Site-à-Site. Il assure l'authentification, l'intégrité et la confidentialité via
-                    deux modes (Transport ou Tunnel) et utilise IKE pour la négociation des clés.</li>
-                <li><strong>SSL/TLS (OpenVPN) :</strong> Plus flexible pour les utilisateurs nomades
-                    (Client-to-Site), il fonctionne au niveau applicatif (couche 7) via TCP/UDP, traversant plus
-                    facilement les pare-feux (NAT Traversal) que l'IPsec.</li>
+                <li><strong>IPsec (IKEv2) :</strong> Standard industriel (Layer 3) pour les connexions Site-à-Site.
+                    Robuste et intégré nativement dans la plupart des OS, mais complexe à configurer et parfois bloqué
+                    par les pare-feux stricts.</li>
+                <li><strong>OpenVPN (SSL/TLS) :</strong> Très populaire pour le Client-to-Site. Fonctionne en espace
+                    utilisateur (plus lent), mais extrêmement flexible (Layer 4/7, TCP/UDP 443) pour traverser les NAT
+                    et pare-feux restrictifs.</li>
+                <li><strong>WireGuard (L'étoile montante) :</strong> Protocole moderne (Layer 3) qui vise à remplacer
+                    IPsec et OpenVPN.
+                    <br><em>Avantages :</em> Codebase minimaliste (~4000 lignes vs 400k+), cryptographie de pointe
+                    (ChaCha20, Curve25519), performance inégalée (en Kernel space Linux) et reconnexion instantanée
+                    (roaming mobile).
+                </li>
             </ul>
 
-            <h2>Sécurité & Cryptographie</h2>
-            <p>La robustesse d'un VPN repose sur ses algorithmes cryptographiques. Les standards actuels exigent
-                l'utilisation d'<strong>AES-256</strong> pour le chiffrement symétrique et de groupes
-                <strong>Diffie-Hellman</strong> robustes (ex: Groupe 14 ou courbes elliptiques ECDH) pour
-                l'échange de clés, afin de garantir la confidentialité persistante (Perfect Forward Secrecy).
+            <h2>Sécurité & Cryptographie : L'ère post-quantique ?</h2>
+            <p>La robustesse repose sur la suite cryptographique négociée. Les standards actuels (ANSSI/NIST) exigent :
             </p>
+            <ul>
+                <li><strong>Chiffrement Symétrique :</strong> AES-256-GCM (alliant confidentialité et
+                    intégrité/performance).</li>
+                <li><strong>Échange de Clés :</strong> Groupes Diffie-Hellman robustes (ECDH P-256/P-384) pour la
+                    confidentialité persistante (PFS).</li>
+                <li><strong>Futur :</strong> L'intégration d'algorithmes résistants aux ordinateurs quantiques (PQC) est
+                    déjà à l'étude pour IPsec et WireGuard.</li>
+            </ul>
 
-            <h2>Défis Modernes & "Zero Trust"</h2>
-            <p>Avec la généralisation du télétravail, le VPN traditionnel (qui donnait accès à tout le réseau)
-                montre ses limites. L'avenir tend vers le <strong>ZTNA (Zero Trust Network Access)</strong>, où
-                le VPN ne donne plus un accès réseau global, mais un accès granulaire applicatif, vérifiant
-                l'identité de l'utilisateur et l'état de santé du poste à chaque requête.</p>
+            <h2>Défis Modernes : Vers le ZTNA et SASE</h2>
+            <p>Avec la généralisation du télétravail et du Cloud, le modèle "Château-Fort" (VPN trusté implicitement)
+                est obsolète.</p>
+            <ul>
+                <li><strong>Zero Trust Network Access (ZTNA) :</strong> Contrairement au VPN qui donne un accès réseau
+                    large, le
+                    ZTNA ou SDP (Software Defined Perimeter) crée une connexion point-à-point granulaire vers une
+                    application spécifique, après vérification contextuelle (identité + santé du device).</li>
+                <li><strong>SASE (Secure Access Service Edge) :</strong> Convergence du réseau (SD-WAN) et de la
+                    sécurité
+                    (ZTNA, CASB, FWaaS) dans le Cloud. Le VPN devient une simple "brique" d'accès dans une architecture
+                    globale orientée service.</li>
+            </ul>
         </article>
     </main>
 
