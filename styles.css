@@ -888,6 +888,38 @@ main.container {
     font-size: 1rem;
 }
 
+.school-map {
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 360px;
+    aspect-ratio: 4/3;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.school-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+}
+
+.school-location .map-link-hint {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.school-location .map-link-hint a {
+    color: var(--accent-primary);
+}
+
+.formation-one-line {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
 /* -------------------------------------------------------------------------
    COMPANY — Lisible et propre
    ------------------------------------------------------------------------- */
