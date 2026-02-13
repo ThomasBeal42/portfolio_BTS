@@ -788,9 +788,12 @@ main.container {
     display: grid;
     grid-template-columns: minmax(380px, 1fr) minmax(380px, 1fr);
     gap: 2.5rem;
-    margin-bottom: 3rem;
-    align-items: start;
-    max-width: 1360px;
+}
+
+/* Formation : diplôme et école empilés (1 colonne) */
+.split-section.formation-stack {
+    grid-template-columns: 1fr;
+    max-width: 720px;
     margin-left: auto;
     margin-right: auto;
 }
