@@ -95,7 +95,7 @@ h1, h2, h3, h4 {
 .container {
     max-width: 1480px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 10px;
     position: relative;
     z-index: 1;
 }
@@ -137,7 +137,7 @@ header::after {
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 10px;
     height: 76px;
 }
 
@@ -509,9 +509,9 @@ nav a.active {
    PAGES ARTICLE (VPN, Serveur, etc.) — Lisible et propre
    ------------------------------------------------------------------------- */
 main.container {
-    max-width: 1040px;
+    max-width: 1200px;
     margin: 2.5rem auto 3rem;
-    padding: 0 16px;
+    padding: 0 10px;
 }
 
 .article-card {
@@ -1535,8 +1535,8 @@ body:has(main .iframe-container) main {
 }
 
 @media (max-width: 640px) {
-    .container { padding: 0 14px; }
-    main.container { padding: 0 14px; margin: 2rem auto 2.5rem; }
+    .container { padding: 0 10px; }
+    main.container { padding: 0 10px; margin: 2rem auto 2.5rem; }
     .article-card { padding: 1.75rem 1.5rem; }
     .cv-container { padding: 1.75rem; }
     .section-block { padding: 1.5rem 1.25rem; }
