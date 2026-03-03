@@ -128,38 +128,26 @@
 
             <div class="terminal-container">
                 <button onclick="copyCode()" class="copy-btn">Copier le script</button>
-                <div class="terminal" id="ps-script" style="white-space: pre;">
-                    <span class="comment"># 1. Liste des utilisateurs triés</span>
-                    <span class="cmd">Write-Host</span> "`n--- LISTE DES UTILISATEURS (Alpha) ---" <span
-                        class="var">-ForegroundColor</span> Cyan
-                    <span class="var">$users</span> = <span class="cmd">Get-ADUser</span> -Filter * | <span
-                        class="cmd">Sort-Object</span> Name
-                    <span class="var">$users</span>.Name
+                <div class="terminal" id="ps-script" style="white-space: pre;"># 1. Liste des utilisateurs triés
+Write-Host "`n--- LISTE DES UTILISATEURS (Alpha) ---"
+$users = Get-ADUser -Filter * | Sort-Object Name
+$users.Name
 
-                    <span class="comment"># 2. Parc informatique classé par OS</span>
-                    <span class="cmd">Write-Host</span> "`n--- PARC INFORMATIQUE PAR OS ---" <span
-                        class="var">-ForegroundColor</span> Cyan
-                    <span class="var">$computers</span> = <span class="cmd">Get-ADComputer</span> -Filter * -Property
-                    OperatingSystem
+# 2. Parc informatique classé par OS
+Write-Host "`n--- PARC INFORMATIQUE PAR OS ---"
+$computers = Get-ADComputer -Filter * -Properties OperatingSystem
 
-                    <span class="comment"># Groupement et affichage du détail par OS</span>
-                    <span class="var">$groups</span> = <span class="var">$computers</span> | <span
-                        class="cmd">Group-Object</span> OperatingSystem
-                    <span class="cmd">foreach</span> (<span class="var">$group</span> in <span
-                        class="var">$groups</span>) {
-                    <span class="cmd">Write-Host</span> "`nOS: <span class="var">$($group.Name)</span> (<span
-                        class="var">$($group.Count)</span>)" <span class="var">-Font-Weight</span> Bold
-                    <span class="var">$group</span>.Group | <span class="cmd">Select-Object</span> -ExpandProperty Name
-                    }
+# Groupement et affichage du détail par OS
+$groups = $computers | Group-Object OperatingSystem
+foreach ($group in $groups) {
+Write-Host "`n OS: $($group.Name) ($($group.Count))"
+$group.Group | Select-Object -ExpandProperty Name
+}
 
-                    <span class="comment"># 3. Totaux finaux</span>
-                    <span class="cmd">Write-Host</span> "`n--- RÉSUMÉ GLOBAL ---" <span
-                        class="var">-ForegroundColor</span> Yellow
-                    <span class="cmd">Write-Host</span> "Nombre total d'utilisateurs : <span
-                        class="var">$($users.Count)</span>"
-                    <span class="cmd">Write-Host</span> "Nombre total d'ordinateurs : <span
-                        class="var">$($computers.Count)</span>"
-                </div>
+# 3. Totaux finaux
+Write-Host "`n--- RÉSUMÉ GLOBAL ---"
+Write-Host "Nombre total d'utilisateurs : $($users.Count)"
+Write-Host "Nombre total d'ordinateurs : $($computers.Count)"</div>
             </div>
         </section>
 
