@@ -130,7 +130,7 @@
                 <button onclick="copyCode()" class="copy-btn">Copier le script</button>
                 <div class="terminal" id="ps-script" style="white-space: pre;">
                     <span class="comment"># 1. Liste des utilisateurs triés</span>
-                    <span class="cmd">Write-Host</span> "`n--- LISTE DES UTILISATEURS (Alpha) ---"
+                    <span class="cmd">Write-Host</span> "`n--- LISTE DES UTILISATEURS ---"
                     <span class="var">$users</span> = <span class="cmd">Get-ADUser</span> -Filter * | <span class="cmd">Sort-Object</span> Name
                     <span class="var">$users</span>.Name
 
