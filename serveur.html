@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille Windows Server 2025 | Thomas Beal - BTS SIO SISR</title>
+    <title>Veille Windows Server | Thomas Beal - BTS SIO SISR</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:wght@100..900&display=swap"
         rel="stylesheet">
@@ -33,8 +33,8 @@
                     <div class="dropdown">
                         <button class="dropbtn active">Veilles ▾</button>
                         <div class="dropdown-content">
-                            <a href="vpn.html">VPN d'Entreprise</a>
-                            <a href="serveur.html">Windows Server 2025</a>
+                            <a href="vpn.html">VPN</a>
+                            <a href="serveur.html">Windows Server</a>
                         </div>
                     </div>
 
@@ -48,63 +48,51 @@
     <main class="container">
         <article class="article-card">
             <span class="tag">Système & Cloud</span>
-            <h1>Windows Server 2025 : L'Ère de l'Hybridation</h1>
+            <h1>Windows Server : Vue d'ensemble et veille technologique</h1>
 
-            <p>Microsoft opère un tournant stratégique avec Windows Server 2025. L'objectif n'est plus de forcer
-                la migration totale vers le Cloud, mais d'apporter les capacités du Cloud (Azure) au cœur des
-                Datacenters locaux (On-Premise) via <strong>Azure Arc</strong>.</p>
+            <p><strong>Windows Server</strong> est la gamme de systèmes d'exploitation serveur de Microsoft, dédiée
+                aux infrastructures d'entreprise : annuaire (Active Directory), fichiers, applications, virtualisation
+                (Hyper-V), DNS, DHCP, etc. Il évolue version après version (2016, 2019, 2022, 2025) et se rapproche
+                du Cloud via <strong>Azure Arc</strong> et l'hybride.</p>
 
-            <p><strong>Pourquoi une veille sur Windows Server 2025 ?</strong> En BTS SIO SISR, l’infrastructure
-                Microsoft (AD, GPO, Hyper-V, serveurs de fichiers) reste très présente en entreprise. Windows Server 2025
-                (LTSC 2025) apporte des changements structurels (AD, hotpatch, SMB over QUIC) qui impactent directement
-                la conception et l’exploitation des parcs. Suivre cette évolution permet de préparer les migrations,
-                d’argumenter les choix techniques face à la direction et de rester cohérent avec l’écosystème Azure
-                (hybride).</p>
+            <p><strong>Pourquoi une veille sur Windows Server ?</strong> En BTS SIO SISR, l'infrastructure Microsoft
+                (AD, GPO, Hyper-V, serveurs de fichiers) est très présente en entreprise. Suivre les versions,
+                les nouveautés (sécurité, disponibilité, stockage, réseau) et la stratégie hybride permet de
+                préparer les migrations, d'argumenter les choix techniques et de rester aligné avec l'écosystème
+                Azure et les bonnes pratiques.</p>
 
-            <h2>Active Directory "Next Gen"</h2>
-            <p>Pour la première fois depuis Windows Server 2003, la structure même de la base de données Active
-                Directory (AD) évolue significativement :</p>
+            <h2>Rôles et services essentiels</h2>
+            <p>Windows Server couvre les besoins classiques d'une infrastructure :</p>
             <ul>
-                <li><strong>Pages de base de données de 32k :</strong> La taille des pages passe de 8k à 32k.
-                    Cela permet de briser les limitations historiques, d'accueillir des objets avec des
-                    attributs multivalués massifs et d'améliorer drastiquement les performances de réplication
-                    pour les très gros environnements.</li>
-                <li><strong>Sécurité NUMA :</strong> Optimisation de la gestion de la mémoire sur les
-                    processeurs modernes (Non-Uniform Memory Access) pour les contrôleurs de domaine (DC) à
-                    forte charge. Cela améliore la stabilité et les performances sur les serveurs multi-sockets
-                    courants en datacenter, et réduit les risques de contentions mémoire en charge élevée.</li>
+                <li><strong>Active Directory (AD) :</strong> Annuaire central pour les identités, les postes et les
+                    stratégies de groupe (GPO). Indispensable pour la gestion des droits et la centralisation
+                    de l'authentification.</li>
+                <li><strong>Services réseau :</strong> DNS, DHCP, routage, accès distant (RRAS, VPN).</li>
+                <li><strong>Fichiers et stockage :</strong> Partages SMB, quotas, déduplication, ReFS, et désormais
+                    <strong>SMB over QUIC</strong> pour l'accès aux fichiers à distance via Internet sans VPN
+                    (TLS 1.3, port 443, mobilité).</li>
+                <li><strong>Virtualisation :</strong> Hyper-V pour héberger des machines virtuelles Windows ou Linux.</li>
+                <li><strong>Web et applications :</strong> IIS, conteneurs Windows, intégration avec Azure.</li>
             </ul>
-            <p><em>Argument :</em> Les pages 32k et la sécurité NUMA répondent aux limites rencontrées dans les
-                très grands domaines (milliers d’objets, réplication inter-sites). Pour une PME/ETI, ces évolutions
-                préparent la scalabilité future ; pour les grands comptes, elles lèvent des plafonds opérationnels
-                concrets.</p>
 
-            <h2>Hotpatching (Mise à jour à chaud)</h2>
-            <p>Directement hérité d'Azure Automanage, le Hotpatching arrive sur les serveurs physiques. Cette
-                technologie permet d'appliquer des correctifs de sécurité critiques en mémoire <strong>sans
-                    redémarrer le serveur</strong>. Cela réduit les fenêtres de maintenance et garantit une
-                disponibilité continue des services critiques (Hyper-V, Serveurs de fichiers, DCs).</p>
-            <p><em>Argument :</em> En environnement de production, les redémarrages planifiés restent une source
-                de contraintes (plages horaires, RTO/RPO). Le hotpatching permet d’appliquer les correctifs
-                de sécurité mensuels (Patch Tuesday) avec un impact minimal, ce qui renforce la posture de
-                conformité et la continuité de service sans multiplier les interventions de nuit ou le week-end.</p>
-
-            <h2>Stockage & Réseau : SMB over QUIC</h2>
-            <p>Le protocole <strong>SMB over QUIC</strong> change la donne pour l'accès aux fichiers à distance.
-                Il utilise le protocole QUIC (UDP + TLS 1.3) pour transporter les données :</p>
+            <h2>Évolution récente : 2022, 2025 et stratégie hybride</h2>
+            <p>Les versions récentes renforcent sécurité, disponibilité et lien avec Azure :</p>
             <ul>
-                <li>Permet l'accès aux partages de fichiers via Internet de manière sécurisée sans VPN.</li>
-                <li>Gère nativement le changement de réseau (passage Wi-Fi/4G) sans couper le transfert.</li>
-                <li>Remplace progressivement les VPNs clients lourds pour les travailleurs nomades.</li>
+                <li><strong>Windows Server 2022 :</strong> Sécurité renforcée (TPM, Secured Core), stockage (Storage
+                    Spaces, ReFS), et support long terme (LTSC).</li>
+                <li><strong>Windows Server 2025 (LTSC 2025) :</strong> Évolutions majeures : pages AD 32k (meilleure
+                    scalabilité), sécurité NUMA pour les contrôleurs de domaine, <strong>Hotpatching</strong> (correctifs
+                    à chaud sans redémarrage), SMB over QUIC généralisé. L'objectif est d'apporter les capacités Azure
+                    en local via Azure Arc.</li>
+                <li><strong>Azure Arc :</strong> Gestion unifiée des serveurs physiques et virtuels (on-premise, multi-cloud)
+                    depuis le portail Azure : inventaire, mises à jour, politiques, monitoring. La veille Windows Server
+                    croise donc celle du Cloud hybride.</li>
             </ul>
-            <p><em>Argument :</em> SMB over QUIC s’inscrit dans la tendance « accès aux ressources sans VPN »
-                (voir veille VPN : ZTNA). Il simplifie l’accès aux partages de fichiers depuis l’extérieur
-                (TLS 1.3, port 443) et améliore l’expérience utilisateur (mobilité réseau). Pour un admin SISR,
-                c’est une alternative à évaluer face au VPN classique pour les scénarios « accès fichiers à distance ».</p>
-            <p><strong>En résumé :</strong> La veille Windows Server 2025 couvre à la fois l’évolution de l’annuaire
-                (AD), la disponibilité (hotpatch) et l’accès distant (SMB over QUIC), en lien avec la stratégie
-                hybride Azure Arc. Elle est directement utile pour les projets de modernisation d’infrastructure
-                et pour le positionnement « administrateur système et réseau » en entreprise.</p>
+
+            <p><strong>En résumé :</strong> Une veille sur Windows Server couvre les rôles fondamentaux (AD, fichiers,
+                virtualisation, réseau), les évolutions des dernières versions (2022, 2025) et la place du serveur
+                dans une stratégie hybride (Azure Arc). Utile pour la modernisation d'infrastructure et le positionnement
+                administrateur système et réseau.</p>
 
             <h2>Sources</h2>
             <ul class="sources-list">

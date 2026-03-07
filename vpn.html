@@ -33,8 +33,8 @@
                     <div class="dropdown">
                         <button class="dropbtn active">Veilles ▾</button>
                         <div class="dropdown-content">
-                            <a href="vpn.html">VPN d'Entreprise</a>
-                            <a href="serveur.html">Windows Server 2025</a>
+                            <a href="vpn.html">VPN</a>
+                            <a href="serveur.html">Windows Server</a>
                         </div>
                     </div>
 
@@ -48,71 +48,57 @@
     <main class="container">
         <article class="article-card">
             <span class="tag">Sécurité & Réseau</span>
-            <h1>Les VPN d'Entreprise : Architecture & Enjeux</h1>
+            <h1>Les VPN : Réseaux Privés Virtuels — Vue d'ensemble</h1>
 
-            <p>Le <strong>Réseau Privé Virtuel (VPN)</strong> reste la pierre angulaire de la sécurité
-                périmétrique moderne, permettant l'extension du réseau local d'entreprise sur des réseaux
-                publics non sécurisés. Son rôle a évolué d'une simple connectivité site-à-site vers un outil
-                critique de mobilité et de confidentialité.</p>
+            <p>Un <strong>Réseau Privé Virtuel (VPN)</strong> est une technologie qui crée une liaison sécurisée
+                entre un appareil et un réseau distant, ou entre deux réseaux, en passant par Internet. Il permet
+                de protéger les données en transit, d'accéder à distance aux ressources d'entreprise et de préserver
+                la confidentialité des échanges.</p>
 
-            <p><strong>Pourquoi une veille sur les VPN ?</strong> En contexte BTS SIO SISR, le VPN est au cœur
-                des compétences « Infrastructures » et « Cybersécurité ». Les entreprises exigent de plus en plus
-                un accès distant fiable et sécurisé (télétravail, filiales, prestataires). Suivre l’évolution des
-                protocoles (WireGuard, post-quantique) et des modèles (ZTNA, SASE) permet d’anticiper les
-                choix d’architecture et de rester aligné avec les recommandations ANSSI et les bonnes pratiques
-                sectorielles.</p>
+            <p><strong>Pourquoi une veille sur les VPN ?</strong> En BTS SIO SISR, le VPN touche aux compétences
+                « Infrastructures » et « Cybersécurité ». Que ce soit pour le télétravail, les connexions
+                site-à-site entre agences ou la sécurisation des accès, les administrateurs doivent connaître
+                les protocoles, les bonnes pratiques (ANSSI) et l'évolution des solutions (WireGuard, ZTNA, SASE).</p>
 
-            <h2>Protocoles & Fonctionnement : Le "Legacy" vs "Moderne"</h2>
-            <p>Le choix du protocole détermine la performance, la sécurité et la facilité de déploiement :</p>
+            <h2>Qu'est-ce qu'un VPN ? Principes et usages</h2>
+            <p>Un VPN encapsule le trafic dans un tunnel chiffré. Les usages principaux sont :</p>
             <ul>
-                <li><strong>IPsec (IKEv2) :</strong> Standard industriel (Layer 3) pour les connexions Site-à-Site.
-                    Robuste et intégré nativement dans la plupart des OS, mais complexe à configurer et parfois bloqué
-                    par les pare-feux stricts.</li>
-                <li><strong>OpenVPN (SSL/TLS) :</strong> Très populaire pour le Client-to-Site. Fonctionne en espace
-                    utilisateur (plus lent), mais extrêmement flexible (Layer 4/7, TCP/UDP 443) pour traverser les NAT
-                    et pare-feux restrictifs.</li>
-                <li><strong>WireGuard (L'étoile montante) :</strong> Protocole moderne (Layer 3) qui vise à remplacer
-                    IPsec et OpenVPN.
-                    <br><em>Avantages :</em> Codebase minimaliste (~4000 lignes vs 400k+), cryptographie de pointe
-                    (ChaCha20, Curve25519), performance inégalée (en Kernel space Linux) et reconnexion instantanée
-                    (roaming mobile).
-                    <br><em>Argument :</em> Une surface d’attaque réduite (moins de code = moins de vulnérabilités) et
-                    une adoption croissante (Linux 5.6+, Windows 10/11 natif, iOS/Android) en font un candidat sérieux
-                    pour les déploiements neufs, y compris en entreprise.
-                </li>
+                <li><strong>Accès distant (Client-to-Site) :</strong> Un salarié se connecte au réseau de l'entreprise
+                    depuis chez lui ou en déplacement. Le VPN donne accès aux fichiers, applications et services internes
+                    comme s'il était sur le LAN.</li>
+                <li><strong>Interconnexion de sites (Site-to-Site) :</strong> Relier deux ou plusieurs sites (siège,
+                    agences, datacenter) via des tunnels chiffrés pour former un réseau privé logique.</li>
+                <li><strong>Confidentialité et contournement :</strong> Les VPN grand public permettent de masquer
+                    l'adresse IP et de chiffrer le trafic sur Wi‑Fi public ; certains usages concernent le contournement
+                    géographique (streaming, censure). En entreprise, l'enjeu est surtout la protection des données.</li>
             </ul>
 
-            <h2>Sécurité & Cryptographie : L'ère post-quantique ?</h2>
-            <p>La robustesse repose sur la suite cryptographique négociée. Les standards actuels (ANSSI/NIST) exigent :
-            </p>
+            <h2>Protocoles courants : IPsec, OpenVPN, WireGuard</h2>
+            <p>Le choix du protocole influence performance, sécurité et déploiement :</p>
             <ul>
-                <li><strong>Chiffrement Symétrique :</strong> AES-256-GCM (alliant confidentialité et
-                    intégrité/performance).</li>
-                <li><strong>Échange de Clés :</strong> Groupes Diffie-Hellman robustes (ECDH P-256/P-384) pour la
-                    confidentialité persistante (PFS).</li>
-                <li><strong>Futur :</strong> L'intégration d'algorithmes résistants aux ordinateurs quantiques (PQC) est
-                    déjà à l'étude pour IPsec et WireGuard. Le NIST a standardisé des schémas PQC (CRYSTALS-Kyber, etc.) ;
-                    les équipementiers et éditeurs commencent à les intégrer. Une veille sur la cryptographie post-quantique
-                    est pertinente pour les infrastructures à longue durée de vie (contrats, conformité future).</li>
+                <li><strong>IPsec (IKEv2) :</strong> Standard très répandu (couche 3), adapté aux VPN Site-to-Site
+                    et souvent intégré nativement (Windows, iOS, etc.). Robuste mais configuration plus complexe,
+                    et parfois bloqué par des pare-feux stricts.</li>
+                <li><strong>OpenVPN (SSL/TLS) :</strong> Très utilisé en Client-to-Site. Passe facilement les NAT
+                    et pare-feux (TCP/UDP 443). Flexible mais souvent en espace utilisateur, donc un peu moins
+                    performant qu'une solution en noyau.</li>
+                <li><strong>WireGuard :</strong> Protocole moderne, code minimal, cryptographie actuelle (ChaCha20,
+                    Curve25519), excellentes perfs et reconnexion rapide (idéal pour la mobilité). De plus en plus
+                    adopté (Linux, Windows 10/11, mobiles) et candidat sérieux pour les nouveaux déploiements.</li>
             </ul>
 
-            <h2>Défis Modernes : Vers le ZTNA et SASE</h2>
-            <p>Avec la généralisation du télétravail et du Cloud, le modèle "Château-Fort" (VPN trusté implicitement)
-                est obsolète.</p>
-            <ul>
-                <li><strong>Zero Trust Network Access (ZTNA) :</strong> Contrairement au VPN qui donne un accès réseau
-                    large, le
-                    ZTNA ou SDP (Software Defined Perimeter) crée une connexion point-à-point granulaire vers une
-                    application spécifique, après vérification contextuelle (identité + santé du device).</li>
-                <li><strong>SASE (Secure Access Service Edge) :</strong> Convergence du réseau (SD-WAN) et de la
-                    sécurité
-                    (ZTNA, CASB, FWaaS) dans le Cloud. Le VPN devient une simple "brique" d'accès dans une architecture
-                    globale orientée service.</li>
-            </ul>
-            <p><strong>En résumé :</strong> La veille VPN ne se limite pas au « tunnel » : elle couvre les protocoles,
-                la cryptographie, et l’évolution vers le Zero Trust et le SASE. Pour un administrateur système et réseau,
-                ces notions permettent de conseiller l’entreprise sur le choix entre VPN classique, ZTNA ou approche hybride,
-                en fonction du niveau de risque et des contraintes opérationnelles.</p>
+            <h2>Sécurité, chiffrement et tendances (post-quantique, ZTNA, SASE)</h2>
+            <p>La solidité d'un VPN repose sur le chiffrement et l'échange de clés. Les recommandations (ANSSI, NIST)
+                privilégient AES-256-GCM et des échanges de type ECDH (P-256/P-384) pour la confidentialité persistante.
+                La cryptographie post-quantique (PQC) est en cours de standardisation (NIST) ; elle impactera à terme
+                les VPN pour les infrastructures à longue durée de vie.</p>
+            <p>Parallèlement, le modèle « tout passer par le VPN » recule au profit du <strong>Zero Trust (ZTNA)</strong>
+                et du <strong>SASE</strong> : accès par application, vérification du contexte (identité, état du poste),
+                et convergence réseau + sécurité dans le Cloud. Le VPN reste une brique importante, mais s'intègre dans
+                des architectures plus globales.</p>
+            <p><strong>En résumé :</strong> Une veille sur les VPN couvre à la fois les bases (rôle, types, protocoles),
+                la sécurité (chiffrement, bonnes pratiques) et l'évolution (WireGuard, PQC, ZTNA, SASE). Indispensable
+                pour conseiller l'entreprise sur le choix entre VPN classique, ZTNA ou approche hybride.</p>
 
             <h2>Sources</h2>
             <ul class="sources-list">
